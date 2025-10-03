@@ -25,7 +25,7 @@ function initNavbar() {
     return;
   }
 
-  fetch('/navbar.html')
+  fetch(window.location.origin + '/Walter_creations/navbar.html');
     .then(res => res.text())
     .then(html => {
       navbarContainer.innerHTML = html;
