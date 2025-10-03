@@ -17,7 +17,6 @@ function preloadImage(url, onload, onerror) {
   img.src = url;
 }
 
-// Fetch navbar and initialize dark mode + logo
 function initNavbar() {
   const navbarContainer = document.getElementById('navbar');
   if (!navbarContainer) {
@@ -25,7 +24,15 @@ function initNavbar() {
     return;
   }
 
-  fetch(window.location.origin + '/Walter_creations/navbar.html');
+  // Figure out base path depending on environment
+  let basePath = '';
+  if (window.location.hostname.includes('github.io')) {
+    // On GitHub Pages → repo name is first folder after domain
+    const repoName = window.location.pathname.split('/')[1];
+    basePath = `/${repoName}`;
+  }
+
+  fetch(`${basePath}/navbar.html`)
     .then(res => res.text())
     .then(html => {
       navbarContainer.innerHTML = html;
@@ -33,10 +40,9 @@ function initNavbar() {
       const toggle = document.getElementById('dark-mode-toggle');
       const logoImg = document.querySelector('.logo-link img.logo');
 
-      const lightLogoSrc = '/images/logo_nav.png';
-      const darkLogoSrc = '/images/qqq_small.png';
+      const lightLogoSrc = `${basePath}/images/logo_nav.png`;
+      const darkLogoSrc = `${basePath}/images/qqq_small.png`;
 
-      // Set logo with fade effect
       function setLogoSafe(src) {
         if (!logoImg) return;
         logoImg.style.opacity = '0';
@@ -52,12 +58,10 @@ function initNavbar() {
         });
       }
 
-      // Apply initial logo
       if (logoImg) {
         setLogoSafe(document.body.classList.contains('dark-mode') ? darkLogoSrc : lightLogoSrc);
       }
 
-      // Attach dark mode toggle
       if (toggle) {
         toggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
         toggle.addEventListener('click', () => {
@@ -72,7 +76,6 @@ function initNavbar() {
         });
       }
 
-      // Preload both logos for snappy switching
       preloadImage(darkLogoSrc);
       preloadImage(lightLogoSrc);
     })
@@ -80,6 +83,3 @@ function initNavbar() {
       console.error('Failed to load navbar:', err);
     });
 }
-
-// Initialize navbar on page load
-document.addEventListener('DOMContentLoaded', initNavbar);
