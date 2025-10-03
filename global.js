@@ -19,19 +19,14 @@ function preloadImage(url, onload, onerror) {
 
 function initNavbar() {
   const navbarContainer = document.getElementById('navbar');
-  if (!navbarContainer) {
-    console.error('#navbar element not found.');
-    return;
-  }
+  if (!navbarContainer) return;
 
-  // Figure out base path depending on environment
-  let basePath = '';
-  if (window.location.hostname.includes('github.io')) {
-    // On GitHub Pages → repo name is first folder after domain
-    const repoName = window.location.pathname.split('/')[1];
-    basePath = `/${repoName}`;
-  }
+  // Detect repo name from URL → works on GitHub Pages
+  const parts = window.location.pathname.split('/');
+  const repoName = parts[1] || ''; // "Walter-Creations" for example
+  const basePath = repoName ? `/${repoName}` : '';
 
+  // Always fetch navbar from root of repo
   fetch(`${basePath}/navbar.html`)
     .then(res => res.text())
     .then(html => {
@@ -48,7 +43,7 @@ function initNavbar() {
         logoImg.style.opacity = '0';
         preloadImage(src, () => {
           logoImg.src = src;
-          window.requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
             logoImg.style.opacity = '1';
           });
         }, () => {
@@ -79,7 +74,7 @@ function initNavbar() {
       preloadImage(darkLogoSrc);
       preloadImage(lightLogoSrc);
     })
-    .catch(err => {
-      console.error('Failed to load navbar:', err);
-    });
+    .catch(err => console.error('Failed to load navbar:', err));
 }
+
+document.addEventListener('DOMContentLoaded', initNavbar);
