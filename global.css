@@ -1,0 +1,99 @@
+/* ===== Global Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* ===== Dark Mode ===== */
+body.dark-mode {
+  background: #111;
+  color: #eee;
+}
+
+body.dark-mode nav.navbar {
+  background: #222;
+}
+
+body.dark-mode a {
+  color: #ddd;
+}
+
+body.dark-mode canvas {
+  border-color: #888;
+}
+
+/* ===== Navbar (base, details can be extended in page CSS if needed) ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 1rem 2rem; /* increased top/bottom padding to make navbar taller */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo size */
+.navbar .logo {
+  height: 70px; /* increased from 50px */
+  width: auto;  /* keeps original aspect ratio */
+  transition: height 0.2s ease; /* optional smooth resizing if theme changes */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-links a:hover {
+  color: #2D9CDB;
+}
+
+/* Dark mode button */
+#darkToggle {
+  margin-left: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* reserve space for injected navbar to avoid layout shift */
+#navbar {
+  min-height: 64px; /* tweak to match your navbar height on desktop */
+  display: block;
+}
+
+/* logo fade animation */
+.logo {
+  height: 50px;
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+  transition: opacity 220ms ease;
+  opacity: 1;
+}
+
+/* ensure navbar element inside #navbar gets displayed correctly */
+#navbar .navbar {
+  min-height: 64px; /* same as above */
+  display: flex;
+  align-items: center;
+}

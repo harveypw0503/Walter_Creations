@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tools - Walter Creations</title>
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="global.css">
+  <!-- Page-Specific Styles -->
+  <link rel="stylesheet" href="tools.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <div id="navbar"></div>
+
+  <!-- Tools Page Content -->
+  <main class="tools-page">
+    <h1>Our Tools</h1>
+    <p>Explore our collection of creative tools and generators. Click a tool to try it out!</p>
+
+    <div class="tools-container" id="tools-container">
+      <!-- Tools will be dynamically loaded here -->
+    </div>
+  </main>
+
+  <!-- Global Scripts -->
+  <script src="global.js"></script>
+
+  <!-- Page-Specific Script -->
+  <script>
+    // List of tools
+    const tools = [
+      { name: "Sun Ray Generator", file: "tools/sun_rays/sun_rays.html" },
+      { name: "Stone Texture Generator", file: "tools/stone/stone.html" },
+      // Add more tools here
+    ];
+
+    const container = document.getElementById("tools-container");
+    tools.forEach(tool => {
+      const toolBox = document.createElement("div");
+      toolBox.className = "tool-box";
+      toolBox.innerHTML = `
+        <h3>${tool.name}</h3>
+        <a href="${tool.file}" class="btn">Open Tool</a>
+      `;
+      container.appendChild(toolBox);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+/* ===== Sunray Tool Specific Styles ===== */
+
+main {
+  text-align: center;   /* moved from body to main */
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.controls {
+  margin: 15px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+}
+
+/* Restrict controls buttons so they don't affect navbar */
+.controls input,
+.controls select,
+.controls button {
+  padding: 6px 10px;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+canvas {
+  display: block;
+  margin: 20px auto;
+  border: 1px solid #444;
+  background: transparent;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Dark mode */
+body.dark-mode {
+  background: #111;
+  color: #eee;
+}
+
+body.dark-mode canvas {
+  border-color: #888;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sunray Generator - Walter Creations</title>
+
+  <!-- Global styles -->
+  <link rel="stylesheet" href="/global.css">
+  <!-- Tool-specific styles -->
+  <link rel="stylesheet" href="sun_rays.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <div id="navbar"></div>
+
+  <main>
+    <h1>☀️ Sunray Generator</h1>
+
+    <div class="controls">
+      <label>Direction
+        <select id="direction">
+          <option value="center">Center</option>
+          <option value="up">Up</option>
+          <option value="down">Down</option>
+          <option value="left">Left</option>
+          <option value="right">Right</option>
+        </select>
+      </label>
+
+      <label>Number of Rays
+        <input type="number" id="rayCount" min="1" max="100" value="20">
+      </label>
+
+      <label>Ray Color
+        <input type="color" id="rayColor" value="#ffffff">
+      </label>
+
+      <label>Min Length
+        <input type="number" id="minLength" value="150" min="0">
+      </label>
+
+      <label>Max Length
+        <input type="number" id="maxLength" value="400" min="0">
+      </label>
+
+      <label>
+        <input type="checkbox" id="fixedLength"> Fixed length
+      </label>
+    </div>
+
+    <div class="controls">
+      <button id="generateBtn">Generate</button>
+      <button id="downloadBtn">Download PNG</button>
+    </div>
+
+    <canvas id="sunCanvas" width="800" height="800"></canvas>
+  </main>
+
+  <!-- Global JS (navbar + dark mode handling) -->
+  <script src="/global.js"></script>
+  <!-- Tool-specific JS -->
+  <script src="sun_rays.js"></script>
+</body>
+</html>

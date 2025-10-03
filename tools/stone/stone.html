@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Stone Texture Generator - Walter Creations</title>
+
+  <!-- Global styles -->
+  <link rel="stylesheet" href="/global.css">
+  <!-- Tool-specific styles -->
+  <link rel="stylesheet" href="stone.css">
+
+  <script src="https://unpkg.com/d3-delaunay@6"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <div id="navbar"></div>
+
+  <main>
+    <h1>Stone Texture Generator</h1>
+
+    <div class="controls">
+      <label>
+        Stone Style
+        <select id="styleSelect">
+          <option value="cut">Cut Stone</option>
+          <option value="cobbled" selected>Cobbled Stone</option>
+        </select>
+      </label>
+
+      <label>
+        Width
+        <input type="number" id="widthInput" value="900" min="300" max="5000">
+      </label>
+
+      <label>
+        Height
+        <input type="number" id="heightInput" value="600" min="300" max="5000">
+      </label>
+
+      <label>
+        Stone Color
+        <input type="color" id="colorInput" value="#ffffff">
+      </label>
+
+      <label>
+        <input type="checkbox" id="lightingToggle" checked>
+        Lighting Effect
+      </label>
+
+      <label>
+        Light From
+        <select id="lightDirection">
+          <option value="center">Center</option>
+          <option value="top-left">Top Left</option>
+          <option value="top-right">Top Right</option>
+          <option value="bottom-left">Bottom Left</option>
+          <option value="bottom-right">Bottom Right</option>
+        </select>
+      </label>
+
+      <label>
+        Lighting Strength
+        <div style="display:flex; gap:6px; align-items:center;">
+          <input type="range" id="lightStrength" min="0" max="100" value="20">
+          <input type="number" id="lightStrengthNumber" min="0" max="100" value="20" style="width:60px;">
+        </div>
+      </label>
+    </div>
+
+    <div class="controls">
+      <button id="generateBtn">Generate</button>
+      <button id="downloadPngBtn">Download PNG</button>
+      <button id="downloadSvgBtn">Download SVG</button>
+    </div>
+
+    <canvas id="stoneCanvas"></canvas>
+  </main>
+
+  <!-- Global JS -->
+  <script src="/global.js"></script>
+  <!-- Tool-specific JS -->
+  <script src="stone.js"></script>
+</body>
+</html>

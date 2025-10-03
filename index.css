@@ -1,0 +1,113 @@
+/* =========================
+   Homepage (index.html) CSS
+   ========================= */
+
+/* Hero Section */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #2D9CDB, #56CCF2);
+  color: white;
+  border-radius: 12px;
+  margin: 2rem auto;
+  max-width: 1200px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  max-width: 700px;
+}
+
+/* Call-to-action button */
+.cta-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: white;
+  color: linear-gradient(135deg, #56CCF2, #2D9CDB);
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: linear-gradient(135deg, #2D9CDB, #56CCF2);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Intro Section */
+.intro {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.intro h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.intro p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* ===== Dark Mode ===== */
+body.dark-mode .index-page p {
+  color: null;
+}
+
+body.dark-mode .index-page {
+  background-color: #121212;
+}
+
+body.dark-mode .index-page h1,
+body.dark-mode .index-page h2,
+body.dark-mode .index-page h3 {
+  color: null; 
+}
+
+body.dark-mode .project-box {
+  background: #1e1e1e;
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .cta-btn {
+  background: linear-gradient(135deg, #56CCF2, #2D9CDB);
+  color: white;
+}
+
+body.dark-mode .cta-btn:hover {
+  background: linear-gradient(135deg, #2D9CDB, #56CCF2);
+}
+
+body.dark-mode .hero {
+  background: #1e1e1e;
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .intro h2 {
+  color: #fff;
+}
+
+body.dark-mode .intro p {
+  color: #ddd;
+}
