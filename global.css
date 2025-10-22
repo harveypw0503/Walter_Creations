@@ -172,3 +172,43 @@ body.dark-mode canvas {
   }
 
 }
+
+
+/* Hamburger button visible on mobile */
+#hamburger {
+  display: block;
+  background: none;
+  border: none;
+  font-size: 1.8rem; /* larger for mobile */
+  cursor: pointer;
+  color: #333; /* dark mode handled below */
+}
+
+/* Dark mode hamburger color */
+body.dark-mode #hamburger {
+  color: white;
+}
+
+/* Hide links initially on mobile */
+.nav-links {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #fff;
+  width: 200px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+/* Dark mode nav-links background */
+body.dark-mode .nav-links {
+  background: #222;
+}
+
+/* Show links when active */
+.nav-links.active {
+  display: flex;
+}
