@@ -97,3 +97,78 @@ body.dark-mode canvas {
   display: flex;
   align-items: center;
 }
+
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 1rem 1rem; /* smaller horizontal padding for mobile */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  /* Logo */
+  .navbar .logo {
+    height: 35px;
+    width: auto;
+    transition: height 0.2s ease, opacity 0.22s ease;
+    opacity: 1;
+  }
+
+  /* Nav Links */
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+  }
+
+  .nav-links a:hover,
+  .nav-links a:focus {
+    color: #2D9CDB;
+  }
+
+  /* Dark Mode */
+  body.dark-mode .navbar {
+    background: #222;
+  }
+
+  body.dark-mode a {
+    color: #ddd;
+  }
+
+  /* Dark mode canvas border */
+  body.dark-mode canvas {
+    border-color: #888;
+  }
+
+  /* Dark Mode Button */
+  #darkToggle {
+    margin-left: 0.5rem;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  /* Navbar placeholder to prevent layout shift */
+  #navbar {
+    min-height: 45px;
+    display: block;
+  }
+
+}
