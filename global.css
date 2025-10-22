@@ -193,42 +193,36 @@ body.dark-mode #hamburger {
 @media (max-width: 768px) {
   #hamburger {
     display: block;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    margin-left: 1rem;
   }
-}
 
-/* Hide nav-links initially on mobile */
-.nav-links {
-  display: none;
-  flex-direction: column;
-  position: absolute;
-  top: 64px; /* adjust to match navbar height */
-  right: 0;
-  background-color: #fff;
-  width: 200px;
-  padding: 1rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-  border-radius: 6px;
-  z-index: 1000;
-}
+  body.dark-mode #hamburger {
+    color: #fff;
+  }
 
-.nav-links li {
-  margin-bottom: 1rem;
-}
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 220px;
+    background-color: #fff;
+    padding: 5rem 1rem 1rem 1rem;
+    z-index: 2000;
+  }
 
-.nav-links li:last-child {
-  margin-bottom: 0;
-}
+  .nav-links.active {
+    display: flex;
+  }
 
-/* Dark mode for menu */
-body.dark-mode .nav-links {
-  background-color: #222;
-}
-
-body.dark-mode .nav-links a {
-  color: #eee;
-}
-
-/* Show menu when active */
-.nav-links.active {
-  display: flex;
+  body.dark-mode .nav-links {
+    background-color: #222;
+  }
 }
