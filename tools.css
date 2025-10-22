@@ -76,3 +76,89 @@ body.dark-mode .tool-box .btn {
 body.dark-mode .tool-box .btn:hover {
    background: linear-gradient(135deg, #2D9CDB, #56CCF2);
 }
+
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+
+  /* ===== Tools Page Mobile Styles ===== */
+
+  .tools-page {
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .tools-page h1 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .tools-page p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    color: #555;
+  }
+
+  /* Tool Container Grid */
+  .tools-container {
+    display: grid;
+    grid-template-columns: 1fr; /* stack on mobile */
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+
+  /* Individual Tool Card */
+  .tool-box {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .tool-box:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  .tool-box h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Button */
+  .tool-box .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+    border-radius: 5px;
+  }
+
+  .tool-box .btn:hover {
+    /* only apply hover on devices with pointer */
+    @media (hover: hover) and (pointer: fine) {
+      background: linear-gradient(135deg, #2D9CDB, #56CCF2);
+    }
+  }
+
+  /* ===== Dark Mode Adjustments ===== */
+  body.dark-mode .tools-page p {
+    color: #ccc;
+  }
+
+  body.dark-mode .tool-box {
+    background: #1e1e1e;
+    box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05);
+  }
+
+  body.dark-mode .tool-box .btn {
+    background: linear-gradient(135deg, #56CCF2, #2D9CDB);
+    color: #fff;
+  }
+
+  body.dark-mode .tool-box .btn:hover {
+    background: linear-gradient(135deg, #2D9CDB, #56CCF2);
+  }
+
+}
