@@ -78,40 +78,13 @@ function initNavbar() {
       // Hamburger menu setup
       // -----------------------------
       const hamburger = document.getElementById('hamburger');
-      const navLinks = document.querySelector('.nav-links');
+const navLinks = document.querySelector('.nav-links');
 
-      if (hamburger && navLinks) {
-        hamburger.addEventListener('click', () => {
-          navLinks.classList.toggle('active');
-        });
-      }
-
-      // Optional: close menu when a link is clicked
-      const links = document.querySelectorAll('.nav-links a');
-      links.forEach(link => {
-        link.addEventListener('click', () => {
-          navLinks.classList.remove('active');
-        });
-      });
-
-      // Preload images
-      preloadImage(darkLogoSrc);
-      preloadImage(lightLogoSrc);
-
-    })
-    .catch(err => console.error('Failed to load navbar:', err));
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
 }
-
-  // Detect repo name from URL → works on GitHub Pages
-  const parts = window.location.pathname.split('/');
-  const repoName = parts[1] || ''; // "Walter-Creations" for example
-  const basePath = repoName ? `/${repoName}` : '';
-
-  // Always fetch navbar from root of repo
-  fetch(`${basePath}/navbar.html`)
-    .then(res => res.text())
-    .then(html => {
-      navbarContainer.innerHTML = html;
 
       const toggle = document.getElementById('dark-mode-toggle');
       const logoImg = document.querySelector('.logo-link img.logo');
