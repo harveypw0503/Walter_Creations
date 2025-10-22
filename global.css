@@ -173,14 +173,27 @@ body.dark-mode canvas {
 
 }
 
-/* Hamburger menu button */
+/* Hamburger button */
 #hamburger {
-  display: block;
+  display: none; /* default hidden on desktop */
   background: none;
   border: none;
   font-size: 1.8rem;
   cursor: pointer;
   margin-left: 1rem;
+  color: #333; /* default color for light mode */
+}
+
+/* Dark mode color for hamburger */
+body.dark-mode #hamburger {
+  color: #fff;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  #hamburger {
+    display: block;
+  }
 }
 
 /* Hide nav-links initially on mobile */
