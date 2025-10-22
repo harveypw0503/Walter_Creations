@@ -172,3 +172,50 @@ body.dark-mode canvas {
   }
 
 }
+
+/* Hamburger menu button */
+#hamburger {
+  display: block;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+/* Hide nav-links initially on mobile */
+.nav-links {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 64px; /* adjust to match navbar height */
+  right: 0;
+  background-color: #fff;
+  width: 200px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  border-radius: 6px;
+  z-index: 1000;
+}
+
+.nav-links li {
+  margin-bottom: 1rem;
+}
+
+.nav-links li:last-child {
+  margin-bottom: 0;
+}
+
+/* Dark mode for menu */
+body.dark-mode .nav-links {
+  background-color: #222;
+}
+
+body.dark-mode .nav-links a {
+  color: #eee;
+}
+
+/* Show menu when active */
+.nav-links.active {
+  display: flex;
+}
