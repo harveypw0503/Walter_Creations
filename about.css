@@ -74,3 +74,89 @@ body.dark-mode .about-text p {
 body.dark-mode .about-img img {
   box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
 }
+
+/* ===== Responsive CSS ===== */
+@media (max-width: 768px) {
+  /* ===== About Page Styles (mobile) ===== */
+  .about-page {
+    max-width: 100%;
+    margin: 1.25rem auto;
+    padding: 1.25rem;
+  }
+
+  .about-page h1 {
+    text-align: center;
+    font-size: 1.75rem; /* reduced for small screens */
+    margin-bottom: 1.75rem;
+    color: var(--text-color, #333);
+    line-height: 1.1;
+  }
+
+  /* Container */
+  .about-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  /* Each block (stack on mobile) */
+  .about-block {
+    display: flex;
+    flex-direction: column; /* stack image + text */
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  /* keep reverse ordering but still stacked */
+  .about-block.reverse {
+    flex-direction: column-reverse;
+  }
+
+  /* Text styling */
+  .about-text {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+    color: var(--text-color, #333);
+  }
+
+  /* Image styling */
+  .about-img {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-img img {
+    width: 100%;
+    max-width: 360px; /* caps the image on medium phones; still responsive */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  /* Only apply hover transforms on devices that support hover (not most touchscreens) */
+  @media (hover: hover) and (pointer: fine) {
+    .about-img img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  /* ===== Dark Mode Adjustments ===== */
+  body.dark-mode .about-page h1,
+  body.dark-mode .about-text p {
+    color: var(--dark-text-color, #eee);
+  }
+
+  body.dark-mode .about-img img {
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.06);
+  }
+}
