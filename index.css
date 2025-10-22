@@ -111,3 +111,100 @@ body.dark-mode .intro h2 {
 body.dark-mode .intro p {
   color: #ddd;
 }
+
+
+/* ===== Responsive ===== */
+@media (max-width: 768px)
+  /* Hero Section */
+  .hero {
+    min-height: 60vh; /* reduce height for mobile */
+    padding: 2rem 1rem;
+    margin: 1rem auto;
+    max-width: 95%; /* almost full width */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .hero h1 {
+    font-size: 2rem; /* smaller font for mobile */
+    margin-bottom: 0.75rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    max-width: 100%;
+  }
+
+  /* Call-to-action button */
+  .cta-btn {
+    font-size: 1rem;
+    padding: 0.65rem 1.25rem;
+    border-radius: 6px;
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Intro Section */
+  .intro {
+    max-width: 95%;
+    margin: 2rem auto;
+    padding: 1.5rem;
+  }
+
+  .intro h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .intro p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  /* ===== Dark Mode Adjustments ===== */
+  body.dark-mode .index-page {
+    background-color: #121212;
+  }
+
+  body.dark-mode .index-page h1,
+  body.dark-mode .index-page h2,
+  body.dark-mode .index-page h3 {
+    color: #eee; 
+  }
+
+  body.dark-mode .index-page p {
+    color: #ddd;
+  }
+
+  body.dark-mode .project-box {
+    background: #1e1e1e;
+    box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05);
+  }
+
+  body.dark-mode .cta-btn {
+    background: linear-gradient(135deg, #56CCF2, #2D9CDB);
+    color: white;
+  }
+
+  body.dark-mode .cta-btn:hover {
+    background: linear-gradient(135deg, #2D9CDB, #56CCF2);
+  }
+
+  body.dark-mode .hero {
+    background: #1e1e1e;
+    box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05);
+  }
+
+  body.dark-mode .intro h2 {
+    color: #fff;
+  }
+
+  body.dark-mode .intro p {
+    color: #ddd;
+  }
+
+}
