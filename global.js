@@ -20,6 +20,16 @@ function preloadImage(url, onload, onerror) {
 function initNavbar() {
   const navbarContainer = document.getElementById('navbar');
   if (!navbarContainer) return;
+  
+  // Hamburger menu toggle
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+}
 
   // Detect repo name from URL → works on GitHub Pages
   const parts = window.location.pathname.split('/');
