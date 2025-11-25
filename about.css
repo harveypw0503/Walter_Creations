@@ -1,4 +1,6 @@
-/* ===== About Page Styles ===== */
+/* ========================
+   About Page Styles
+   ======================== */
 .about-page {
   max-width: 1200px;
   margin: 2rem auto;
@@ -12,7 +14,7 @@
   color: var(--text-color, #333);
 }
 
-/* Container */
+/* Container for blocks */
 .about-container {
   display: flex;
   flex-direction: column;
@@ -56,107 +58,147 @@
   width: 100%;
   max-width: 400px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.about-img img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+/* Hover effect only for hover-capable devices */
+@media (hover: hover) and (pointer: fine) {
+  .about-img img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  }
 }
 
-/* ===== Dark Mode Adjustments ===== */
+/* ===== Dark Mode ===== */
 body.dark-mode .about-page h1,
 body.dark-mode .about-text p {
   color: var(--dark-text-color, #eee);
 }
 
 body.dark-mode .about-img img {
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 12px rgba(255,255,255,0.1);
 }
 
-/* ===== Responsive CSS ===== */
+/* ========================
+   Mobile / Responsive Styles
+   ======================== */
 @media (max-width: 768px) {
-  /* ===== About Page Styles (mobile) ===== */
+  /* Page padding */
   .about-page {
     max-width: 100%;
     margin: 1.25rem auto;
     padding: 1.25rem;
   }
 
+  /* Heading */
   .about-page h1 {
-    text-align: center;
-    font-size: 1.75rem; /* reduced for small screens */
+    font-size: 1.75rem;
     margin-bottom: 1.75rem;
-    color: var(--text-color, #333);
-    line-height: 1.1;
+    line-height: 1.2;
   }
 
-  /* Container */
+  /* Stack blocks */
   .about-container {
-    display: flex;
-    flex-direction: column;
     gap: 1.5rem;
   }
 
-  /* Each block (stack on mobile) */
+  @media (max-width: 768px) {
   .about-block {
-    display: flex;
-    flex-direction: column; /* stack image + text */
+    flex-direction: column; /* always stack text then image */
     align-items: stretch;
     gap: 1rem;
   }
 
-  /* keep reverse ordering but still stacked */
   .about-block.reverse {
-    flex-direction: column-reverse;
+    flex-direction: column; /* override reverse for mobile */
   }
+}
 
-  /* Text styling */
+
+  /* Text */
   .about-text {
-    flex: 0 0 auto;
     width: 100%;
   }
 
   .about-text p {
     font-size: 1rem;
     line-height: 1.6;
-    margin-bottom: 0.75rem;
-    color: var(--text-color, #333);
   }
 
-  /* Image styling */
+  /* Image */
   .about-img {
-    flex: 0 0 auto;
     width: 100%;
-    display: flex;
     justify-content: center;
   }
 
   .about-img img {
-    width: 100%;
-    max-width: 360px; /* caps the image on medium phones; still responsive */
-    height: auto;
+    max-width: 360px;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   }
 
-  /* Only apply hover transforms on devices that support hover (not most touchscreens) */
-  @media (hover: hover) and (pointer: fine) {
-    .about-img img:hover {
-      transform: scale(1.03);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-    }
-  }
-
-  /* ===== Dark Mode Adjustments ===== */
-  body.dark-mode .about-page h1,
-  body.dark-mode .about-text p {
-    color: var(--dark-text-color, #eee);
-  }
-
+  /* Dark mode adjustments */
   body.dark-mode .about-img img {
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.06);
+    box-shadow: 0 4px 12px rgba(255,255,255,0.06);
+  }
+}
+
+/* Extra small screens (<480px) */
+@media (max-width: 480px) {
+  .about-page h1 {
+    font-size: 1.5rem;
+  }
+
+  .about-text p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .about-img img {
+    max-width: 300px;
+  }
+}
+
+/* ========================
+   Hamburger Menu (from navbar)
+   ======================== */
+@media (max-width: 768px) {
+  #hamburger {
+    display: block;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+  }
+
+  body.dark-mode #hamburger {
+    color: white;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    background: #fff;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 1000;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .nav-links.active {
+    display: flex;
+    max-height: 500px; /* enough for all links */
+  }
+
+  body.dark-mode .nav-links {
+    background: #222;
   }
 }

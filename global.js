@@ -17,7 +17,7 @@ function preloadImage(url, onload, onerror) {
   img.src = url;
 }
 
-// Fetch navbar and initialize dark mode + logo
+// Initialize Navbar
 function initNavbar() {
   const navbarContainer = document.getElementById('navbar');
   if (!navbarContainer) {
@@ -25,11 +25,11 @@ function initNavbar() {
     return;
   }
 
-  // Correct base path for GitHub Pages or subfolder
-  const parts = window.location.pathname.split('/');
-  const repoName = parts[1] || '';
-  const basePath = repoName ? `/${repoName}` : '';
+  // Determine base path depending on environment
+  const isLocal = location.hostname === "127.0.0.1" || location.hostname === "localhost";
+  const basePath = isLocal ? "" : "/Walter_Creations"; // change this if your repo name differs
 
+  // Fetch the navbar
   fetch(`${basePath}/navbar.html`)
     .then(res => {
       if (!res.ok) throw new Error('Navbar fetch failed');
@@ -94,9 +94,7 @@ function initNavbar() {
       }
 
       // Preload both logos
-      const preload = src => new Image().src = src;
-      preload(lightLogoSrc);
-      preload(darkLogoSrc);
+      [lightLogoSrc, darkLogoSrc].forEach(src => preloadImage(src));
     })
     .catch(err => console.error('Failed to load navbar:', err));
 }
