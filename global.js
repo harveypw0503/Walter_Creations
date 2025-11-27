@@ -27,7 +27,7 @@ function initNavbar() {
 
   // Determine base path depending on environment
   const isLocal = location.hostname === "127.0.0.1" || location.hostname === "localhost";
-  const basePath = "" : "/Walter_Creations"; // change this if your repo name differs
+  const basePath = "" ;
 
   // Fetch the navbar
   fetch(`${basePath}/navbar.html`)
