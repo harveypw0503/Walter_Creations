@@ -1,6 +1,4 @@
-/* =========================
-   Homepage (index.html) CSS
-   ========================= */
+/* ===== Homepage (index.html) CSS ===== */
 
 /* Hero Section */
 .hero {
@@ -30,7 +28,7 @@
   max-width: 700px;
 }
 
-/* Call-to-action button */
+/* Call-to-action Button */
 .cta-btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
@@ -70,7 +68,7 @@
   color: #555;
 }
 
-/* ===== Dark Mode ===== */
+/* Dark Mode */
 body.dark-mode .hero {
   background: #1e1e1e;
   box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05);
@@ -93,10 +91,10 @@ body.dark-mode .cta-btn:hover {
   background: linear-gradient(135deg, #2D9CDB, #56CCF2);
 }
 
-/* =========================
-   Responsive (Mobile)
-========================= */
+/* ===== Responsive ===== */
 @media (max-width: 768px) {
+
+  /* ===== Homepage Mobile Styles ===== */
 
   /* Hero Section */
   .hero {

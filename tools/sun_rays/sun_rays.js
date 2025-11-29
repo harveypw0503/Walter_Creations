@@ -1,9 +1,11 @@
+// sun_rays.js
+
 const canvas = document.getElementById('sunCanvas');
 const ctx = canvas.getContext('2d');
 
 // Defaults override
 document.getElementById('rayCount').value = 200;
-document.getElementById('rayColor').value = '#ff0000'; // red
+document.getElementById('rayColor').value = '#2D9CDB';
 
 // Helpers
 function getDirectionCenter(direction, w, h) {
@@ -26,7 +28,7 @@ function hexToRGBA(hex, alpha) {
 
 // Dynamic resize to prevent clipping
 function resizeCanvas(maxLength) {
-  const size = maxLength * 2.5; // generous padding
+  const size = maxLength * 2.5;
   canvas.width = size;
   canvas.height = size;
 }
@@ -132,7 +134,7 @@ function downloadSVG() {
 document.getElementById("generateBtn").addEventListener("click", generateSunrays);
 document.getElementById("downloadBtn").addEventListener("click", downloadPNG);
 
-// Add new SVG download button
+//SVG download button
 const svgBtn = document.createElement("button");
 svgBtn.textContent = "Download SVG";
 svgBtn.addEventListener("click", downloadSVG);

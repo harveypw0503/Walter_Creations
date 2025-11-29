@@ -1,6 +1,5 @@
-/* ========================
-   About Page Styles
-   ======================== */
+/* ===== About (about.html) CSS) ===== */
+
 .about-page {
   max-width: 1200px;
   margin: 2rem auto;
@@ -14,15 +13,14 @@
   color: var(--text-color, #333);
 }
 
-/* Container for blocks */
+/* Container for Blocks */
 .about-container {
   display: flex;
   flex-direction: column;
   gap: 3rem;
 }
 
-/* Each block (text + image) */
-.about-block {
+.about-block {  /* each block (text + image) */
   display: flex;
   align-items: center;
   gap: 2rem;
@@ -33,7 +31,7 @@
   flex-direction: row-reverse;
 }
 
-/* Text styling */
+/* Text Styling */
 .about-text {
   flex: 1;
   min-width: 280px;
@@ -46,7 +44,7 @@
   color: var(--text-color, #333);
 }
 
-/* Image styling */
+/* Image Styling */
 .about-img {
   flex: 1;
   min-width: 280px;
@@ -62,15 +60,14 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover effect only for hover-capable devices */
-@media (hover: hover) and (pointer: fine) {
+@media (hover: hover) and (pointer: fine) { /* Hover effect only for hover-capable devices */
   .about-img img:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 18px rgba(0,0,0,0.15);
   }
 }
 
-/* ===== Dark Mode ===== */
+/* Dark Mode */
 body.dark-mode .about-page h1,
 body.dark-mode .about-text p {
   color: var(--dark-text-color, #eee);
@@ -80,9 +77,10 @@ body.dark-mode .about-img img {
   box-shadow: 0 4px 12px rgba(255,255,255,0.1);
 }
 
-/* ========================
-   Mobile / Responsive Styles
-   ======================== */
+/* ===== Responsive ===== */
+
+/* ===== About Page Mobile Styles ===== */
+
 @media (max-width: 768px) {
   /* Page padding */
   .about-page {
@@ -98,23 +96,22 @@ body.dark-mode .about-img img {
     line-height: 1.2;
   }
 
-  /* Stack blocks */
+  /* Stack Blocks */
   .about-container {
     gap: 1.5rem;
   }
 
   @media (max-width: 768px) {
   .about-block {
-    flex-direction: column; /* always stack text then image */
+    flex-direction: column;
     align-items: stretch;
     gap: 1rem;
   }
 
   .about-block.reverse {
-    flex-direction: column; /* override reverse for mobile */
+    flex-direction: column; /* override reverse layout for mobile */
   }
 }
-
 
   /* Text */
   .about-text {
@@ -138,13 +135,13 @@ body.dark-mode .about-img img {
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   }
 
-  /* Dark mode adjustments */
+  /* Dark Mode */
   body.dark-mode .about-img img {
     box-shadow: 0 4px 12px rgba(255,255,255,0.06);
   }
 }
 
-/* Extra small screens (<480px) */
+/* Super Small Screens (<480px) */
 @media (max-width: 480px) {
   .about-page h1 {
     font-size: 1.5rem;
@@ -157,48 +154,5 @@ body.dark-mode .about-img img {
 
   .about-img img {
     max-width: 300px;
-  }
-}
-
-/* ========================
-   Hamburger Menu (from navbar)
-   ======================== */
-@media (max-width: 768px) {
-  #hamburger {
-    display: block;
-    font-size: 1.8rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #333;
-  }
-
-  body.dark-mode #hamburger {
-    color: white;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    width: 200px;
-    background: #fff;
-    padding: 1rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    z-index: 1000;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-  }
-
-  .nav-links.active {
-    display: flex;
-    max-height: 500px; /* enough for all links */
-  }
-
-  body.dark-mode .nav-links {
-    background: #222;
   }
 }

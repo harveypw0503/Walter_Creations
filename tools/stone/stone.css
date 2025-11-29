@@ -40,7 +40,7 @@ canvas {
   height: auto;
 }
 
-/* Dark mode */
+/* Dark Mode */
 body.dark-mode {
   background: #111;
   color: #eee;
@@ -51,15 +51,14 @@ body.dark-mode canvas {
   border-color: #888;
 }
 
-
-/* Force slider thumb to reach true 0 and 100 visually */
+/* Slider Visual */
 input[type="range"] {
   width: 150px;
   -webkit-appearance: none;
   background: transparent;
 }
 
-/* Light mode styles */
+/* Light Mode Styles */
 input[type="range"]::-webkit-slider-runnable-track {
   height: 6px;
   background: #999;
@@ -87,7 +86,7 @@ input[type="range"]::-moz-range-thumb {
   cursor: pointer;
 }
 
-/* Dark mode styles */
+/* Dark Mode Styles */
 body.dark-mode input[type="range"]::-webkit-slider-runnable-track {
   background: #555;
 }
@@ -133,7 +132,7 @@ body.dark-mode input[type="range"]::-moz-range-thumb {
   .controls input,
   .controls select,
   .controls button {
-    width: 100%; /* full width for better touch targets */
+    width: 100%;
     max-width: 250px;
     padding: 0.5rem 0.75rem;
     font-size: 0.9rem;
@@ -148,12 +147,12 @@ body.dark-mode input[type="range"]::-moz-range-thumb {
     border-radius: 10px;
     border: 1px solid #444;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    width: 100%; /* responsive width */
+    width: 100%;
     height: auto;
     max-width: 100%;
   }
 
-  /* ===== Dark Mode ===== */
+  /* Dark Mode */
   body.dark-mode {
     background: #111;
     color: #eee;
@@ -164,7 +163,7 @@ body.dark-mode input[type="range"]::-moz-range-thumb {
     border-color: #888;
   }
 
-  /* ===== Sliders Responsive ===== */
+  /* Slider Responsive */
   input[type="range"] {
     width: 100%;
     max-width: 250px;

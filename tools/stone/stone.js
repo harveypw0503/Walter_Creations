@@ -1,4 +1,4 @@
-/* stone.js - only generate on button click + fix lighting slider range */
+// stone.js
 
 document.addEventListener('DOMContentLoaded', () => {
   const canvas = document.getElementById("stoneCanvas");
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const downloadPngBtn = document.getElementById("downloadPngBtn");
   const downloadSvgBtn = document.getElementById("downloadSvgBtn");
 
-  // --- Ensure slider numeric bounds are correct
+  //Ensure slider numeric bounds are correct
   if (lightStrength) {
     lightStrength.min = 0;
     lightStrength.max = 100;
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // clamp helper
+  // Clamp helper
   function clamp(v, min, max) {
     v = parseInt(v) || 0;
     if (v < min) return min;
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return Math.sqrt(area / baseArea);
   }
 
-  // === Stone generation (unchanged from before) ===
+  //Stone generation
   function generateCutStone(width, height, scale, color) {
     const numPoints = Math.floor(300 * scale);
     const jitter = 6 * scale;
@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ctx.fillRect(0, 0, width, height);
   }
 
-  // === Draw function ===
+  //Draw function
   function draw() {
     const width = clamp(widthInput.value, 300, 5000);
     const height = clamp(heightInput.value, 300, 5000);
@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // === Download functions (same as before) ===
+  // Download functions
   function downloadPNG() {
     canvas.toBlob(function (blob) {
       const url = URL.createObjectURL(blob);
@@ -245,12 +245,12 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => URL.revokeObjectURL(url), 1500);
   }
 
-  // === Event wiring ===
+  //Event wiring
   if (generateBtn) generateBtn.addEventListener("click", draw);
   if (downloadPngBtn) downloadPngBtn.addEventListener("click", downloadPNG);
   if (downloadSvgBtn) downloadSvgBtn.addEventListener("click", downloadSVG);
 
-  // sync slider <-> number, but no auto-draw
+  // Sync slider <-> number, but no auto-draw
   if (lightStrength && lightStrengthNumber) {
     lightStrength.addEventListener('input', () => {
       lightStrengthNumber.value = lightStrength.value;
@@ -262,6 +262,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // default style cobbled
+  // Default style cobbled
   if (styleSelect) styleSelect.value = 'cobbled';
 });

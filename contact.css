@@ -1,4 +1,4 @@
-/* ===== Contact Page Styles ===== */
+/* ===== Contact (contact.html) CSS ===== */
 
 /* Hero Section */
 .contact-hero {
@@ -113,7 +113,7 @@ textarea {
   color: #1a6fa3;
 }
 
-/* ===== Dark Mode Overrides ===== */
+/* Dark Mode */
 body.dark-mode .contact-form,
 body.dark-mode .contact-info {
   background: #222;
@@ -140,7 +140,8 @@ body.dark-mode .contact-info a {
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
-  /* ===== Contact Page Styles ===== */
+
+  /* ===== Contact Page Mobile Styles ===== */
 
   /* Hero Section */
   .contact-hero {
@@ -257,7 +258,7 @@ body.dark-mode .contact-info a {
     color: #1a6fa3;
   }
 
-  /* ===== Dark Mode Overrides ===== */
+  /* Dark Mode */
   body.dark-mode .contact-form,
   body.dark-mode .contact-info {
     background: #222;
@@ -282,9 +283,8 @@ body.dark-mode .contact-info a {
   }
 }
 
-/* Extra small screens: stack everything */
 @media (max-width: 537px) {
   .contact-container {
-    flex-direction: column;
+    flex-direction: column; /* super small screens stack everything */
   }
 }

@@ -1,4 +1,4 @@
-/* ===== Tools Page Specific Styles ===== */
+/* ===== Tools (tools.html) CSS ===== */
 
 .tools-page {
   padding: 2rem;
@@ -58,7 +58,7 @@
    background: linear-gradient(135deg, #2D9CDB, #56CCF2);
 }
 
-/* ===== Dark Mode ===== */
+/* Dark Mode */
 body.dark-mode .tools-page p {
   color: #ccc;
 }
@@ -142,7 +142,7 @@ body.dark-mode .tool-box .btn:hover {
     }
   }
 
-  /* ===== Dark Mode Adjustments ===== */
+  /*  Dark Mode */
   body.dark-mode .tools-page p {
     color: #ccc;
   }

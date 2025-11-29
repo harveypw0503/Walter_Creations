@@ -79,7 +79,7 @@ function initNavbar() {
         });
       }
 
-      // Hamburger menu functionality (mobile)
+      // Hamburger menu functionality for mobile
       if (hamburger && navLinks) {
         hamburger.addEventListener('click', () => {
           navLinks.classList.toggle('active');

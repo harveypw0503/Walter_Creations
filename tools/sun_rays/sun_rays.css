@@ -1,7 +1,7 @@
 /* ===== Sunray Tool Specific Styles ===== */
 
 main {
-  text-align: center;   /* moved from body to main */
+  text-align: center;
   max-width: 900px;
   margin: 0 auto;
 }
@@ -54,9 +54,11 @@ body.dark-mode canvas {
 
 @media (max-width: 768px) {
 
+  /* ===== Sun Rays Mobile Styles ===== */
+
   main {
     text-align: center;
-    max-width: 95%; /* almost full width on mobile */
+    max-width: 95%; /* almost full width */
     margin: 1rem auto;
     padding: 0 1rem;
   }
@@ -74,13 +76,13 @@ body.dark-mode canvas {
     flex-direction: column;
     align-items: center;
     font-size: 0.9rem;
-    width: 100%; /* full width for mobile inputs */
+    width: 100%;
   }
 
   .controls input,
   .controls select,
   .controls button {
-    width: 100%; /* full width for better touch targets */
+    width: 100%;
     max-width: 250px;
     padding: 0.5rem 0.75rem;
     font-size: 0.9rem;
@@ -93,12 +95,12 @@ body.dark-mode canvas {
     margin: 15px auto;
     border: 1px solid #444;
     background: transparent;
-    width: 100%; /* responsive width */
+    width: 100%;
     height: auto;
     max-width: 100%;
   }
 
-  /* ===== Dark Mode ===== */
+  /* Dark Mode */
   body.dark-mode {
     background: #111;
     color: #eee;
