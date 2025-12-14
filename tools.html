@@ -29,31 +29,29 @@
     <div class="tools-container" id="tools-container">
       <!-- Tools will be dynamically loaded here -->
     </div>
+
+<input
+  type="text"
+  id="tool-search"
+  placeholder="Search tools..."
+  style="max-width:400px; padding:10px; margin:30px auto; display:block;"
+>
+
+    <!-- External Tool Library -->
+    <h2 style="margin-top: 60px;">Other Cool Tools Around the Web</h2>
+    <p>Here’s a curated selection of powerful creative tools made by other amazing developers.</p>
+
+    <div class="tools-container" id="other-tools-container">
+      <!-- External tools generated here -->
+    </div>
+
   </main>
 
   <!-- Global Scripts -->
   <script src="global.js"></script>
 
-  <!--  Script for Tools -->
-  <script>
-    // List of tools
-    const tools = [
-      { name: "Sun Ray Generator", file: "tools/sun_rays/sun_rays.html" },
-      { name: "Stone Texture Generator", file: "tools/stone/stone.html" },
-      { name: "Comic Burst Generator", file: "tools/comic_burst/comic_burst.html" },
-      // Add more tools here
-    ];
-
-    const container = document.getElementById("tools-container");
-    tools.forEach(tool => {
-      const toolBox = document.createElement("div");
-      toolBox.className = "tool-box";
-      toolBox.innerHTML = `
-        <h3>${tool.name}</h3>
-        <a href="${tool.file}" class="btn">Open Tool</a>
-      `;
-      container.appendChild(toolBox);
-    });
+  <script src='tools.js'></script>
   </script>
+
 </body>
 </html>

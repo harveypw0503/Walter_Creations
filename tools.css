@@ -162,3 +162,28 @@ body.dark-mode .tool-box .btn:hover {
   }
 
 }
+
+/* External tools subtly different */
+#other-tools-container .tool-box {
+  background: linear-gradient(180deg, #fafafa, #f2f2f2);
+}
+
+body.dark-mode #other-tools-container .tool-box {
+  background: linear-gradient(180deg, #2a2a2a, #222);
+}
+
+/* CATEGORY HEADINGS INSIDE TOOL GRID */
+#other-tools-container > h3 {
+  grid-column: 1 / -1; /* THIS IS THE MAGIC */
+  
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  margin: 3rem 0 1rem;
+  padding-left: 1rem;
+
+  border-left: 4px solid var(--accent-color);
+  color: var(--text-primary);
+}
