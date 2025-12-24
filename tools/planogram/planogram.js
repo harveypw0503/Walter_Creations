@@ -82,6 +82,7 @@ function generate() {
       }
     }
   } else {
+    
     // Slatwall horizontal lines
     ctx.strokeStyle = holeColor;
     ctx.lineWidth = 3;

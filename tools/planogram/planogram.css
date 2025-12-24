@@ -112,7 +112,7 @@ body.dark-mode textarea {
   color: #eee;
 }
 
-/* Slider Visual (if any range inputs are added in future) */
+/* Slider Visual (if I want to add any range inputs in the future) */
 input[type="range"] {
   width: 150px;
   -webkit-appearance: none;
@@ -164,6 +164,8 @@ body.dark-mode input[type="range"]::-moz-range-thumb {
 /*  ===== Responsive ===== */
 
 @media (max-width: 768px) {
+
+  /* ===== Planogram Generator Mobile Styles ===== */
 
   main {
     text-align: center;
