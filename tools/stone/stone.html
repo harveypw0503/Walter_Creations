@@ -12,10 +12,10 @@
   <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
 
-<!-- Global Styles -->
-<link rel="stylesheet" href="../../global.css">
-<!-- Tool Specific Styles -->
-<link rel="stylesheet" href="stone.css">
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="../../global.css">
+  <!-- Shared Tool Styles -->
+  <link rel="stylesheet" href="../tools_shared.css">
 
   <script src="https://unpkg.com/d3-delaunay@6"></script>
 </head>
@@ -26,7 +26,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-SMRN79C0LG');
 </script>
 
@@ -34,41 +33,41 @@
   <!-- Navbar -->
   <div id="navbar"></div>
 
-  <main>
-    <h1>Stone Texture Generator</h1>
+  <main class="tool-page">
+    <h1 class="tool-title">Stone Texture Generator</h1>
 
-    <div class="controls">
-      <label>
+    <div class="tool-controls">
+      <label class="control-label">
         Stone Style
-        <select id="styleSelect">
+        <select id="styleSelect" class="control-input">
           <option value="cut">Cut Stone</option>
           <option value="cobbled" selected>Cobbled Stone</option>
         </select>
       </label>
 
-      <label>
+      <label class="control-label">
         Width
-        <input type="number" id="widthInput" value="900" min="300" max="5000">
+        <input type="number" id="widthInput" value="900" min="300" max="5000" class="control-input">
       </label>
 
-      <label>
+      <label class="control-label">
         Height
-        <input type="number" id="heightInput" value="600" min="300" max="5000">
+        <input type="number" id="heightInput" value="600" min="300" max="5000" class="control-input">
       </label>
 
-      <label>
+      <label class="control-label">
         Stone Color
-        <input type="color" id="colorInput" value="#ffffff">
+        <input type="color" id="colorInput" value="#ffffff" class="control-input">
       </label>
 
-      <label>
+      <label class="control-label">
         <input type="checkbox" id="lightingToggle" checked>
         Lighting Effect
       </label>
 
-      <label>
+      <label class="control-label">
         Light From
-        <select id="lightDirection">
+        <select id="lightDirection" class="control-input">
           <option value="center">Center</option>
           <option value="top-left">Top Left</option>
           <option value="top-right">Top Right</option>
@@ -77,27 +76,27 @@
         </select>
       </label>
 
-      <label>
+      <label class="control-label">
         Lighting Strength
         <div style="display:flex; gap:6px; align-items:center;">
-          <input type="range" id="lightStrength" min="0" max="100" value="20">
-          <input type="number" id="lightStrengthNumber" min="0" max="100" value="20" style="width:60px;">
+          <input type="range" id="lightStrength" min="0" max="100" value="20" class="control-input">
+          <input type="number" id="lightStrengthNumber" min="0" max="100" value="20" style="width:60px;" class="control-input">
         </div>
       </label>
     </div>
 
-    <div class="controls">
-      <button id="generateBtn">Generate</button>
-      <button id="downloadPngBtn">Download PNG</button>
-      <button id="downloadSvgBtn">Download SVG</button>
+    <div class="tool-actions">
+      <button id="generateBtn" class="tool-button">Generate</button>
+      <button id="downloadPngBtn" class="tool-button">Download PNG</button>
+      <button id="downloadSvgBtn" class="tool-button">Download SVG</button>
     </div>
 
-    <canvas id="stoneCanvas"></canvas>
+    <canvas id="stoneCanvas" class="tool-canvas"></canvas>
   </main>
 
-<!-- Global JS (navbar + dark mode) -->
-<script src="../../global.js"></script>
-<!-- Tool Specific JS -->
-<script src="stone.js"></script>
+  <!-- Global JS (navbar + dark mode) -->
+  <script src="../../global.js"></script>
+  <!-- Tool Specific JS -->
+  <script src="stone.js"></script>
 </body>
 </html>

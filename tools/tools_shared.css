@@ -1,0 +1,459 @@
+/* ===== Shared Tool Styles ===== */
+/* This file is used by all tools in the /tools/ directory */
+
+/* ===== Main Container ===== */
+.tool-page {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.tool-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+body.dark-mode .tool-title {
+  color: #eee;
+}
+
+.tool-subtitle {
+  color: #555;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+body.dark-mode .tool-subtitle {
+  color: #aaa;
+}
+
+/* ===== Controls Layout ===== */
+.tool-controls {
+  margin: 15px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.control-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+  text-align: center;
+}
+
+.control-full-width {
+  width: 100%;
+  max-width: 600px;
+}
+
+/* ===== Form Inputs ===== */
+.control-input {
+  padding: 6px 10px;
+  font-size: 14px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  color: #333;
+}
+
+input[type="text"].control-input,
+input[type="number"].control-input {
+  width: 100%;
+  max-width: 500px;
+  box-sizing: border-box;
+}
+
+input[type="number"].control-input {
+  width: 150px;
+  text-align: center;
+}
+
+.control-textarea {
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
+  resize: vertical;
+  font-family: monospace;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+select.control-input {
+  min-width: 150px;
+  cursor: pointer;
+}
+
+/* ===== Checkboxes ===== */
+input[type="checkbox"] {
+  margin-right: 6px;
+  cursor: pointer;
+}
+
+/* ===== Color Inputs ===== */
+input[type="color"].control-input {
+  padding: 4px;
+  width: 60px;
+  height: 40px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+
+.color-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* ===== Range Sliders ===== */
+input[type="range"].control-input {
+  width: 150px;
+  -webkit-appearance: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  height: 20px;
+}
+
+/* Light Mode Slider Styles */
+input[type="range"].control-input::-webkit-slider-runnable-track {
+  height: 6px;
+  background: #999;
+  border-radius: 3px;
+}
+
+input[type="range"].control-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: #333;
+  margin-top: -4px;
+  cursor: pointer;
+}
+
+input[type="range"].control-input::-moz-range-track {
+  height: 6px;
+  background: #999;
+  border-radius: 3px;
+}
+
+input[type="range"].control-input::-moz-range-thumb {
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: #333;
+  cursor: pointer;
+  border: none;
+}
+
+/* ===== Action Buttons ===== */
+.tool-actions {
+  margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.tool-button {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #56CCF2, #2D9CDB);
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tool-button:hover {
+  background: linear-gradient(135deg, #2D9CDB, #56CCF2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.tool-button:disabled {
+  background: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ===== Toggle Buttons ===== */
+.tool-toggle-group {
+  margin: 15px 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.tool-toggle-button {
+  padding: 8px 20px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tool-toggle-button:hover {
+  background: #f0f0f0;
+}
+
+.tool-toggle-button.active {
+  background: #e0e0e0;
+  border-color: #999;
+  font-weight: 600;
+}
+
+/* ===== Canvas & SVG Display ===== */
+.tool-canvas {
+  display: block;
+  margin: 20px auto;
+  background: transparent;
+  border-radius: 12px;
+  border: 1px solid #444;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+  max-width: 100%;
+  height: auto;
+}
+
+.tool-svg {
+  display: block;
+  margin: 20px auto;
+  border: 1px solid #444;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===== Planogram-specific Styles ===== */
+.tool-preview {
+  margin: 20px auto;
+  max-width: 100%;
+}
+
+.legend {
+  margin: 20px auto;
+  max-width: 800px;
+  text-align: left;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.legend h3 {
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+  color: #333;
+}
+
+.legend table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.legend td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.success {
+  color: #28a745;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.error {
+  color: #dc3545;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+/* ===== Dark Mode ===== */
+body.dark-mode .control-input {
+  background: #333;
+  border: 1px solid #555;
+  color: #eee;
+}
+
+body.dark-mode select.control-input,
+body.dark-mode input[type="text"].control-input,
+body.dark-mode input[type="number"].control-input,
+body.dark-mode .control-textarea {
+  background: #333;
+  border: 1px solid #555;
+  color: #eee;
+}
+
+body.dark-mode .tool-button {
+  background: linear-gradient(135deg, #56CCF2, #2D9CDB);
+  border-color: #444;
+}
+
+body.dark-mode .tool-button:hover {
+  background: linear-gradient(135deg, #2D9CDB, #56CCF2);
+}
+
+body.dark-mode .tool-button:disabled {
+  background: #444;
+  color: #888;
+}
+
+body.dark-mode .tool-toggle-button {
+  background: #333;
+  color: #eee;
+  border-color: #555;
+}
+
+body.dark-mode .tool-toggle-button:hover {
+  background: #444;
+}
+
+body.dark-mode .tool-toggle-button.active {
+  background: #555;
+  border-color: #777;
+}
+
+body.dark-mode .tool-canvas {
+  border-color: #888;
+}
+
+body.dark-mode .tool-svg {
+  background: #f0f0f0;
+  border-color: #888;
+}
+
+body.dark-mode .legend {
+  background: #222;
+  box-shadow: 0 2px 4px rgba(255,255,255,0.05);
+}
+
+body.dark-mode .legend h3 {
+  color: #eee;
+}
+
+body.dark-mode .legend td {
+  border-bottom: 1px solid #444;
+  color: #ddd;
+}
+
+/* Dark Mode Slider Styles */
+body.dark-mode input[type="range"].control-input::-webkit-slider-runnable-track {
+  background: #555;
+}
+
+body.dark-mode input[type="range"].control-input::-webkit-slider-thumb {
+  background: #eee;
+}
+
+body.dark-mode input[type="range"].control-input::-moz-range-track {
+  background: #555;
+}
+
+body.dark-mode input[type="range"].control-input::-moz-range-thumb {
+  background: #eee;
+}
+
+/* ===== Responsive Styles ===== */
+@media (max-width: 768px) {
+  .tool-page {
+    max-width: 95%;
+    margin: 1rem auto;
+    padding: 0 1rem;
+  }
+
+  .tool-title {
+    font-size: 1.75rem;
+  }
+
+  .tool-controls {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .control-label {
+    width: 100%;
+    max-width: 400px;
+    font-size: 0.9rem;
+  }
+
+  .control-full-width {
+    max-width: 100%;
+  }
+
+  .control-input {
+    width: 100%;
+    max-width: 300px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  input[type="number"].control-input {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .control-textarea {
+    max-width: 100%;
+    height: 250px;
+  }
+
+  input[type="color"].control-input {
+    width: 60px;
+    height: 40px;
+  }
+
+  input[type="range"].control-input {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .tool-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tool-button {
+    width: 100%;
+    max-width: 300px;
+    padding: 12px 20px;
+  }
+
+  .tool-toggle-group {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .tool-toggle-button {
+    flex: 1;
+    max-width: 150px;
+  }
+
+  .tool-canvas,
+  .tool-svg {
+    width: 100%;
+    margin: 15px auto;
+    border-radius: 10px;
+  }
+
+  .legend {
+    max-width: 100%;
+    padding: 15px;
+  }
+}

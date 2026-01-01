@@ -18,8 +18,8 @@
 
   <!-- Global Styles -->
   <link rel="stylesheet" href="../../global.css">
-  <!-- Tool Specific Styles -->
-  <link rel="stylesheet" href="planogram.css">
+  <!-- Shared Tool Styles -->
+  <link rel="stylesheet" href="../tools_shared.css">
 </head>
 
 <!-- Google tag (gtag.js) -->
@@ -28,7 +28,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-SMRN79C0LG');
 </script>
 
@@ -36,76 +35,88 @@
   <!-- Navbar -->
   <div id="navbar"></div>
 
-  <main>
-    <h1>Planogram Generator</h1>
-    <p class="subtitle">Perfect spacing • Big numbers • Legend • PNG/TXT/CSV</p>
+  <main class="tool-page">
+    <h1 class="tool-title">Planogram Generator</h1>
+    <p class="tool-subtitle">Perfect spacing • Big numbers • Legend • PNG/TXT/CSV</p>
 
-    <label>Pegboard size in holes (e.g. 48x72)</label>
-    <input type="text" id="grid" value="48x72">
+    <div class="tool-controls">
+      <label class="control-label control-full-width">
+        Pegboard size in holes (e.g. 48x72)
+        <input type="text" id="grid" value="48x72" class="control-input">
+      </label>
 
-    <label>Items (one per line): SKU|Description|WxH</label>
-    <textarea id="items">BLB-8-SINGLE|NIGHT LIGHT BULB|3x4
+      <label class="control-label control-full-width">
+        Items (one per line): SKU|Description|WxH
+        <textarea id="items" class="control-input control-textarea">BLB-8-SINGLE|NIGHT LIGHT BULB|3x4
 EMOT8-SINGLE|NIGHT LIGHT|3x4
 LC8X1|NIGHT LIGHT COVER|3x4
 USBC6FT|USB-C TO USB CHORD|4x6
 DC11245K800|BLUETOOTH MOUSE|4x6
 HDMI3FT|HDMI CABLE|5x7
 6PB1001|PAINT BRUSH SET 5.5"|6x9</textarea>
+      </label>
+    </div>
 
     <!-- Color Pickers -->
-    <div class="color-controls">
-      <label>Board
-        <input type="color" id="colorBoard" value="#8B6914">
+    <div class="tool-controls color-group">
+      <label class="control-label">
+        Board
+        <input type="color" id="colorBoard" value="#8B6914" class="control-input">
       </label>
 
-      <label>Bag
-        <input type="color" id="colorBag" value="#faedcd">
+      <label class="control-label">
+        Bag
+        <input type="color" id="colorBag" value="#faedcd" class="control-input">
       </label>
 
-      <label>Number
-        <input type="color" id="colorNum" value="#d32f2f">
+      <label class="control-label">
+        Number
+        <input type="color" id="colorNum" value="#d32f2f" class="control-input">
       </label>
 
-      <label>Holes/Slots
-        <input type="color" id="colorHole" value="#222222">
+      <label class="control-label">
+        Holes/Slots
+        <input type="color" id="colorHole" value="#222222" class="control-input">
       </label>
     </div>
 
     <!-- Board Style Toggle -->
-    <div class="toggle-group">
-      <button id="pegboardBtn" class="toggle-btn active">Pegboard</button>
-      <button id="slatwallBtn" class="toggle-btn">Slatwall</button>
+    <div class="tool-toggle-group">
+      <button id="pegboardBtn" class="tool-toggle-button active">Pegboard</button>
+      <button id="slatwallBtn" class="tool-toggle-button">Slatwall</button>
       <input type="hidden" id="boardMode" value="pegboard">
     </div>
 
     <!-- Packing Mode Toggle -->
-    <div class="toggle-group">
-      <button id="compactBtn" class="toggle-btn active">Compact Mode</button>
-      <button id="rowBtn" class="toggle-btn">Row Mode</button>
+    <div class="tool-toggle-group">
+      <button id="compactBtn" class="tool-toggle-button active">Compact Mode</button>
+      <button id="rowBtn" class="tool-toggle-button">Row Mode</button>
       <input type="hidden" id="packingMode" value="compact">
     </div>
 
     <!-- Spacing Controls -->
-    <div class="controls">
-      <label>Horizontal Spacing Between Bags (holes)
-        <input type="number" id="horizontalGap" value="0" min="0" max="3" step="0.1">
+    <div class="tool-controls">
+      <label class="control-label">
+        Horizontal Spacing Between Bags (holes)
+        <input type="number" id="horizontalGap" value="0" min="0" max="3" step="0.1" class="control-input">
       </label>
 
-      <label>Vertical Spacing Between Bags (holes)
-        <input type="number" id="verticalGap" value="0" min="0" max="3" step="0.1">
+      <label class="control-label">
+        Vertical Spacing Between Bags (holes)
+        <input type="number" id="verticalGap" value="0" min="0" max="3" step="0.1" class="control-input">
       </label>
     </div>
 
     <!-- Action Buttons -->
-    <div class="controls">
-      <button id="generateBtn">Generate Planogram</button>
-      <button id="downloadPngBtn" disabled>Download PNG</button>
-      <button id="downloadTxtBtn" disabled>Download TXT</button>
-      <button id="downloadCsvBtn" disabled>Download CSV</button>
+    <div class="tool-actions">
+      <button id="generateBtn" class="tool-button">Generate Planogram</button>
+      <button id="downloadPngBtn" class="tool-button" disabled>Download PNG</button>
+      <button id="downloadTxtBtn" class="tool-button" disabled>Download TXT</button>
+      <button id="downloadCsvBtn" class="tool-button" disabled>Download CSV</button>
     </div>
 
-    <div id="preview"></div>
-    <canvas id="canvas" style="display:none;"></canvas>
+    <div id="preview" class="tool-preview"></div>
+    <canvas id="canvas" style="display:none;" class="tool-canvas"></canvas>
   </main>
 
   <!-- Global JS (navbar + dark mode) -->

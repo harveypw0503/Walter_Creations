@@ -12,10 +12,10 @@
   <link rel="manifest" href="/manifest.json">
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
 
-<!-- Global Styles -->
-<link rel="stylesheet" href="../../global.css">
-<!-- Tool Specific Styles -->
-<link rel="stylesheet" href="comic_burst.css">
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="../../global.css">
+  <!-- Shared Tool Styles -->
+  <link rel="stylesheet" href="../tools_shared.css">
 </head>
 
 <!-- Google tag (gtag.js) -->
@@ -24,7 +24,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-SMRN79C0LG');
 </script>
 
@@ -32,58 +31,66 @@
   <!-- Navbar -->
   <div id="navbar"></div>
 
-  <main>
-    <h1>Comic Burst Generator</h1>
+  <main class="tool-page">
+    <h1 class="tool-title">Comic Burst Generator</h1>
 
-  <div class="controls">
-  <label>Burst Style
-    <select id="burstStyle">
-      <option value="organic">Organic Burst</option>
-      <option value="classic">Classic Sharp Burst</option>
-    </select>
-  </label>
+    <div class="tool-controls">
+      <label class="control-label">
+        Burst Style
+        <select id="burstStyle" class="control-input">
+          <option value="organic">Organic Burst</option>
+          <option value="classic">Classic Sharp Burst</option>
+        </select>
+      </label>
 
-<label>Burst Color
-    <input type="color" id="burstColor" value="#ffffff">
-</label>
+      <label class="control-label">
+        Burst Color
+        <input type="color" id="burstColor" value="#ffffff" class="control-input">
+      </label>
 
-<label>
-    <input type="checkbox" id="outlineToggle" checked>
-    Black Outline
-</label>
+      <label class="control-label">
+        <input type="checkbox" id="outlineToggle" checked>
+        Black Outline
+      </label>
 
-<label>
-    Outline Color
-    <input type="color" id="outlineColor" value="#000000">
-</label>
+      <label class="control-label">
+        Outline Color
+        <input type="color" id="outlineColor" value="#000000" class="control-input">
+      </label>
 
-<label>Spike Count
-    <input type="number" id="spikeCount" value="20" min="3" max="200">
-</label>
+      <label class="control-label">
+        Spike Count
+        <input type="number" id="spikeCount" value="20" min="3" max="200" class="control-input">
+      </label>
 
-<label>Min Length
-    <input type="number" id="minLength" value="80" min="10">
-</label>
+      <label class="control-label">
+        Min Length
+        <input type="number" id="minLength" value="80" min="10" class="control-input">
+      </label>
 
-<label>Max Length
-     <input type="number" id="maxLength" value="180" min="20">
-</label>
+      <label class="control-label">
+        Max Length
+        <input type="number" id="maxLength" value="180" min="20" class="control-input">
+      </label>
 
-<label>Randomness
-     <input type="range" id="randomness" min="0" max="1" step="0.01" value="0.4">
-</label>
+      <label class="control-label">
+        Randomness
+        <input type="range" id="randomness" min="0" max="1" step="0.01" value="0.4" class="control-input">
+      </label>
 
-<label>Angle Jitter
-     <input type="range" id="angleJitter" min="0" max="1" step="0.01" value="0.3">
-</label>
+      <label class="control-label">
+        Angle Jitter
+        <input type="range" id="angleJitter" min="0" max="1" step="0.01" value="0.3" class="control-input">
+      </label>
+    </div>
 
-</div>
-    <button id="generateBtn">Generate</button>
-    <button id="downloadBtn">Download PNG</button>
-    <button id="downloadSvgBtn">Download SVG</button>
-</div>
+    <div class="tool-actions">
+      <button id="generateBtn" class="tool-button">Generate</button>
+      <button id="downloadBtn" class="tool-button">Download PNG</button>
+      <button id="downloadSvgBtn" class="tool-button">Download SVG</button>
+    </div>
 
-    <canvas id="comicCanvas" width="600" height="600"></canvas>
+    <canvas id="comicCanvas" width="600" height="600" class="tool-canvas"></canvas>
   </main>
 
   <!-- Global JS (navbar + dark mode) -->

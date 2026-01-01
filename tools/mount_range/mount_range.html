@@ -14,8 +14,8 @@
 
   <!-- Global Styles -->
   <link rel="stylesheet" href="../../global.css">
-  <!-- Tool Specific Styles -->
-  <link rel="stylesheet" href="mount_range.css">
+  <!-- Shared Tool Styles -->
+  <link rel="stylesheet" href="../tools_shared.css">
 </head>
 
 <!-- Google tag (gtag.js) -->
@@ -24,7 +24,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-SMRN79C0LG');
 </script>
 
@@ -32,34 +31,38 @@
   <!-- Navbar -->
   <div id="navbar"></div>
 
-  <main>
-    <h1>Mountain Range Generator</h1>
+  <main class="tool-page">
+    <h1 class="tool-title">Mountain Range Generator</h1>
 
-    <div class="controls">
-      <label>Width
-        <input type="number" id="widthInput" value="800" min="300" max="5000">
+    <div class="tool-controls">
+      <label class="control-label">
+        Width
+        <input type="number" id="widthInput" value="800" min="300" max="5000" class="control-input">
       </label>
 
-      <label>Height
-        <input type="number" id="heightInput" value="600" min="300" max="5000">
+      <label class="control-label">
+        Height
+        <input type="number" id="heightInput" value="600" min="300" max="5000" class="control-input">
       </label>
 
-      <label>Jaggedness
-        <input type="range" id="jaggedness" min="1" max="150" value="70">
+      <label class="control-label">
+        Jaggedness
+        <input type="range" id="jaggedness" min="1" max="150" value="70" class="control-input">
       </label>
 
-      <label>Mountain Height
-        <input type="range" id="heightControl" min="20" max="80" value="50">
+      <label class="control-label">
+        Mountain Height
+        <input type="range" id="heightControl" min="20" max="80" value="50" class="control-input">
       </label>
     </div>
 
-    <div class="controls">
-      <button id="generateBtn">Generate New Ridge</button>
-      <button id="downloadSvgBtn">Download SVG</button>
-      <button id="downloadPngBtn">Download PNG</button>
+    <div class="tool-actions">
+      <button id="generateBtn" class="tool-button">Generate New Ridge</button>
+      <button id="downloadSvgBtn" class="tool-button">Download SVG</button>
+      <button id="downloadPngBtn" class="tool-button">Download PNG</button>
     </div>
 
-    <svg id="mountainSvg" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg"></svg>
+    <svg id="mountainSvg" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg" class="tool-svg"></svg>
   </main>
 
   <!-- Global JS (navbar + dark mode) -->
