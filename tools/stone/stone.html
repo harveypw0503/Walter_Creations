@@ -18,16 +18,8 @@
   <link rel="stylesheet" href="../tools_shared.css">
 
   <script src="https://unpkg.com/d3-delaunay@6"></script>
-</head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SMRN79C0LG"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-SMRN79C0LG');
-</script>
+</head>
 
 <body>
   <!-- Navbar -->
@@ -94,7 +86,9 @@
     <canvas id="stoneCanvas" class="tool-canvas"></canvas>
   </main>
 
-  <!-- Global JS (navbar + dark mode) -->
+<div id="footer"></div>
+
+  <!-- Global JS (navbar + footer + dark mode) -->
   <script src="../../global.js"></script>
   <!-- Tool Specific JS -->
   <script src="stone.js"></script>

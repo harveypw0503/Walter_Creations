@@ -47,7 +47,7 @@
 .tool-box .btn {
   display: inline-block;
   padding: 0.6rem 1.2rem;
-  background: linear-gradient(135deg, #56CCF2, #2D9CDB);
+  background: #2d9dda;
   color: #fff;
   border-radius: 6px;
   text-decoration: none;
@@ -55,7 +55,7 @@
 }
 
 .tool-box .btn:hover {
-   background: linear-gradient(135deg, #2D9CDB, #56CCF2);
+   background: #136ea3;
 }
 
 /* Dark Mode */
@@ -69,12 +69,12 @@ body.dark-mode .tool-box {
 }
 
 body.dark-mode .tool-box .btn {
-  background: linear-gradient(135deg, #56CCF2, #2D9CDB);
+  background: #2d9dda;
   color: #fff;
 }
 
 body.dark-mode .tool-box .btn:hover {
-   background: linear-gradient(135deg, #2D9CDB, #56CCF2);
+   background: #136ea3;
 }
 
 
@@ -138,7 +138,7 @@ body.dark-mode .tool-box .btn:hover {
   .tool-box .btn:hover {
     /* only apply hover on devices with pointer */
     @media (hover: hover) and (pointer: fine) {
-      background: linear-gradient(135deg, #2D9CDB, #56CCF2);
+      background: #136ea3;
     }
   }
 
@@ -153,12 +153,12 @@ body.dark-mode .tool-box .btn:hover {
   }
 
   body.dark-mode .tool-box .btn {
-    background: linear-gradient(135deg, #56CCF2, #2D9CDB);
+    background: #2d9dda;
     color: #fff;
   }
 
   body.dark-mode .tool-box .btn:hover {
-    background: linear-gradient(135deg, #2D9CDB, #56CCF2);
+    background: #136ea3;
   }
 
 }

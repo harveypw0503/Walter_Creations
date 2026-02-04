@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
     { name: "Stone Texture Generator", file: "tools/stone/stone.html" },
     { name: "Comic Burst Generator", file: "tools/comic_burst/comic_burst.html" },
     { name: "Mountain Range Generator", file: "tools/mount_range/mount_range.html" },
-    { name: "Planogram Generator", file: "tools/planogram/planogram.html" }
+    { name: "Planogram Generator", file: "tools/planogram/planogram.html" },
+    { name: "Story Timeline Organizer", file: "tools/story_timeline/story_timeline.html" }
   ];
 
   const toolsContainer = document.getElementById("tools-container");

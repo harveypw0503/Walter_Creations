@@ -1,0 +1,80 @@
+/* Overall container breathing */
+.tos-page {
+  padding-bottom: 4rem; /* prevents hugging the footer */
+}
+
+.tos-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 5rem;
+}
+
+/* Paragraph spacing */
+.tos-page p {
+  line-height: 1.7;
+  margin: 0.9rem 0;
+  max-width: 65ch; /* readable line length */
+}
+
+/* Sections */
+.tos-page section {
+  margin-top: 3rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Remove border from last section */
+.tos-page section:last-child {
+  border-bottom: none;
+}
+
+/* Lists */
+.tos-page ul {
+  margin: 1rem 0 1.25rem 1.25rem;
+  padding-left: 1rem;
+  max-width: 60ch;
+}
+
+.tos-page li {
+  margin-bottom: 0.6rem;
+  line-height: 1.6;
+}
+
+/* Headings */
+.tos-page h2 {
+  color: #2D9CDB;
+  margin-bottom: 0.75rem;
+  font-size: 1.35rem;
+}
+
+/* Subtle intro emphasis (optional) */
+.tos-page section:first-of-type p:first-child {
+  font-size: 1.05rem;
+}
+
+/* Dark Mode */
+body.dark-mode .tos-page section {
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+
+body.dark-mode .tos-page h2 {
+  color: #56CCF2;
+}
+
+/* Mobile tweaks */
+@media (max-width: 600px) {
+  .tos-page {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 5rem;
+  }
+
+  .tos-page p,
+  .tos-page ul {
+    max-width: 100%;
+  }
+
+  .tos-page h2 {
+    font-size: 1.25rem;
+  }
+}

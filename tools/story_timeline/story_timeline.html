@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Story Timeline Organizer - Walter Creations</title>
+
+  <!-- Favicon + Manifest -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+
+  <!-- External Library -->
+  <script src="https://unpkg.com/docx@8.5.0/build/index.js"></script>
+
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="../../global.css">
+  <!-- Shared Tool Styles -->
+  <link rel="stylesheet" href="../tools_shared.css">
+  <!-- Story Timeline Specific Styles -->
+  <link rel="stylesheet" href="story_timeline.css">
+
+</head>
+
+<body>
+  <!-- Navbar -->
+  <div id="navbar"></div>
+
+  <main class="tool-page">
+    <h1 class="tool-title">Story Timeline Organizer</h1>
+    <p class="tool-subtitle">Organize your story events, chapters, and books with drag-and-drop</p>
+
+    <!-- Project Name -->
+    <div class="tool-controls">
+      <label class="control-label control-full-width">
+        Project Name
+        <input id="projectName" type="text" placeholder="Enter your project name" class="control-input">
+      </label>
+    </div>
+
+    <!-- Add Buttons -->
+    <div class="tool-actions">
+      <button class="tool-button event-btn" onclick="addItem('event')">Add Event</button>
+      <button class="tool-button chapter-btn" onclick="addItem('chapter')">Add Chapter</button>
+      <button class="tool-button book-btn" onclick="addItem('book')">Add Book</button>
+      <button class="tool-button parking-btn" onclick="openParkingModal()">Parking Lot</button>
+      <button class="tool-button recycle-btn" onclick="openRecycleModal()">Recycle Bin</button>
+    </div>
+
+    <!-- Numbering Controls (Collapsible on mobile) -->
+    <details class="numbering-section" open>
+      <summary class="numbering-summary">Numbering Options</summary>
+      <div class="numbering-controls">
+        <label class="toggle-label">
+          <input type="checkbox" id="numberBooksToggle" checked onchange="toggleNumber('book')">
+          <span class="toggle-slider"></span>
+          Number Books
+        </label>
+        <label class="toggle-label">
+          <input type="checkbox" id="numberChaptersToggle" checked onchange="toggleNumber('chapter')">
+          <span class="toggle-slider"></span>
+          Number Chapters
+        </label>
+        <label class="toggle-label">
+          <input type="checkbox" id="numberEventsToggle" checked onchange="toggleNumber('event')">
+          <span class="toggle-slider"></span>
+          Number Events
+        </label>
+      </div>
+    </details>
+
+    <!-- Export/Import Controls (Collapsible) -->
+    <details class="export-section">
+      <summary class="export-summary">Import/Export Options</summary>
+      <div class="tool-actions export-actions">
+        <button class="tool-button" onclick="exportJSON()">Export JSON</button>
+        <button class="tool-button" onclick="importJSON()">Import JSON</button>
+        <button class="tool-button" onclick="exportTXT()">Export TXT</button>
+        <button class="tool-button" onclick="exportDOCX()">Export DOCX</button>
+      </div>
+    </details>
+
+    <!-- Main Content Area - Timeline Only (No Parking Lot) -->
+    <div class="content-row">
+      <div class="timeline-container">
+        <h2 class="section-heading">Timeline</h2>
+        <div class="timeline droppable" id="timeline"></div>
+      </div>
+    </div>
+
+    <!-- Parking Lot Modal -->
+    <div id="parkingModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeParkingModal()">&times;</span>
+        <h2>Parking Lot</h2>
+        <p class="modal-description">Items parked here are saved but not in your main timeline.</p>
+        <div class="droppable" id="parking"></div>
+      </div>
+    </div>
+
+    <!-- Recycle Bin Modal -->
+    <div id="recycleModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeRecycleModal()">&times;</span>
+        <h2>Recycle Bin</h2>
+        <div class="droppable" id="recycleBin"></div>
+        <div class="tool-actions">
+          <button class="tool-button" onclick="emptyRecycle()">Empty Bin</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+<div id="footer"></div>
+
+  <!-- Global JS (navbar + footer + dark mode) -->
+  <script src="../../global.js"></script>
+  <!-- External Library for DOCX -->
+  <script src="https://unpkg.com/docx@8.5.0/build/index.umd.js"></script>
+  <!-- Tool Specific JS -->
+  <script src="story_timeline.js"></script>
+</body>
+</html>

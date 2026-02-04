@@ -1,0 +1,128 @@
+/* ===== Planogram-specific Styles ===== */
+.tool-preview {
+  margin: 20px auto;
+  max-width: 100%;
+}
+
+.legend {
+  margin: 20px auto;
+  max-width: 800px;
+  text-align: left;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.legend h3 {
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+  color: #333;
+}
+
+.legend table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.legend td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.success {
+  color: #28a745;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.error {
+  color: #dc3545;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+/* ===== Dark Mode ===== */
+body.dark-mode .control-input {
+  background: #333;
+  border: 1px solid #555;
+  color: #eee;
+}
+
+body.dark-mode select.control-input,
+body.dark-mode input[type="text"].control-input,
+body.dark-mode input[type="number"].control-input,
+body.dark-mode .control-textarea {
+  background: #333;
+  border: 1px solid #555;
+  color: #eee;
+}
+
+body.dark-mode .tool-button {
+  background: #2d9dda;
+  border-color: #444;
+}
+
+body.dark-mode .tool-button:hover {
+  background: #136ea3;
+}
+
+body.dark-mode .tool-button:disabled {
+  background: #444;
+  color: #888;
+}
+
+body.dark-mode .tool-toggle-button {
+  background: #333;
+  color: #eee;
+  border-color: #555;
+}
+
+body.dark-mode .tool-toggle-button:hover {
+  background: #444;
+}
+
+body.dark-mode .tool-toggle-button.active {
+  background: #555;
+  border-color: #777;
+}
+
+body.dark-mode .tool-canvas {
+  border-color: #888;
+}
+
+body.dark-mode .tool-svg {
+  background: #f0f0f0;
+  border-color: #888;
+}
+
+body.dark-mode .legend {
+  background: #222;
+  box-shadow: 0 2px 4px rgba(255,255,255,0.05);
+}
+
+body.dark-mode .legend h3 {
+  color: #eee;
+}
+
+body.dark-mode .legend td {
+  border-bottom: 1px solid #444;
+  color: #ddd;
+}
+
+/* Dark Mode Slider Styles */
+body.dark-mode input[type="range"].control-input::-webkit-slider-runnable-track {
+  background: #555;
+}
+
+body.dark-mode input[type="range"].control-input::-webkit-slider-thumb {
+  background: #eee;
+}
+
+body.dark-mode input[type="range"].control-input::-moz-range-track {
+  background: #555;
+}
+
+body.dark-mode input[type="range"].control-input::-moz-range-thumb {
+  background: #eee;
+}

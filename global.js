@@ -17,6 +17,38 @@ function preloadImage(url, onload, onerror) {
   img.src = url;
 }
 
+// Google Analytics (gtag)
+(function initGA() {
+  const GA_ID = "G-SMRN79C0LG";
+
+  // Optional: disable on localhost
+  if (
+    location.hostname === "localhost" ||
+    location.hostname === "127.0.0.1"
+  ) {
+    return;
+  }
+
+  // Prevent double init
+  if (window.gtag) return;
+
+  // Load gtag script
+  const script = document.createElement("script");
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+  document.head.appendChild(script);
+
+  // Init dataLayer
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    window.dataLayer.push(arguments);
+  }
+  window.gtag = gtag;
+
+  gtag("js", new Date());
+  gtag("config", GA_ID);
+})();
+
 // Initialize Navbar
 function initNavbar() {
   const navbarContainer = document.getElementById('navbar');
@@ -99,4 +131,32 @@ function initNavbar() {
     .catch(err => console.error('Failed to load navbar:', err));
 }
 
-document.addEventListener('DOMContentLoaded', initNavbar);
+// Initialize Footer
+function initFooter() {
+  const footerContainer = document.getElementById('footer');
+  if (!footerContainer) return;
+
+  const basePath = "";
+
+  fetch(`${basePath}/footer.html`)
+    .then(res => {
+      if (!res.ok) throw new Error('Footer fetch failed');
+      return res.text();
+    })
+    .then(html => {
+      footerContainer.innerHTML = html;
+
+      // Set current year
+      const yearSpan = document.getElementById('footer-year');
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
+    })
+    .catch(err => console.error('Failed to load footer:', err));
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  initNavbar();
+  initFooter();
+});
