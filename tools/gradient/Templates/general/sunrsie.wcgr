@@ -9,12 +9,27 @@
   "ratioW": 10,
   "ratioH": 5,
   "colorStops": [
-    { "pos": 0, "color": "#f83600" },
-    { "pos": 0.4, "color": "#f9d423" },
-    { "pos": 1, "color": "#ffecd2" }
+    {
+      "pos": 0,
+      "color": "#f83600"
+    },
+    {
+      "pos": 0.4,
+      "color": "#f9d423"
+    },
+    {
+      "pos": 1,
+      "color": "#ffecd2"
+    }
   ],
   "opacityStops": [
-    { "pos": 0, "opacity": 1 },
-    { "pos": 1, "opacity": 1 }
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
   ]
 }

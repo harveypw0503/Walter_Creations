@@ -9,14 +9,35 @@
   "ratioW": 10,
   "ratioH": 4,
   "colorStops": [
-    { "pos": 0, "color": "#e0e0e0" },
-    { "pos": 0.25, "color": "#ffffff" },
-    { "pos": 0.5, "color": "#9e9e9e" },
-    { "pos": 0.75, "color": "#ffffff" },
-    { "pos": 1, "color": "#e0e0e0" }
+    {
+      "pos": 0,
+      "color": "#e0e0e0"
+    },
+    {
+      "pos": 0.25,
+      "color": "#ffffff"
+    },
+    {
+      "pos": 0.5,
+      "color": "#9e9e9e"
+    },
+    {
+      "pos": 0.75,
+      "color": "#ffffff"
+    },
+    {
+      "pos": 1,
+      "color": "#e0e0e0"
+    }
   ],
   "opacityStops": [
-    { "pos": 0, "opacity": 1 },
-    { "pos": 1, "opacity": 1 }
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
   ]
 }

@@ -9,11 +9,23 @@
   "ratioW": 10,
   "ratioH": 10,
   "colorStops": [
-    { "pos": 0, "color": "#2D9CDB" },
-    { "pos": 1, "color": "#2D9CDB" }
+    {
+      "pos": 0,
+      "color": "#2D9CDB"
+    },
+    {
+      "pos": 1,
+      "color": "#2D9CDB"
+    }
   ],
   "opacityStops": [
-    { "pos": 0, "opacity": 1 },
-    { "pos": 1, "opacity": 0 }
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 0
+    }
   ]
 }

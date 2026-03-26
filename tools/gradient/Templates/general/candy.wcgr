@@ -1,5 +1,5 @@
 {
-  "name" : "Candy",
+  "name": "Candy",
   "type": "reflected",
   "angle": 0,
   "scaleX": 1,
@@ -9,13 +9,31 @@
   "ratioW": 3,
   "ratioH": 10,
   "colorStops": [
-    { "pos": 0, "color": "#ff6b9d" },
-    { "pos": 0.33, "color": "#c44dff" },
-    { "pos": 0.66, "color": "#4dcdff" },
-    { "pos": 1, "color": "#ff6b9d" }
+    {
+      "pos": 0,
+      "color": "#ff6b9d"
+    },
+    {
+      "pos": 0.33,
+      "color": "#c44dff"
+    },
+    {
+      "pos": 0.66,
+      "color": "#4dcdff"
+    },
+    {
+      "pos": 1,
+      "color": "#ff6b9d"
+    }
   ],
   "opacityStops": [
-    { "pos": 0, "opacity": 1 },
-    { "pos": 1, "opacity": 1 }
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
   ]
 }

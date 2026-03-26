@@ -9,12 +9,27 @@
   "ratioW": 10,
   "ratioH": 10,
   "colorStops": [
-    { "pos": 0, "color": "#ffffff" },
-    { "pos": 1, "color": "#000000" }
+    {
+      "pos": 0,
+      "color": "#ffffff"
+    },
+    {
+      "pos": 1,
+      "color": "#000000"
+    }
   ],
   "opacityStops": [
-    { "pos": 0, "opacity": 0 },
-    { "pos": 0.5, "opacity": 0 },
-    { "pos": 1, "opacity": 0.85 }
+    {
+      "pos": 0,
+      "opacity": 0
+    },
+    {
+      "pos": 0.5,
+      "opacity": 0
+    },
+    {
+      "pos": 1,
+      "opacity": 0.85
+    }
   ]
 }
