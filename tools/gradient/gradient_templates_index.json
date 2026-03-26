@@ -1,0 +1,661 @@
+[
+  {
+    "series": "General",
+    "templates": [
+      {
+        "name": "Aurora",
+        "file": "Templates/general/aurora.wcgr"
+      },
+      {
+        "name": "Candy",
+        "file": "Templates/general/candy.wcgr"
+      },
+      {
+        "name": "Chrome",
+        "file": "Templates/general/chrome.wcgr"
+      },
+      {
+        "name": "Eclipse",
+        "file": "Templates/general/eclipse.wcgr"
+      },
+      {
+        "name": "Ghost",
+        "file": "Templates/general/ghost.wcgr"
+      },
+      {
+        "name": "Gold Foil",
+        "file": "Templates/general/gold_foil.wcgr"
+      },
+      {
+        "name": "Infrared",
+        "file": "Templates/general/Infrared.wcgr"
+      },
+      {
+        "name": "Lava",
+        "file": "Templates/general/lava.wcgr"
+      },
+      {
+        "name": "Midnight",
+        "file": "Templates/general/midnight.wcgr"
+      },
+      {
+        "name": "Northern Lights",
+        "file": "Templates/general/northern_lights.wcgr"
+      },
+      {
+        "name": "Ocean",
+        "file": "Templates/general/ocean.wcgr"
+      },
+      {
+        "name": "Pastures",
+        "file": "Templates/general/pastures.wcgr"
+      },
+      {
+        "name": "Plasma",
+        "file": "Templates/general/plasma.wcgr"
+      },
+      {
+        "name": "Poison",
+        "file": "Templates/general/poison.wcgr"
+      },
+      {
+        "name": "Spectrum",
+        "file": "Templates/general/spectrum.wcgr"
+      },
+      {
+        "name": "Starburst",
+        "file": "Templates/general/starburst.wcgr"
+      },
+      {
+        "name": "Sunrise",
+        "file": "Templates/general/sunrsie.wcgr"
+      },
+      {
+        "name": "Sunset Fade",
+        "file": "Templates/general/sunset_fade.wcgr"
+      },
+      {
+        "name": "Transparent Fade",
+        "file": "Templates/general/transparent_fade.wcgr"
+      },
+      {
+        "name": "Vignette",
+        "file": "Templates/general/vignette.wcgr"
+      }
+    ]
+  },
+
+  {
+    "series": "Grayscale",
+    "templates": [
+      {
+        "name": "Ash",
+        "file": "Templates/grayscale/ash.wcgr"
+      },
+      {
+        "name": "Charcoal",
+        "file": "Templates/grayscale/charcoal.wcgr"
+      },
+      {
+        "name": "Fog",
+        "file": "Templates/grayscale/fog.wcgr"
+      },
+      {
+        "name": "Graphite",
+        "file": "Templates/grayscale/graphite.wcgr"
+      },
+      {
+        "name": "Iron",
+        "file": "Templates/grayscale/iron.wcgr"
+      },
+      {
+        "name": "Mist",
+        "file": "Templates/grayscale/mist.wcgr"
+      },
+      {
+        "name": "Obsidian",
+        "file": "Templates/grayscale/obsidian.wcgr"
+      },
+      {
+        "name": "Pebble",
+        "file": "Templates/grayscale/pebble.wcgr"
+      },
+      {
+        "name": "Salt and pepper",
+        "file": "Templates/grayscale/salt_and_pepper.wcgr"
+      },
+      {
+        "name": "Silk",
+        "file": "Templates/grayscale/silk.wcgr"
+      },
+      {
+        "name": "Slate",
+        "file": "Templates/grayscale/slate.wcgr"
+      },
+      {
+        "name": "Smoke",
+        "file": "Templates/grayscale/smoke.wcgr"
+      },
+      {
+        "name": "Stainless Steel",
+        "file": "Templates/grayscale/stainless_steel.wcgr"
+      },
+      {
+        "name": "Static",
+        "file": "Templates/grayscale/static.wcgr"
+      },
+      {
+        "name": "Tar",
+        "file": "Templates/grayscale/tar.wcgr"
+      },
+      {
+        "name": "Titanium",
+        "file": "Templates/grayscale/titanium.wcgr"
+      }
+    ]
+  },
+
+  {
+    "series": "Pastel",
+    "templates": [
+      {
+        "name": "Blossom",
+        "file": "Templates/pastels/blossom.wcgr"
+      },
+      {
+        "name": "Butter",
+        "file": "Templates/pastels/butter.wcgr"
+      },
+      {
+        "name": "Candy Floss",
+        "file": "Templates/pastels/candy_floss.wcgr"
+      },
+      {
+        "name": "Cloud Nine",
+        "file": "Templates/pastels/cloud_nine.wcgr"
+      },
+      {
+        "name": "Dreamsicle",
+        "file": "Templates/pastels/dreamsicle.wcgr"
+      },
+      {
+        "name": "Fairy Tale",
+        "file": "Templates/pastels/fairy_tale.wcgr"
+      },
+      {
+        "name": "Haze",
+        "file": "Templates/pastels/haze.wcgr"
+      },
+      {
+        "name": "Honeydew",
+        "file": "Templates/pastels/honeydew.wcgr"
+      },
+      {
+        "name": "Lavender Mist",
+        "file": "Templates/pastels/lavender_mist.wcgr"
+      },
+      {
+        "name": "Macaron",
+        "file": "Templates/pastels/macaron.wcgr"
+      },
+      {
+        "name": "Peach Cream",
+        "file": "Templates/pastels/peach_cream.wcgr"
+      },
+      {
+        "name": "Powder Blue",
+        "file": "Templates/pastels/powder_blue.wcgr"
+      },
+      {
+        "name": "Rose Quartz",
+        "file": "Templates/pastels/rose_quartz.wcgr"
+      },
+      {
+        "name": "Sherbet",
+        "file": "Templates/pastels/sherbet.wcgr"
+      },
+      {
+        "name": "Vanilla Sky",
+        "file": "Templates/pastels/vanilla_sky.wcgr"
+      }
+    ]
+  },
+
+  {
+    "series": "Rustic",
+    "templates": [
+      {
+        "name": "Adobe",
+        "file": "Templates/rustic/adobe.wcgr"
+      },
+      {
+        "name": "Barn",
+        "file": "Templates/rustic/barn.wcgr"
+      },
+      {
+        "name": "Burlap",
+        "file": "Templates/rustic/burlap.wcgr"
+      },
+      {
+        "name": "Campfire",
+        "file": "Templates/rustic/campfire.wcgr"
+      },
+      {
+        "name": "Clay",
+        "file": "Templates/rustic/clay.wcgr"
+      },
+      {
+        "name": "Copper",
+        "file": "Templates/rustic/copper.wcgr"
+      },
+      {
+        "name": "Cowboy",
+        "file": "Templates/rustic/cowboy.wcgr"
+      },
+      {
+        "name": "Driftwood",
+        "file": "Templates/rustic/driftwood.wcgr"
+      },
+      {
+        "name": "Fallow Farm",
+        "file": "Templates/rustic/fallow_farm.wcgr"
+      },
+      {
+        "name": "Harvest",
+        "file": "Templates/rustic/harvest.wcgr"
+      },
+      {
+        "name": "Leather",
+        "file": "Templates/rustic/leather.wcgr"
+      },
+      {
+        "name": "Moss",
+        "file": "Templates/rustic/moss.wcgr"
+      },
+      {
+        "name": "Outlaw",
+        "file": "Templates/rustic/outlaw.wcgr"
+      },
+      {
+        "name": "Sandstone",
+        "file": "Templates/rustic/sandstone.wcgr"
+      },
+      {
+        "name": "Scarecrow",
+        "file": "Templates/rustic/scarecrow.wcgr"
+      },
+      {
+        "name": "Wildfire",
+        "file": "Templates/rustic/wildfire.wcgr"
+      },
+      {
+        "name": "Wagon Wheel",
+        "file": "Templates/rustic/wagon_wheel.wcgr"
+      },
+      {
+        "name": "Worn",
+        "file": "Templates/rustic/worn.wcgr"
+      }
+    ]
+  },
+
+  {
+    "series": "Neon",
+    "templates": [
+      {
+        "name": "Acid",
+        "file": "Templates/neon/acid.wcgr"
+      },
+      {
+        "name": "Arcade",
+        "file": "Templates/neon/arcade.wcgr"
+      },
+      {
+        "name": "Cyber",
+        "file": "Templates/neon/cyber.wcgr"
+      },
+      {
+        "name": "Electric Blue",
+        "file": "Templates/neon/electric_blue.wcgr"
+      },
+      {
+        "name": "Glitch",
+        "file": "Templates/neon/glitch.wcgr"
+      },
+      {
+        "name": "Hot Pink",
+        "file": "Templates/neon/hot_pink.wcgr"
+      },
+      {
+        "name": "Laser",
+        "file": "Templates/neon/laser.wcgr"
+      },
+      {
+        "name": "Matrix",
+        "file": "Templates/neon/matrix.wcgr"
+      },
+      {
+        "name": "Node",
+        "file": "Templates/neon/node.wcgr"
+      },
+      {
+        "name": "Outrun",
+        "file": "Templates/neon/outrun.wcgr"
+      },
+      {
+        "name": "Pulse",
+        "file": "Templates/neon/pulse.wcgr"
+      },
+      {
+        "name": "Radiancy",
+        "file": "Templates/neon/radiancy.wcgr"
+      },
+      {
+        "name": "Rave",
+        "file": "Templates/neon/rave.wcgr"
+      },
+      {
+        "name": "Shock",
+        "file": "Templates/neon/shock.wcgr"
+      },
+      {
+        "name": "Synthwave",
+        "file": "Templates/neon/synthwave.wcgr"
+      }
+    ]
+  },
+  
+  {
+    "series": "Vintage",
+    "templates": [
+      {
+        "name": "Aged Paper",
+        "file": "Templates/vintage/aged_paper.wcgr"
+      },
+      {
+        "name": "Antique",
+        "file": "Templates/vintage/antique.wcgr"
+      },
+      {
+        "name": "Deco",
+        "file": "Templates/vintage/deco.wcgr"
+      },
+      {
+        "name": "Diner",
+        "file": "Templates/vintage/diner.wcgr"
+      },
+      {
+        "name": "Faded",
+        "file": "Templates/vintage/faded.wcgr"
+      },
+      {
+        "name": "Kodachrome",
+        "file": "Templates/vintage/kodachrome.wcgr"
+      },
+      {
+        "name": "Polaroid",
+        "file": "Templates/vintage/polaroid.wcgr"
+      },
+      {
+        "name": "Projector",
+        "file": "Templates/vintage/projector.wcgr"
+      },
+      {
+        "name": "Sepia",
+        "file": "Templates/vintage/sepia.wcgr"
+      },
+      {
+        "name": "Telegram",
+        "file": "Templates/vintage/telegram.wcgr"
+      },
+      {
+        "name": "Tin Type",
+        "file": "Templates/vintage/tin_type.wcgr"
+      },
+      {
+        "name": "Warmth",
+        "file": "Templates/vintage/warmth.wcgr"
+      }
+    ]
+  },
+
+  {
+    "series": "Cosmic",
+    "templates": [
+      {
+        "name": "Black Hole",
+        "file": "Templates/cosmic/black_hole.wcgr"
+      },
+      {
+        "name": "Comet",
+        "file": "Templates/cosmic/comet.wcgr"
+      },
+      {
+        "name": "Galaxy",
+        "file": "Templates/cosmic/galaxy.wcgr"
+      },
+      {
+        "name": "Jupiter",
+        "file": "Templates/cosmic/jupiter.wcgr"
+      },
+      {
+        "name": "Mars",
+        "file": "Templates/cosmic/mars.wcgr"
+      },
+      {
+        "name": "Meteor",
+        "file": "Templates/cosmic/meteor.wcgr"
+      },
+      {
+        "name": "Nebula",
+        "file": "Templates/cosmic/nebula.wcgr"
+      },
+      {
+        "name": "Neptune",
+        "file": "Templates/cosmic/neptune.wcgr"
+      },
+      {
+        "name": "Pulsar",
+        "file": "Templates/cosmic/pulsar.wcgr"
+      },
+      {
+        "name": "Quasar",
+        "file": "Templates/cosmic/quasar.wcgr"
+      },
+      {
+        "name": "Saturn",
+        "file": "Templates/cosmic/saturn.wcgr"
+      },
+      {
+        "name": "Solar Wind",
+        "file": "Templates/cosmic/solar_wind.wcgr"
+      },
+      {
+        "name": "Starfield",
+        "file": "Templates/cosmic/starfield.wcgr"
+      },
+      {
+        "name": "Supernova",
+        "file": "Templates/cosmic/supernova.wcgr"
+      },
+      {
+        "name": "Venus",
+        "file": "Templates/cosmic/venus.wcgr"
+      },
+      {
+        "name": "Void",
+        "file": "Templates/cosmic/void.wcgr"
+      }
+    ]
+  },
+
+  {
+    "series": "Nature",
+    "templates": [
+      {
+        "name": "Arctic",
+        "file": "Templates/nature/arctic.wcgr"
+      },
+      {
+        "name": "Autumn",
+        "file": "Templates/nature/autumn.wcgr"
+      },
+      {
+        "name": "Beach",
+        "file": "Templates/nature/beach.wcgr"
+      },
+      {
+        "name": "Cave",
+        "file": "Templates/nature/cave.wcgr"
+      },
+      {
+        "name": "Coral Reef",
+        "file": "Templates/nature/coral_reef.wcgr"
+      },
+      {
+        "name": "Deep Sea",
+        "file": "Templates/nature/deep_sea.wcgr"
+      },
+      {
+        "name": "Desert",
+        "file": "Templates/nature/desert.wcgr"
+      },
+      {
+        "name": "Jungle",
+        "file": "Templates/nature/jungle.wcgr"
+      },
+      {
+        "name": "Meadow",
+        "file": "Templates/nature/meadow.wcgr"
+      },
+      {
+        "name": "Mineral",
+        "file": "Templates/nature/mineral.wcgr"
+      },
+      {
+        "name": "Mountain",
+        "file": "Templates/nature/mountain.wcgr"
+      },
+      {
+        "name": "Plateau",
+        "file": "Templates/nature/plateau.wcgr"
+      },
+      {
+        "name": "Rainforest",
+        "file": "Templates/nature/rainforest.wcgr"
+      },
+      {
+        "name": "Savannah",
+        "file": "Templates/nature/savannah.wcgr"
+      },
+      {
+        "name": "Storm",
+        "file": "Templates/nature/storm.wcgr"
+      },
+      {
+        "name": "Tundra",
+        "file": "Templates/nature/tundra.wcgr"
+      },
+      {
+        "name": "Volcano",
+        "file": "Templates/nature/volcano.wcgr"
+      },
+      {
+        "name": "Waterfall",
+        "file": "Templates/nature/waterfall.wcgr"
+      }
+    ]
+  },
+
+  {
+    "series": "Food",
+    "templates": [
+      {
+        "name": "Blueberry",
+        "file": "Templates/food/blueberry.wcgr"
+      },
+      {
+        "name": "Caramel",
+        "file": "Templates/food/caramel.wcgr"
+      },
+      {
+        "name": "Cherry",
+        "file": "Templates/food/cherry.wcgr"
+      },
+      {
+        "name": "Chocolate",
+        "file": "Templates/food/chocolate.wcgr"
+      },
+      {
+        "name": "Citrus",
+        "file": "Templates/food/citrus.wcgr"
+      },
+      {
+        "name": "Kiwi",
+        "file": "Templates/food/kiwi.wcgr"
+      },
+      {
+        "name": "Mango",
+        "file": "Templates/food/mango.wcgr"
+      },
+      {
+        "name": "Matcha",
+        "file": "Templates/food/matcha.wcgr"
+      },
+      {
+        "name": "Mint",
+        "file": "Templates/food/mint.wcgr"
+      },
+      {
+        "name": "Strawberry",
+        "file": "Templates/food/strawberry.wcgr"
+      },
+      {
+        "name": "Vanilla",
+        "file": "Templates/food/vanilla.wcgr"
+      },
+      {
+        "name": "Watermelon",
+        "file": "Templates/food/watermelon.wcgr"
+      }
+    ]
+  },
+
+  {
+    "series": "Developer",
+    "templates": [
+      {
+        "name": "Debug",
+        "file": "Templates/developer/debug.wcgr"
+      },
+      {
+        "name": "Default",
+        "file": "Templates/developer/default.wcgr"
+      },
+      {
+        "name": "Gradient One",
+        "file": "Templates/developer/gradient_one.wcgr"
+      },
+      {
+        "name": "Gradient Two",
+        "file": "Templates/developer/gradient_two.wcgr"
+      },
+      {
+        "name": "Gradient Three",
+        "file": "Templates/developer/gradient_three.wcgr"
+      },
+      {
+        "name": "Test",
+        "file": "Templates/developer/test.wcgr"
+      },
+      {
+        "name": "Walter Creations",
+        "file": "Templates/developer/walter_creations.wcgr"
+      },
+      {
+        "name": "Wave",
+        "file": "Templates/developer/wave.wcgr"
+      }
+    ]
+  }    
+]

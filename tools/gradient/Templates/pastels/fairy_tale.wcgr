@@ -1,0 +1,43 @@
+{
+  "name": "Fairy Tale",
+  "type": "angle",
+  "angle": 0,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 10,
+  "ratioH": 10,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#ffd6e0"
+    },
+    {
+      "pos": 0.25,
+      "color": "#e0d6ff"
+    },
+    {
+      "pos": 0.5,
+      "color": "#d6f0ff"
+    },
+    {
+      "pos": 0.75,
+      "color": "#d6ffd9"
+    },
+    {
+      "pos": 1,
+      "color": "#ffd6e0"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Matcha",
+  "type": "linear",
+  "angle": 90,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 10,
+  "ratioH": 10,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#c8e6a0"
+    },
+    {
+      "pos": 0.5,
+      "color": "#7ab648"
+    },
+    {
+      "pos": 1,
+      "color": "#4a7a20"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

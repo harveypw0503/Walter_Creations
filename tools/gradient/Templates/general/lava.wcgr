@@ -1,0 +1,21 @@
+{
+  "name": "Lava",
+  "type": "radial",
+  "angle": 0,
+  "scaleX": 1.4,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 70,
+  "ratioW": 16,
+  "ratioH": 9,
+  "colorStops": [
+    { "pos": 0, "color": "#fff176" },
+    { "pos": 0.3, "color": "#ff6f00" },
+    { "pos": 0.7, "color": "#b71c1c" },
+    { "pos": 1, "color": "#1a0000" }
+  ],
+  "opacityStops": [
+    { "pos": 0, "opacity": 1 },
+    { "pos": 1, "opacity": 1 }
+  ]
+}

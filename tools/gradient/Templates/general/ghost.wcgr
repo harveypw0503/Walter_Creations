@@ -1,0 +1,21 @@
+{
+  "name": "Ghost",
+  "type": "radial",
+  "angle": 0,
+  "scaleX": 0.8,
+  "scaleY": 1.2,
+  "posX": 45,
+  "posY": 40,
+  "ratioW": 10,
+  "ratioH": 10,
+  "colorStops": [
+    { "pos": 0, "color": "#ffffff" },
+    { "pos": 0.5, "color": "#c8d6e5" },
+    { "pos": 1, "color": "#1e272e" }
+  ],
+  "opacityStops": [
+    { "pos": 0, "opacity": 1 },
+    { "pos": 0.6, "opacity": 0.85 },
+    { "pos": 1, "opacity": 1 }
+  ]
+}

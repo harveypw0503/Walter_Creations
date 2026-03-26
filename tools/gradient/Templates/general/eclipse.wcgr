@@ -1,0 +1,22 @@
+{
+  "name": "Eclipse",
+  "type": "radial",
+  "angle": 0,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 10,
+  "ratioH": 10,
+  "colorStops": [
+    { "pos": 0, "color": "#ffd700" },
+    { "pos": 0.08, "color": "#ff8c00" },
+    { "pos": 0.15, "color": "#1a1a1a" },
+    { "pos": 1, "color": "#000000" }
+  ],
+  "opacityStops": [
+    { "pos": 0, "opacity": 1 },
+    { "pos": 0.15, "opacity": 1 },
+    { "pos": 1, "opacity": 1 }
+  ]
+}

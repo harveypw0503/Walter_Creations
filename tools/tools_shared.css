@@ -1,7 +1,7 @@
 /* ===== Shared Tool Styles ===== */
-/* This file is used by all tools in the /tools/ directory */
+/* This file is used by all tools */
 
-/* ===== Main Container ===== */
+/* Main Container */
 .tool-page {
   text-align: center;
   max-width: 900px;
@@ -29,7 +29,7 @@ body.dark-mode .tool-subtitle {
   color: #aaa;
 }
 
-/* ===== Controls Layout ===== */
+/* Controls Layout */
 .tool-controls {
   margin: 15px 0;
   display: flex;
@@ -51,7 +51,7 @@ body.dark-mode .tool-subtitle {
   max-width: 600px;
 }
 
-/* ===== Form Inputs ===== */
+/* Form Inputs */
 .control-input {
   padding: 6px 10px;
   font-size: 14px;
@@ -89,13 +89,13 @@ select.control-input {
   cursor: pointer;
 }
 
-/* ===== Checkboxes ===== */
+/* Checkboxes */
 input[type="checkbox"] {
   margin-right: 6px;
   cursor: pointer;
 }
 
-/* ===== Color Inputs ===== */
+/* Color Inputs */
 input[type="color"].control-input {
   padding: 4px;
   width: 60px;
@@ -111,7 +111,7 @@ input[type="color"].control-input {
   gap: 12px;
 }
 
-/* ===== Range Sliders ===== */
+/*Range Sliders */
 input[type="range"].control-input {
   width: 150px;
   -webkit-appearance: none;
@@ -153,7 +153,7 @@ input[type="range"].control-input::-moz-range-thumb {
   border: none;
 }
 
-/* ===== Action Buttons ===== */
+/* Action Buttons*/
 .tool-actions {
   margin: 20px 0;
   display: flex;
@@ -171,7 +171,7 @@ input[type="range"].control-input::-moz-range-thumb {
   background: #2d9dda;
   color: white;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
 }
 
 .tool-button:hover {
@@ -188,7 +188,7 @@ input[type="range"].control-input::-moz-range-thumb {
   box-shadow: none;
 }
 
-/* ===== Toggle Buttons ===== */
+/* Toggle Buttons */
 .tool-toggle-group {
   margin: 15px 0;
   display: flex;
@@ -204,7 +204,7 @@ input[type="range"].control-input::-moz-range-thumb {
   background: #fff;
   color: #333;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
 }
 
 .tool-toggle-button:hover {
@@ -217,7 +217,7 @@ input[type="range"].control-input::-moz-range-thumb {
   font-weight: 600;
 }
 
-/* ===== Canvas & SVG Display ===== */
+/* Canvas & SVG Display */
 .tool-canvas {
   display: block;
   margin: 20px auto;
@@ -240,7 +240,7 @@ input[type="range"].control-input::-moz-range-thumb {
   height: auto;
 }
 
-/* ===== Responsive Styles ===== */
+/* Responsive Styles */
 @media (max-width: 768px) {
   .tool-page {
     max-width: 95%;
@@ -328,3 +328,1562 @@ input[type="range"].control-input::-moz-range-thumb {
     padding: 15px;
   }
 }
+
+body.dark-mode .control-input {
+  background: #2a2a2a;
+  color: #eee;
+  border-color: #555;
+}
+
+body.dark-mode select.control-input {
+  background: #2a2a2a;
+  color: #eee;
+}
+
+body.dark-mode .control-textarea {
+  background: #2a2a2a;
+  color: #eee;
+  border-color: #555;
+}
+
+body.dark-mode input[type="range"].control-input::-webkit-slider-runnable-track {
+  background: #555;
+}
+
+body.dark-mode input[type="range"].control-input::-webkit-slider-thumb {
+  background: #eee;
+}
+
+body.dark-mode input[type="range"].control-input::-moz-range-track {
+  background: #555;
+}
+
+body.dark-mode input[type="range"].control-input::-moz-range-thumb {
+  background: #eee;
+}
+
+body.dark-mode .tool-toggle-button {
+  background: #2a2a2a;
+  color: #eee;
+  border-color: #555;
+}
+
+body.dark-mode .tool-toggle-button:hover {
+  background: #383838;
+}
+
+body.dark-mode .tool-toggle-button.active {
+  background: #444;
+  border-color: #888;
+}
+
+body.dark-mode .tool-button {
+  border-color: #1a6a9a;
+}
+
+body.dark-mode .tool-button:disabled {
+  background: #444;
+  color: #888;
+  border-color: #555;
+}
+/* Danger Button */
+/* Use alongside .tool-button for destructive actions */
+.tool-button--danger {
+  background: #d44;
+  border-color: #c33;
+}
+
+.tool-button--danger:hover {
+  background: #b22;
+  border-color: #a11;
+}
+
+/* Tool Panel */
+
+/* A contained row of controls, e.g. a stop editor or inline settings group.
+   Usage: <div class="tool-panel"> ... </div>
+   Hidden by default — toggle display:flex via JS when needed. */
+.tool-panel {
+  display: none;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px 16px;
+  background: #e8e8e8;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  max-width: 800px;
+  margin: 0 auto 1rem;
+}
+
+body.dark-mode .tool-panel {
+  background: #2a2a2a;
+  border-color: #444;
+}
+
+.tool-panel-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+}
+
+body.dark-mode .tool-panel-label {
+  color: #aaa;
+}
+
+/* Settings Panel */
+/* A grouped row of dimension/configuration controls with an optional divider.
+
+   Usage:
+
+     <div class="tool-settings-panel">
+       <div class="tool-settings-group">
+         <span class="tool-settings-title">Group Title</span>
+         <div class="tool-settings-inputs"> ... </div>
+       </div>
+       <div class="tool-settings-divider"></div>
+       <div class="tool-settings-group"> ... </div>
+     </div> */
+
+.tool-settings-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 0 auto 1rem;
+  max-width: 800px;
+  padding: 12px 16px;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+body.dark-mode .tool-settings-panel {
+  background: #222;
+  border-color: #444;
+}
+
+.tool-settings-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.tool-settings-inputs {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tool-settings-divider {
+  width: 1px;
+  height: 50px;
+  background: #ccc;
+  flex-shrink: 0;
+}
+
+body.dark-mode .tool-settings-divider {
+  background: #444;
+}
+
+.tool-settings-title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #666;
+}
+
+body.dark-mode .tool-settings-title {
+  color: #aaa;
+}
+
+.tool-settings-sep {
+  font-size: 16px;
+  color: #888;
+  padding-bottom: 4px;
+  align-self: flex-end;
+}
+
+.tool-settings-inline-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  gap: 3px;
+}
+
+/* iOS-style Toggle Switch */
+
+/* Usage:
+
+     <label class="tool-toggle-switch">
+       <input type="checkbox" id="myToggle">
+       <span class="tool-toggle-track"></span>
+       Label text
+     </label> */
+     
+.tool-toggle-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  user-select: none;
+}
+
+.tool-toggle-switch input[type="checkbox"] {
+  display: none;
+}
+
+.tool-toggle-track {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  background: #ccc;
+  border-radius: 24px;
+  transition: background 0.3s;
+  flex-shrink: 0;
+}
+
+.tool-toggle-track::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: white;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.3s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.tool-toggle-switch input:checked + .tool-toggle-track {
+  background: #2d9dda;
+}
+
+.tool-toggle-switch input:checked + .tool-toggle-track::before {
+  transform: translateX(20px);
+}
+
+body.dark-mode .tool-toggle-track {
+  background: #555;
+}
+
+body.dark-mode .tool-toggle-track::before {
+  background: #eee;
+}
+
+/* Collapsible Section (<details>) */
+
+/* Usage:
+
+     <details class="tool-collapsible">
+       <summary class="tool-collapsible-summary">Section Title</summary>
+       <div class="tool-collapsible-body"> ... </div>
+     </details> */
+
+.tool-collapsible {
+  margin: 20px 0;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+body.dark-mode .tool-collapsible {
+  border-color: #444;
+}
+
+.tool-collapsible-summary {
+  padding: 12px 16px;
+  background: #f9f9f9;
+  cursor: pointer;
+  font-weight: 500;
+  user-select: none;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tool-collapsible-summary::-webkit-details-marker {
+  display: none;
+}
+
+.tool-collapsible-summary::before {
+  content: "▶";
+  font-size: 12px;
+  transition: transform 0.3s;
+}
+
+details[open] .tool-collapsible-summary::before {
+  transform: rotate(90deg);
+}
+
+body.dark-mode .tool-collapsible-summary {
+  background: #2a2a2a;
+}
+
+.tool-collapsible-summary:hover {
+  background: #f3f4f6;
+}
+
+body.dark-mode .tool-collapsible-summary:hover {
+  background: #333;
+}
+
+.tool-collapsible-body {
+  background: white;
+  border-top: 1px solid #e5e7eb;
+  padding: 15px;
+}
+
+body.dark-mode .tool-collapsible-body {
+  background: #1a1a1a;
+  border-top-color: #444;
+}
+
+/* Tool Info Button & Modal */
+
+/* A small ℹ button placed next to .tool-title that opens a rich info modal.
+   Usage:
+
+     <div class="tool-title-row">
+       <h1 class="tool-title">My Tool</h1>
+       <button class="tool-info-btn" onclick="openToolInfo()">ℹ</button>
+     </div>
+     <div class="tool-info-modal" id="toolInfoModal"> ... </div>
+*/
+
+.tool-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.tool-title-row .tool-title {
+  margin-bottom: 0;
+}
+
+.tool-info-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  background: transparent;
+  color: #888;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color 0.18s, color 0.18s, background 0.18s, transform 0.15s;
+  line-height: 1;
+  user-select: none;
+}
+
+.tool-info-btn:hover {
+  border-color: #2d9dda;
+  color: #2d9dda;
+  background: rgba(45, 157, 218, 0.08);
+  transform: scale(1.12);
+}
+
+.tool-info-btn:active {
+  transform: scale(0.95);
+}
+
+body.dark-mode .tool-info-btn {
+  border-color: #555;
+  color: #888;
+}
+
+body.dark-mode .tool-info-btn:hover {
+  border-color: #2d9dda;
+  color: #2d9dda;
+  background: rgba(45, 157, 218, 0.12);
+}
+
+/* Modal backdrop */
+.tool-info-modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(5px);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: tiModalFadeIn 0.2s ease;
+}
+
+.tool-info-modal.open {
+  display: flex;
+}
+
+@keyframes tiModalFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Modal box */
+.tool-info-modal-box {
+  background: #fff;
+  border-radius: 18px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 88vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.22);
+  position: relative;
+  animation: tiModalSlideUp 0.22s cubic-bezier(0.34,1.4,0.64,1);
+  scrollbar-width: thin;
+}
+
+@keyframes tiModalSlideUp {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+
+body.dark-mode .tool-info-modal-box {
+  background: #1e1e1e;
+  color: #eee;
+}
+
+/* Close button */
+.tool-info-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background: #f5f5f5;
+  color: #555;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s, color 0.15s;
+  z-index: 1;
+}
+
+.tool-info-modal-close:hover { border-color: #e74c3c; color: #e74c3c; }
+
+body.dark-mode .tool-info-modal-close {
+  background: #2a2a2a;
+  border-color: #444;
+  color: #aaa;
+}
+
+/* Header */
+.tool-info-modal-header {
+  padding: 26px 26px 0;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.tool-info-modal-icon {
+  font-size: 36px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.tool-info-modal-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 3px;
+}
+
+body.dark-mode .tool-info-modal-title { color: #eee; }
+
+.tool-info-modal-category {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #2d9dda;
+}
+
+/* Divider */
+.tool-info-modal-divider {
+  height: 1px;
+  background: #e8e8e8;
+  margin: 18px 26px;
+}
+
+body.dark-mode .tool-info-modal-divider { background: #333; }
+
+/* Body */
+.tool-info-modal-body {
+  padding: 0 26px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.tool-info-modal-section-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 7px;
+}
+
+.tool-info-modal-desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #444;
+}
+
+body.dark-mode .tool-info-modal-desc { color: #bbb; }
+
+/* Optional image */
+.tool-info-modal-image {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #e5e5e5;
+  overflow: hidden;
+  aspect-ratio: 16/7;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bbb;
+  font-size: 13px;
+  gap: 8px;
+  flex-direction: column;
+}
+
+.tool-info-modal-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+body.dark-mode .tool-info-modal-image {
+  background: #2a2a2a;
+  border-color: #444;
+}
+
+/* Steps */
+.tool-info-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.tool-info-step {
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+}
+
+.tool-info-step-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(45,157,218,0.12);
+  border: 1.5px solid rgba(45,157,218,0.35);
+  color: #2d9dda;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.tool-info-step-text {
+  font-size: 13px;
+  color: #444;
+  line-height: 1.65;
+  text-align: left;
+}
+
+body.dark-mode .tool-info-step-text { color: #bbb; }
+
+/* Tip box */
+.tool-info-tip {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 13px;
+  color: #166534;
+  line-height: 1.6;
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+}
+
+body.dark-mode .tool-info-tip {
+  background: rgba(22,101,52,0.15);
+  border-color: rgba(134,239,172,0.25);
+  color: #86efac;
+}
+
+@media (max-width: 768px) {
+  .tool-info-modal-box {
+    max-height: 92vh;
+    border-radius: 14px;
+  }
+  .tool-info-modal-header { padding: 20px 18px 0; }
+  .tool-info-modal-divider { margin: 14px 18px; }
+  .tool-info-modal-body { padding: 0 18px 20px; }
+}
+
+/* Modal */
+
+/* Usage:
+
+     <div class="tool-modal" id="myModal">
+       <div class="tool-modal-content">
+         <span class="tool-modal-close">&times;</span>
+         <h2>Title</h2>
+         <p class="tool-modal-desc">Description</p>
+         ...
+       </div>
+     </div> */
+
+.tool-modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+  animation: toolModalFadeIn 0.3s ease;
+}
+
+@keyframes toolModalFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.tool-modal-content {
+  background: white;
+  margin: 5% auto;
+  padding: 30px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  animation: toolModalSlideIn 0.3s ease;
+}
+
+@keyframes toolModalSlideIn {
+  from { transform: translateY(-50px); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+
+body.dark-mode .tool-modal-content {
+  background: #2a2a2a;
+}
+
+.tool-modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+body.dark-mode .tool-modal-content h2 {
+  color: #eee;
+}
+
+.tool-modal-desc {
+  color: #6b7280;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+body.dark-mode .tool-modal-desc {
+  color: #9ca3af;
+}
+
+.tool-modal-close {
+  color: #6b7280;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.tool-modal-close:hover {
+  color: #333;
+}
+
+body.dark-mode .tool-modal-close:hover {
+  color: #eee;
+}
+
+@media (max-width: 768px) {
+  .tool-settings-panel {
+    flex-direction: column;
+  }
+  .tool-settings-divider {
+    width: 100%;
+    height: 1px;
+  }
+  .tool-modal-content {
+    width: 95%;
+    margin: 10% auto;
+    padding: 20px;
+    max-height: 85vh;
+  }
+}
+
+/* ================================================================
+   ADVANCED TOOLING — Button + Dialog
+   Injected into every tool page by tools_shared.js when enabled.
+================================================================ */
+
+/* Advanced Button */
+.advanced-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: 8px;
+  border: 1.5px solid rgba(0,0,0,0.08);
+  background: linear-gradient(135deg, #d8dae4 0%, #c7c9d1 100%);
+  color: #3a3b48;
+  cursor: pointer;
+  transition: background 0.18s, box-shadow 0.18s, transform 0.12s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.5);
+}
+
+.advanced-button svg {
+  width: 14px;
+  height: 14px;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.advanced-button:hover {
+  background: linear-gradient(135deg, #cfd1db 0%, #babcc6 100%);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.14), inset 0 1px 0 rgba(255,255,255,0.4);
+  transform: translateY(-1px);
+}
+
+.advanced-button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+}
+
+body.dark-mode .advanced-button {
+  background: linear-gradient(135deg, #3e4054 0%, #33354a 100%);
+  border-color: rgba(255,255,255,0.07);
+  color: #c0c2d4;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+body.dark-mode .advanced-button:hover {
+  background: linear-gradient(135deg, #484a60 0%, #3c3e56 100%);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+/* Backdrop */
+.advanced-dialog-backdrop {
+  display: none;
+  position: fixed;
+  z-index: 10100;
+  inset: 0;
+  background: rgba(10, 10, 20, 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.advanced-dialog-backdrop.open {
+  display: flex;
+  animation: advBackdropIn 0.18s ease;
+}
+
+@keyframes advBackdropIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Dialog ard */
+.advanced-dialog {
+  background: #fff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 480px;
+  max-height: 86vh;
+  overflow-y: auto;
+  box-shadow:
+    0 2px 4px rgba(0,0,0,0.04),
+    0 8px 24px rgba(0,0,0,0.12),
+    0 32px 64px rgba(0,0,0,0.18);
+  position: relative;
+  scrollbar-width: thin;
+  scrollbar-color: #e0e0e0 transparent;
+  animation: advDialogIn 0.22s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+@keyframes advDialogIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+
+body.dark-mode .advanced-dialog {
+  background: #1c1c2a;
+  scrollbar-color: #333 transparent;
+}
+
+/* Dialog Header */
+.advanced-dialog-header {
+  padding: 20px 20px 0 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.advanced-dialog-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #d8dae4, #c7c9d1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+}
+
+body.dark-mode .advanced-dialog-icon {
+  background: linear-gradient(135deg, #3e4054, #2e3048);
+}
+
+.advanced-dialog-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111;
+  margin: 0 0 1px;
+  line-height: 1.2;
+}
+
+body.dark-mode .advanced-dialog-title {
+  color: #eeeef8;
+}
+
+.advanced-dialog-subtitle {
+  font-size: 11px;
+  color: #9a9aaa;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+/* Close Button */
+.advanced-dialog-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid #e8e8ee;
+  background: #f5f5f7;
+  color: #666;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.advanced-dialog-close:hover {
+  background: #fee2e2;
+  border-color: #fca5a5;
+  color: #dc2626;
+}
+
+body.dark-mode .advanced-dialog-close {
+  background: #2a2a3c;
+  border-color: #3a3a55;
+  color: #888;
+}
+
+body.dark-mode .advanced-dialog-close:hover {
+  background: #3d1a1a;
+  border-color: #7f2020;
+  color: #f87171;
+}
+
+/* Divider */
+.advanced-dialog-divider {
+  height: 1px;
+  background: #f0f0f5;
+  margin: 16px 0 0;
+}
+
+body.dark-mode .advanced-dialog-divider {
+  background: #2a2a3c;
+}
+
+/* Dialog Body */
+.advanced-dialog-body {
+  padding: 16px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Section Label */
+.advanced-dialog-section-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #aaa;
+  padding: 0 0 6px;
+}
+
+body.dark-mode .advanced-dialog-section-label {
+  color: #555;
+}
+
+/* Gradient Slot Card*/
+.gradient-slot {
+  border-radius: 12px;
+  border: 1px solid #ebebf0;
+  background: #fafafa;
+  overflow: hidden;
+}
+
+body.dark-mode .gradient-slot {
+  background: #1a1a28;
+  border-color: #2a2a40;
+}
+
+/* Top row: label + color input + status badge */
+.gradient-slot-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-bottom: 1px solid #f0f0f5;
+}
+
+body.dark-mode .gradient-slot-top {
+  border-bottom-color: #252535;
+}
+
+.gradient-slot-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #222;
+  flex: 1;
+}
+
+body.dark-mode .gradient-slot-label {
+  color: #d0d0e0;
+}
+
+/* Native color input inside the dialog */
+.gradient-slot-color {
+  width: 32px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  padding: 2px;
+  cursor: pointer;
+  background: none;
+  flex-shrink: 0;
+}
+
+body.dark-mode .gradient-slot-color {
+  border-color: #444;
+}
+
+/* Status Badge */
+.gradient-slot-status {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 10px;
+  background: #f0f0f5;
+  color: #aaa;
+  border: 1px solid #e0e0e8;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.gradient-slot-status.loaded {
+  background: #ecfdf5;
+  color: #059669;
+  border-color: #a7f3d0;
+}
+
+body.dark-mode .gradient-slot-status {
+  background: #1e1e30;
+  border-color: #2e2e48;
+  color: #555;
+}
+
+body.dark-mode .gradient-slot-status.loaded {
+  background: #052e1a;
+  border-color: #065f34;
+  color: #34d399;
+}
+
+/* Bottom row: gradient preview bar + actions */
+.gradient-slot-bottom {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+}
+
+/* Wide gradient preview strip */
+.gradient-slot-preview {
+  flex: 1;
+  height: 26px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e8;
+  background: repeating-linear-gradient(
+    45deg,
+    #e8e8e8 0px, #e8e8e8 6px,
+    #f5f5f5 6px, #f5f5f5 12px
+  ); /* checkerboard = no gradient loaded */
+  transition: background 0.3s;
+  min-width: 60px;
+}
+
+body.dark-mode .gradient-slot-preview {
+  border-color: #333;
+  background: repeating-linear-gradient(
+    45deg,
+    #222 0px, #222 6px,
+    #2a2a2a 6px, #2a2a2a 12px
+  );
+}
+
+/* Upload label styled as small button */
+.gradient-slot-upload {
+  padding: 5px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  border: 1px solid #d8dae4;
+  border-radius: 6px;
+  background: #f0f1f6;
+  color: #444;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s, border-color 0.15s;
+  flex-shrink: 0;
+}
+
+.gradient-slot-upload:hover {
+  background: #e4e5ef;
+  border-color: #c0c2d0;
+}
+
+body.dark-mode .gradient-slot-upload {
+  background: #25263a;
+  border-color: #363755;
+  color: #b0b2c8;
+}
+
+body.dark-mode .gradient-slot-upload:hover {
+  background: #2e3048;
+}
+
+/* Clear button */
+.gradient-slot-clear {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e8;
+  background: transparent;
+  color: #bbb;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  flex-shrink: 0;
+}
+
+.gradient-slot-clear:hover {
+  background: #fee2e2;
+  border-color: #fca5a5;
+  color: #dc2626;
+}
+
+body.dark-mode .gradient-slot-clear {
+  border-color: #333;
+  color: #555;
+}
+
+body.dark-mode .gradient-slot-clear:hover {
+  background: #3d1a1a;
+  border-color: #7f2020;
+  color: #f87171;
+}
+
+/* Apply button */
+.advanced-dialog-apply {
+  margin-top: 6px;
+  padding: 11px 0;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #2d9dda, #1a7fc1);
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(45,157,218,0.3);
+  transition: background 0.18s, box-shadow 0.18s, transform 0.1s;
+}
+
+.advanced-dialog-apply:hover {
+  background: linear-gradient(135deg, #1a88c5, #136ba8);
+  box-shadow: 0 4px 14px rgba(45,157,218,0.4);
+  transform: translateY(-1px);
+}
+
+.advanced-dialog-apply:active {
+  transform: translateY(0);
+}
+
+body.dark-mode .advanced-dialog-apply {
+  background: linear-gradient(135deg, #1e6fa0, #155c87);
+  box-shadow: 0 2px 8px rgba(30,111,160,0.4);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .advanced-dialog {
+    max-width: 98vw;
+    border-radius: 16px;
+  }
+  .advanced-dialog-body { padding: 14px 16px 18px; }
+  .gradient-slot-top    { padding: 9px 10px; }
+  .gradient-slot-bottom { padding: 7px 10px; }
+}
+
+/* Library browse button (inside gradient slot) */
+.gradient-slot-lib {
+  padding: 0 8px;
+  height: 26px;
+  border-radius: 6px;
+  border: 1px solid #d8dae4;
+  background: #f0f1f6;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #444;
+  white-space: nowrap;
+}
+.gradient-slot-lib:hover {
+  background: #e8f5ff;
+  border-color: #2d9dda;
+  color: #1a6fa0;
+}
+body.dark-mode .gradient-slot-lib { background: #25263a; border-color: #363755; color: #aaa; }
+body.dark-mode .gradient-slot-lib:hover { background: #1a2a3a; border-color: #3b82f6; color: #7dd3f8; }
+
+/* ============================================================
+   SHARED TEMPLATE BROWSER MODAL
+
+   - Used by openTemplateBrowser() in tools_shared.js.
+   - Mirrors the gradient tool's template picker exactly.
+   - The modal uses .tool-modal / .tool-modal-content for the backdrop + container (already defined above),
+     plus these inner classes for the grid content.
+   ============================================================ */
+
+.tmpl-modal-content {
+  max-width: 640px;
+  padding: 0;
+  position: relative;
+}
+
+.tmpl-modal-content h2 {
+  margin: 0;
+  padding: 18px 22px 14px;
+  border-bottom: 1px solid #eee;
+  font-size: 18px;
+}
+body.dark-mode .tmpl-modal-content h2 { border-bottom-color: #333; }
+
+.tmpl-modal-content .tool-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+}
+
+/* Grid */
+.tmpl-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px 22px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 60vh;
+}
+
+.tmpl-grid.tmpl-series-view {
+  gap: 6px;
+}
+
+/* Series cards */
+.tmpl-series-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fafafa;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  width: 100%;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.tmpl-series-card:hover {
+  border-color: #2D9CDB;
+  background: #e8f5ff;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(45,156,219,0.15);
+}
+body.dark-mode .tmpl-series-card { background: #2a2a2a; border-color: #444; }
+body.dark-mode .tmpl-series-card:hover { background: #1a3a4a; border-color: #2D9CDB; }
+
+.tmpl-series-name  { font-size: 15px; font-weight: 600; color: #222; flex: 1; }
+body.dark-mode .tmpl-series-name { color: #eee; }
+.tmpl-series-count { font-size: 12px; color: #888; }
+body.dark-mode .tmpl-series-count { color: #666; }
+.tmpl-series-arrow { font-size: 18px; color: #bbb; margin-left: 4px; }
+body.dark-mode .tmpl-series-arrow { color: #555; }
+
+/* Template list view */
+.tmpl-grid.tmpl-templates-view {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+}
+
+.tmpl-back-btn {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 13px;
+  color: #2D9CDB;
+  cursor: pointer;
+  padding: 4px 0 10px;
+  font-weight: 600;
+  transition: color 0.15s;
+}
+.tmpl-back-btn:hover { color: #1a6fa0; }
+body.dark-mode .tmpl-back-btn { color: #7dd3f8; }
+
+.tmpl-series-heading {
+  margin: 0 0 12px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #222;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+body.dark-mode .tmpl-series-heading { color: #eee; border-bottom-color: #333; }
+
+.tmpl-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Template pill — same style as gradient tool */
+.tmpl-card {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fafafa;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  color: #333;
+  transition: transform 0.15s, box-shadow 0.15s;
+  white-space: nowrap;
+}
+.tmpl-card:hover {
+  border-color: #2D9CDB;
+  background: #e8f5ff;
+  color: #1a6fa0;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(45,156,219,0.2);
+}
+body.dark-mode .tmpl-card { background: #2a2a2a; border-color: #444; color: #ddd; }
+body.dark-mode .tmpl-card:hover { border-color: #2D9CDB; background: #1a3a4a; color: #7dd3f8; }
+
+.tmpl-loading {
+  color: #aaa;
+  font-size: 14px;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .tmpl-modal-content { width: 95%; }
+}
+
+/* ============================================================
+   ADVANCED DIALOG — generic control widgets
+   Reusable by any tool's advanced panel.
+   ============================================================ */
+
+/* Card container for a group of controls */
+.advanced-control-card {
+  border-radius: 10px;
+  border: 1px solid #ebebf0;
+  background: #fafafa;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+body.dark-mode .advanced-control-card {
+  background: #1a1a28;
+  border-color: #2a2a40;
+}
+
+/* A single label + control row */
+.advanced-control-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.advanced-control-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  flex: 0 0 110px;
+  white-space: nowrap;
+}
+body.dark-mode .advanced-control-label { color: #ccc; }
+
+.advanced-control-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+}
+
+.advanced-control-desc {
+  font-size: 12px;
+  color: #888;
+  margin: 0 0 10px;
+  line-height: 1.4;
+}
+body.dark-mode .advanced-control-desc { color: #666; }
+
+.advanced-control-hint {
+  font-size: 11px;
+  color: #aaa;
+  margin: 4px 0 0;
+  line-height: 1.4;
+}
+body.dark-mode .advanced-control-hint { color: #555; }
+
+.advanced-unit {
+  font-size: 12px;
+  color: #aaa;
+  flex-shrink: 0;
+}
+
+/* Slider — full-width inside advanced-control-right */
+.advanced-slider {
+  flex: 1;
+  min-width: 80px;
+  cursor: pointer;
+  accent-color: #2d9dda;
+}
+
+/* Small number input next to slider */
+.advanced-num-input {
+  width: 52px;
+  padding: 4px 6px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: inherit;
+  text-align: center;
+  background: #fff;
+  color: #222;
+  flex-shrink: 0;
+}
+body.dark-mode .advanced-num-input {
+  background: #111120;
+  border-color: #333;
+  color: #ddd;
+}
+
+/* Radio group for mode toggles */
+.advanced-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.advanced-radio-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: background 0.15s, border-color 0.15s;
+}
+.advanced-radio-label:has(input:checked) {
+  background: #edf6ff;
+  border-color: #b3d9f5;
+}
+body.dark-mode .advanced-radio-label:has(input:checked) {
+  background: #0d2035;
+  border-color: #1a4a6e;
+}
+.advanced-radio-label input[type="radio"] {
+  margin-top: 3px;
+  accent-color: #2d9dda;
+  flex-shrink: 0;
+}
+.advanced-radio-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.advanced-radio-text strong {
+  font-size: 13px;
+  color: #222;
+}
+body.dark-mode .advanced-radio-text strong { color: #eee; }
+.advanced-radio-text span {
+  font-size: 11px;
+  color: #888;
+  line-height: 1.4;
+}
+body.dark-mode .advanced-radio-text span { color: #666; }
+
+/* ============================================================
+   ADVANCED DIALOG — collapsible sections
+   ============================================================ */
+
+.advanced-section {
+  border-radius: 10px;
+  border: 1px solid #e8e8f0;
+  background: transparent;
+  overflow: hidden;
+}
+body.dark-mode .advanced-section { border-color: #2a2a40; }
+
+.advanced-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #888;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  gap: 8px;
+  background: #f5f5fa;
+  border-radius: 10px;
+  transition: background 0.15s, color 0.15s;
+}
+body.dark-mode .advanced-section-header {
+  background: #1e1e2e;
+  color: #555;
+}
+.advanced-section-header:hover {
+  background: #eeeef8;
+  color: #666;
+}
+body.dark-mode .advanced-section-header:hover {
+  background: #23233a;
+  color: #777;
+}
+
+/* The chevron indicator */
+.advanced-section-header::after {
+  content: '›';
+  font-size: 16px;
+  font-weight: 400;
+  color: #bbb;
+  transition: transform 0.2s ease;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+body.dark-mode .advanced-section-header::after { color: #444; }
+
+.advanced-section[open] > .advanced-section-header {
+  border-radius: 10px 10px 0 0;
+  background: #f0f0fa;
+}
+body.dark-mode .advanced-section[open] > .advanced-section-header { background: #1a1a2e; }
+
+.advanced-section[open] > .advanced-section-header::after {
+  transform: rotate(90deg);
+}
+
+/* Remove default <details> marker in all browsers */
+.advanced-section-header::-webkit-details-marker { display: none; }
+.advanced-section-header::marker { display: none; content: ''; }
+
+.advanced-section-body {
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid #e8e8f0;
+}
+body.dark-mode .advanced-section-body { border-top-color: #2a2a40; }

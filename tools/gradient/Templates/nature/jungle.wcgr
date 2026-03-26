@@ -1,0 +1,39 @@
+{
+  "name": "Jungle",
+  "type": "linear",
+  "angle": 160,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 10,
+  "ratioH": 16,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#1b5e20"
+    },
+    {
+      "pos": 0.3,
+      "color": "#2e7d32"
+    },
+    {
+      "pos": 0.6,
+      "color": "#558b2f"
+    },
+    {
+      "pos": 1,
+      "color": "#33691e"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

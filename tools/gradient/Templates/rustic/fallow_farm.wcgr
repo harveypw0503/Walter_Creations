@@ -1,0 +1,43 @@
+{
+  "name": "Fallow Farm",
+  "type": "linear",
+  "angle": 180,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 16,
+  "ratioH": 9,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#c0a870"
+    },
+    {
+      "pos": 0.3,
+      "color": "#a08050"
+    },
+    {
+      "pos": 0.55,
+      "color": "#786038"
+    },
+    {
+      "pos": 0.75,
+      "color": "#504020"
+    },
+    {
+      "pos": 1,
+      "color": "#302010"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

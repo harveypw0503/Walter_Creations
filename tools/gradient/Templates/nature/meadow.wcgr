@@ -1,0 +1,39 @@
+{
+  "name": "Meadow",
+  "type": "linear",
+  "angle": 90,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 16,
+  "ratioH": 9,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#87ceeb"
+    },
+    {
+      "pos": 0.45,
+      "color": "#c5e8a0"
+    },
+    {
+      "pos": 0.5,
+      "color": "#7ec850"
+    },
+    {
+      "pos": 1,
+      "color": "#4a9020"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

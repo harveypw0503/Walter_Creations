@@ -1,0 +1,43 @@
+{
+  "name": "Coral Reef",
+  "type": "linear",
+  "angle": 93,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 9,
+  "ratioH": 16,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#006994"
+    },
+    {
+      "pos": 0.3,
+      "color": "#0099b8"
+    },
+    {
+      "pos": 0.6,
+      "color": "#00c8a0"
+    },
+    {
+      "pos": 0.8,
+      "color": "#ff7043"
+    },
+    {
+      "pos": 1,
+      "color": "#ff8c69"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

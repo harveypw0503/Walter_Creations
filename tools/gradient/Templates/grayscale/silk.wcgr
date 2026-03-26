@@ -1,0 +1,39 @@
+{
+  "name": "Silk",
+  "type": "reflected",
+  "angle": 30,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 10,
+  "ratioH": 6,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#f0f0f0"
+    },
+    {
+      "pos": 0.4,
+      "color": "#c8c8c8"
+    },
+    {
+      "pos": 0.6,
+      "color": "#ffffff"
+    },
+    {
+      "pos": 1,
+      "color": "#d8d8d8"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

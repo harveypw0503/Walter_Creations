@@ -1,0 +1,43 @@
+{
+  "name": "Cowboy",
+  "type": "linear",
+  "angle": 155,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 16,
+  "ratioH": 9,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#8b4513"
+    },
+    {
+      "pos": 0.25,
+      "color": "#c87941"
+    },
+    {
+      "pos": 0.5,
+      "color": "#6b3010"
+    },
+    {
+      "pos": 0.75,
+      "color": "#a0522d"
+    },
+    {
+      "pos": 1,
+      "color": "#3d1a08"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

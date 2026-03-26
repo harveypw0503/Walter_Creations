@@ -1,0 +1,31 @@
+{
+  "name": "Honeydew",
+  "type": "linear",
+  "angle": 90,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 10,
+  "ratioH": 10,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#f0fff4"
+    },
+    {
+      "pos": 1,
+      "color": "#b7e4c7"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

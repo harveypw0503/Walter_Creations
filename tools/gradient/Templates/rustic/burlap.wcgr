@@ -1,0 +1,39 @@
+{
+  "name": "Burlap",
+  "type": "reflected",
+  "angle": 45,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 10,
+  "ratioH": 8,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#c4a882"
+    },
+    {
+      "pos": 0.3,
+      "color": "#b89a70"
+    },
+    {
+      "pos": 0.6,
+      "color": "#ceb48c"
+    },
+    {
+      "pos": 1,
+      "color": "#a08060"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

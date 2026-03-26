@@ -1,0 +1,43 @@
+{
+  "name": "Copper",
+  "type": "reflected",
+  "angle": 60,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 10,
+  "ratioH": 4,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#7c3a1e"
+    },
+    {
+      "pos": 0.25,
+      "color": "#c87941"
+    },
+    {
+      "pos": 0.5,
+      "color": "#e8a870"
+    },
+    {
+      "pos": 0.75,
+      "color": "#c87941"
+    },
+    {
+      "pos": 1,
+      "color": "#7c3a1e"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

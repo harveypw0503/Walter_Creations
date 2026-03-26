@@ -1,0 +1,43 @@
+{
+  "name": "Synthwave",
+  "type": "linear",
+  "angle": 135,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 16,
+  "ratioH": 9,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#2b0a3d"
+    },
+    {
+      "pos": 0.25,
+      "color": "#7b1fa2"
+    },
+    {
+      "pos": 0.5,
+      "color": "#e91e8c"
+    },
+    {
+      "pos": 0.75,
+      "color": "#ff6d00"
+    },
+    {
+      "pos": 1,
+      "color": "#ffd600"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

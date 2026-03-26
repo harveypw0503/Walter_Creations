@@ -1,0 +1,43 @@
+{
+  "name": "Iron",
+  "type": "reflected",
+  "angle": 90,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 10,
+  "ratioH": 4,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#1c1c1c"
+    },
+    {
+      "pos": 0.2,
+      "color": "#707070"
+    },
+    {
+      "pos": 0.5,
+      "color": "#e8e8e8"
+    },
+    {
+      "pos": 0.8,
+      "color": "#707070"
+    },
+    {
+      "pos": 1,
+      "color": "#1c1c1c"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

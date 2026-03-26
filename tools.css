@@ -1,4 +1,4 @@
-/* ===== Tools (tools.html) CSS ===== */
+/* ===== Tools Page ===== */
 
 .tools-page {
   padding: 2rem;
@@ -13,10 +13,10 @@
 .tools-page p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
-  color: #555;
+  color: var(--text-muted);
 }
 
-/* Tool Container Grid */
+/* Tool grid */
 .tools-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -24,18 +24,20 @@
   padding: 1rem;
 }
 
-/* Individual Tool Card */
+/* Tool card — uses shared .card variables */
 .tool-box {
-  background: #fff;
+  background: var(--card-bg);
   padding: 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--card-shadow);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.tool-box:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+@media (hover: hover) and (pointer: fine) {
+  .tool-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  }
 }
 
 .tool-box h3 {
@@ -43,11 +45,10 @@
   font-size: 1.4rem;
 }
 
-/* Button */
 .tool-box .btn {
   display: inline-block;
   padding: 0.6rem 1.2rem;
-  background: #2d9dda;
+  background: var(--accent);
   color: #fff;
   border-radius: 6px;
   text-decoration: none;
@@ -55,115 +56,10 @@
 }
 
 .tool-box .btn:hover {
-   background: #136ea3;
+  background: var(--accent-dark);
 }
 
-/* Dark Mode */
-body.dark-mode .tools-page p {
-  color: #ccc;
-}
-
-body.dark-mode .tool-box {
-  background: #1e1e1e;
-  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05);
-}
-
-body.dark-mode .tool-box .btn {
-  background: #2d9dda;
-  color: #fff;
-}
-
-body.dark-mode .tool-box .btn:hover {
-   background: #136ea3;
-}
-
-
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
-
-  /* ===== Tools Page Mobile Styles ===== */
-
-  .tools-page {
-    padding: 1.5rem;
-    text-align: center;
-  }
-
-  .tools-page h1 {
-    font-size: 2rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .tools-page p {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-    color: #555;
-  }
-
-  /* Tool Container Grid */
-  .tools-container {
-    display: grid;
-    grid-template-columns: 1fr; /* stack on mobile */
-    gap: 1rem;
-    padding: 0.5rem;
-  }
-
-  /* Individual Tool Card */
-  .tool-box {
-    background: #fff;
-    padding: 1rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    .tool-box:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
-    }
-  }
-
-  .tool-box h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.75rem;
-  }
-
-  /* Button */
-  .tool-box .btn {
-    padding: 0.5rem 1rem;
-    font-size: 0.95rem;
-    border-radius: 5px;
-  }
-
-  .tool-box .btn:hover {
-    /* only apply hover on devices with pointer */
-    @media (hover: hover) and (pointer: fine) {
-      background: #136ea3;
-    }
-  }
-
-  /*  Dark Mode */
-  body.dark-mode .tools-page p {
-    color: #ccc;
-  }
-
-  body.dark-mode .tool-box {
-    background: #1e1e1e;
-    box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05);
-  }
-
-  body.dark-mode .tool-box .btn {
-    background: #2d9dda;
-    color: #fff;
-  }
-
-  body.dark-mode .tool-box .btn:hover {
-    background: #136ea3;
-  }
-
-}
-
-/* External tools subtly different */
+/* External tools — subtle background difference */
 #other-tools-container .tool-box {
   background: linear-gradient(180deg, #fafafa, #f2f2f2);
 }
@@ -172,18 +68,41 @@ body.dark-mode #other-tools-container .tool-box {
   background: linear-gradient(180deg, #2a2a2a, #222);
 }
 
-/* CATEGORY HEADINGS INSIDE TOOL GRID */
+/* Category headings inside grid */
 #other-tools-container > h3 {
-  grid-column: 1 / -1; /* THIS IS THE MAGIC */
-  
+  grid-column: 1 / -1;
   font-size: 1.75rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-
   margin: 3rem 0 1rem;
   padding-left: 1rem;
+  border-left: 4px solid var(--accent);
+  color: var(--text);
+}
 
-  border-left: 4px solid var(--accent-color);
-  color: var(--text-primary);
+/* Mobile */
+@media (max-width: 768px) {
+  .tools-page { padding: 1.5rem; }
+
+  .tools-page h1 { font-size: 2rem; margin-bottom: 0.75rem; }
+  .tools-page p  { font-size: 1rem; margin-bottom: 1.5rem; }
+
+  .tools-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+
+  .tool-box {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .tool-box h3 { font-size: 1.2rem; margin-bottom: 0.75rem; }
+
+  .tool-box .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.95rem;
+  }
 }

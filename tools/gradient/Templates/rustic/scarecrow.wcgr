@@ -1,0 +1,47 @@
+{
+  "name": "Scarecrow",
+  "type": "linear",
+  "angle": 170,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 9,
+  "ratioH": 16,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#d4a030"
+    },
+    {
+      "pos": 0.2,
+      "color": "#a87820"
+    },
+    {
+      "pos": 0.45,
+      "color": "#c89840"
+    },
+    {
+      "pos": 0.65,
+      "color": "#7a5018"
+    },
+    {
+      "pos": 0.85,
+      "color": "#503010"
+    },
+    {
+      "pos": 1,
+      "color": "#2a1808"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

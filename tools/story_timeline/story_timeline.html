@@ -5,13 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Story Timeline Organizer - Walter Creations</title>
 
-  <!-- Favicon + Manifest -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-
   <!-- External Library -->
   <script src="https://unpkg.com/docx@8.5.0/build/index.js"></script>
 
@@ -29,52 +22,117 @@
   <div id="navbar"></div>
 
   <main class="tool-page">
-    <h1 class="tool-title">Story Timeline Organizer</h1>
+    <div class="tool-title-row">
+      <h1 class="tool-title">Story Timeline Organizer</h1>
+      <button class="tool-info-btn" onclick="openToolInfo()" title="About this tool">ℹ</button>
+    </div>
     <p class="tool-subtitle">Organize your story events, chapters, and books with drag-and-drop</p>
+
+    <!-- Info Modal -->
+    <div class="tool-info-modal" id="info-modal">
+      <div class="tool-info-modal-box">
+        <button class="tool-info-modal-close" onclick="closeToolInfo()">✕</button>
+        <div class="tool-info-modal-header">
+          <div class="tool-info-modal-icon">📖</div>
+          <div>
+            <div class="tool-info-modal-title">Story Timeline Organizer</div>
+            <div class="tool-info-modal-category">Utilities & Misc</div>
+          </div>
+        </div>
+        <div class="tool-info-modal-divider"></div>
+        <div class="tool-info-modal-body">
+
+          <div>
+            <div class="tool-info-modal-section-label">What it does</div>
+            <p class="tool-info-modal-desc">
+              The Story Timeline Organizer helps organize events, chapter, and books in a coherent and chronological order.
+              It is useful for authors, writers, storyboarding, video production, and so much more.
+              The tool is designed to help storytellers get their ideas and important events down in chronological order
+              while being able to store ideas and events in a Parking Lot until they can be revisited.
+              You can create different blocks (Books, Chapters, Events) and allot details to each block.
+              You can also reorder the blocks by dragging and dropping them.
+              Download as a JSON to revisit your project later or export your timeline as a DOCX or TXT to share with others.
+            </p>
+          </div>
+
+          <div>
+            <div class="tool-info-modal-section-label">How to use</div>
+            <div class="tool-info-steps">
+              <div class="tool-info-step">
+                <div class="tool-info-step-num">1</div>
+                <div class="tool-info-step-text">Enter your Project Name at the top to name your story or series.</div>
+              </div>
+              <div class="tool-info-step">
+                <div class="tool-info-step-num">2</div>
+                <div class="tool-info-step-text">Use Add Book, Add Chapter, and Add Event to build out your the different parts of your timeline. You can name your blocks and drag and drop the blocks to reorder them by clicking the handle on the right side of the block.</div>
+              </div>
+              <div class="tool-info-step">
+                <div class="tool-info-step-num">3</div>
+                <div class="tool-info-step-text"> You can delete items by clicking the trash icon next to them, move them to the Parking Lot for later by clicking the car icon, you can convert each block to a different type using the convert icon, and you can give each block a detail and descriptions by clicking the carrot option to reveal a details box</div>
+              </div>
+              <div class="tool-info-step">
+                <div class="tool-info-step-num">4</div>
+                <div class="tool-info-step-text">You can recover deleted items from the Recycle Bin and retrieve items from the Parking Lot at any time. Items recovered and retrieved from these places are restored to where they were before being deleted or parked.</div>
+              </div>
+              <div class="tool-info-step">
+                <div class="tool-info-step-num">5</div>
+                <div class="tool-info-step-text">When done be sure to save you work as a JSON file so you can come back and work on it later. You can also save it as a DOCX or TXT.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tool-info-tip">
+            <span>💡</span>
+            <span>Just because the blocks are called Book, Chapter, and Event doesn't mean that is what they have to be. If you are storyboarding a movie or play, you can use Book blocks for acts, Chapter blocks for scenes, and Event blocks for specific actions or plot points.</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
 
     <!-- Project Name -->
     <div class="tool-controls">
       <label class="control-label control-full-width">
         Project Name
-        <input id="projectName" type="text" placeholder="Enter your project name" class="control-input">
+        <input id="project-name" type="text" placeholder="Enter your project name" class="control-input">
       </label>
     </div>
 
     <!-- Add Buttons -->
     <div class="tool-actions">
-      <button class="tool-button event-btn" onclick="addItem('event')">Add Event</button>
-      <button class="tool-button chapter-btn" onclick="addItem('chapter')">Add Chapter</button>
-      <button class="tool-button book-btn" onclick="addItem('book')">Add Book</button>
-      <button class="tool-button parking-btn" onclick="openParkingModal()">Parking Lot</button>
-      <button class="tool-button recycle-btn" onclick="openRecycleModal()">Recycle Bin</button>
+      <button class="tool-button event-button" onclick="addItem('event')">Add Event</button>
+      <button class="tool-button chapter-button" onclick="addItem('chapter')">Add Chapter</button>
+      <button class="tool-button book-button" onclick="addItem('book')">Add Book</button>
+      <button class="tool-button parking-button" onclick="openParkingModal()">Parking Lot</button>
+      <button class="tool-button recycle-button" onclick="openRecycleModal()">Recycle Bin</button>
     </div>
 
     <!-- Numbering Controls (Collapsible on mobile) -->
-    <details class="numbering-section" open>
-      <summary class="numbering-summary">Numbering Options</summary>
-      <div class="numbering-controls">
-        <label class="toggle-label">
-          <input type="checkbox" id="numberBooksToggle" checked onchange="toggleNumber('book')">
-          <span class="toggle-slider"></span>
+    <details class="tool-collapsible" open>
+      <summary class="tool-collapsible-summary">Numbering Options</summary>
+      <div class="tool-collapsible-body">
+        <label class="tool-toggle-switch">
+          <input type="checkbox" id="number-books-toggle" checked onchange="toggleNumber('book')">
+          <span class="tool-toggle-track"></span>
           Number Books
         </label>
-        <label class="toggle-label">
-          <input type="checkbox" id="numberChaptersToggle" checked onchange="toggleNumber('chapter')">
-          <span class="toggle-slider"></span>
+        <label class="tool-toggle-switch">
+          <input type="checkbox" id="number-chapters-toggle" checked onchange="toggleNumber('chapter')">
+          <span class="tool-toggle-track"></span>
           Number Chapters
         </label>
-        <label class="toggle-label">
-          <input type="checkbox" id="numberEventsToggle" checked onchange="toggleNumber('event')">
-          <span class="toggle-slider"></span>
+        <label class="tool-toggle-switch">
+          <input type="checkbox" id="number-events-toggle" checked onchange="toggleNumber('event')">
+          <span class="tool-toggle-track"></span>
           Number Events
         </label>
       </div>
     </details>
 
     <!-- Export/Import Controls (Collapsible) -->
-    <details class="export-section">
-      <summary class="export-summary">Import/Export Options</summary>
-      <div class="tool-actions export-actions">
+    <details class="tool-collapsible">
+      <summary class="tool-collapsible-summary">Import/Export Options</summary>
+      <div class="tool-collapsible-body">
         <button class="tool-button" onclick="exportJSON()">Export JSON</button>
         <button class="tool-button" onclick="importJSON()">Import JSON</button>
         <button class="tool-button" onclick="exportTXT()">Export TXT</button>
@@ -82,7 +140,7 @@
       </div>
     </details>
 
-    <!-- Main Content Area - Timeline Only (No Parking Lot) -->
+    <!-- Main Content Area -->
     <div class="content-row">
       <div class="timeline-container">
         <h2 class="section-heading">Timeline</h2>
@@ -91,34 +149,57 @@
     </div>
 
     <!-- Parking Lot Modal -->
-    <div id="parkingModal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeParkingModal()">&times;</span>
+    <div id="parking-modal" class="tool-modal">
+      <div class="tool-modal-content">
+        <span class="tool-modal-close" onclick="closeParkingModal()">&times;</span>
         <h2>Parking Lot</h2>
-        <p class="modal-description">Items parked here are saved but not in your main timeline.</p>
+        <p class="tool-modal-desc">Items parked here are saved but not in your main timeline.</p>
         <div class="droppable" id="parking"></div>
       </div>
     </div>
 
     <!-- Recycle Bin Modal -->
-    <div id="recycleModal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeRecycleModal()">&times;</span>
+    <div id="recycle-modal" class="tool-modal">
+      <div class="tool-modal-content">
+        <span class="tool-modal-close" onclick="closeRecycleModal()">&times;</span>
         <h2>Recycle Bin</h2>
-        <div class="droppable" id="recycleBin"></div>
+        <div class="droppable" id="recycle-bin"></div>
         <div class="tool-actions">
           <button class="tool-button" onclick="emptyRecycle()">Empty Bin</button>
         </div>
       </div>
     </div>
+
+    <!-- Advanced Tooling Dialog -->
+    <div class="advanced-dialog-backdrop" id="advanced-dialog-backdrop">
+      <div class="advanced-dialog" role="dialog" aria-modal="true">
+        <button type="button" class="advanced-dialog-close" onclick="closeAdvancedDialog()">✕</button>
+        <div class="advanced-dialog-header">
+          <div class="advanced-dialog-icon">📖</div>
+          <div>
+            <p class="advanced-dialog-title">Advanced: Story Timeline</p>
+            <p class="advanced-dialog-subtitle">Colors &amp; gradient overrides</p>
+          </div>
+        </div>
+        <div class="advanced-dialog-divider"></div>
+        <div class="advanced-dialog-body">
+          <div class="advanced-dialog-section-label">Color Slots</div>
+      <p style="font-size:13px;color:#999;text-align:center;padding:8px 0;">No color slots for this tool.</p>
+          <button type="button" class="advanced-dialog-apply" onclick="applyAdvancedSettings()">Apply &amp; Re-generate</button>
+        </div>
+      </div>
+    </div>
   </main>
 
-<div id="footer"></div>
+  <!-- Footer -->
+  <div id="footer"></div>
 
   <!-- Global JS (navbar + footer + dark mode) -->
   <script src="../../global.js"></script>
   <!-- External Library for DOCX -->
   <script src="https://unpkg.com/docx@8.5.0/build/index.umd.js"></script>
+  <!-- Shared Tool JS -->
+  <script src="../tools_shared.js"></script>
   <!-- Tool Specific JS -->
   <script src="story_timeline.js"></script>
 </body>

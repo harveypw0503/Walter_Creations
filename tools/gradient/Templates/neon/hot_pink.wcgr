@@ -1,0 +1,35 @@
+{
+  "name": "Hot Pink",
+  "type": "linear",
+  "angle": 120,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 10,
+  "ratioH": 10,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#ff006e"
+    },
+    {
+      "pos": 0.5,
+      "color": "#ff4d94"
+    },
+    {
+      "pos": 1,
+      "color": "#cc0055"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

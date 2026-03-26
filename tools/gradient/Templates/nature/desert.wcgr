@@ -1,0 +1,39 @@
+{
+  "name": "Desert",
+  "type": "linear",
+  "angle": 90,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 16,
+  "ratioH": 9,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#87ceeb"
+    },
+    {
+      "pos": 0.3,
+      "color": "#e8c88a"
+    },
+    {
+      "pos": 0.6,
+      "color": "#d4a055"
+    },
+    {
+      "pos": 1,
+      "color": "#c17a30"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

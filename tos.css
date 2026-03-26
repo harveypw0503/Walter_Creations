@@ -1,7 +1,4 @@
-/* Overall container breathing */
-.tos-page {
-  padding-bottom: 4rem; /* prevents hugging the footer */
-}
+/* ===== Terms of Use Page ===== */
 
 .tos-page {
   max-width: 900px;
@@ -9,26 +6,22 @@
   padding: 2.5rem 1.5rem 5rem;
 }
 
-/* Paragraph spacing */
 .tos-page p {
   line-height: 1.7;
   margin: 0.9rem 0;
-  max-width: 65ch; /* readable line length */
+  max-width: 65ch;
 }
 
-/* Sections */
 .tos-page section {
   margin-top: 3rem;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-/* Remove border from last section */
 .tos-page section:last-child {
   border-bottom: none;
 }
 
-/* Lists */
 .tos-page ul {
   margin: 1rem 0 1.25rem 1.25rem;
   padding-left: 1rem;
@@ -40,28 +33,26 @@
   line-height: 1.6;
 }
 
-/* Headings */
 .tos-page h2 {
-  color: #2D9CDB;
+  color: var(--accent);
   margin-bottom: 0.75rem;
   font-size: 1.35rem;
 }
 
-/* Subtle intro emphasis (optional) */
 .tos-page section:first-of-type p:first-child {
   font-size: 1.05rem;
 }
 
-/* Dark Mode */
+/* Dark mode */
 body.dark-mode .tos-page section {
   border-bottom-color: rgba(255, 255, 255, 0.12);
 }
 
 body.dark-mode .tos-page h2 {
-  color: #56CCF2;
+  color: var(--accent-light);
 }
 
-/* Mobile tweaks */
+/* Mobile */
 @media (max-width: 600px) {
   .tos-page {
     padding-left: 1rem;
@@ -70,11 +61,7 @@ body.dark-mode .tos-page h2 {
   }
 
   .tos-page p,
-  .tos-page ul {
-    max-width: 100%;
-  }
+  .tos-page ul { max-width: 100%; }
 
-  .tos-page h2 {
-    font-size: 1.25rem;
-  }
+  .tos-page h2 { font-size: 1.25rem; }
 }

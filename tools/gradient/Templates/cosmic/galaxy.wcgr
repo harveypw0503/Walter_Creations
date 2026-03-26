@@ -1,0 +1,47 @@
+{
+  "name": "Galaxy",
+  "type": "angle",
+  "angle": 20,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 10,
+  "ratioH": 10,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#0a0018"
+    },
+    {
+      "pos": 0.2,
+      "color": "#300060"
+    },
+    {
+      "pos": 0.4,
+      "color": "#600090"
+    },
+    {
+      "pos": 0.6,
+      "color": "#0040a0"
+    },
+    {
+      "pos": 0.8,
+      "color": "#002060"
+    },
+    {
+      "pos": 1,
+      "color": "#0a0018"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

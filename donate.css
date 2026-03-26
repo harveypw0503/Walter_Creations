@@ -1,0 +1,49 @@
+/* ===== Donate Page ===== */
+
+.donate-page {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.donate-intro {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin: 1.5rem 0 2rem;
+}
+
+.donate-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.donate-card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 16px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent);
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .donate-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.donate-note {
+  margin-top: 2rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+body.dark-mode .donate-card {
+  color: var(--accent-light);
+}

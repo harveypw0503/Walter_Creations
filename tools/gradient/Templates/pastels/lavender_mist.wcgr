@@ -1,0 +1,35 @@
+{
+  "name": "Lavender Mist",
+  "type": "radial",
+  "angle": 0,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 10,
+  "ratioH": 10,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#f3e8ff"
+    },
+    {
+      "pos": 0.6,
+      "color": "#dbb8f0"
+    },
+    {
+      "pos": 1,
+      "color": "#c084fc"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

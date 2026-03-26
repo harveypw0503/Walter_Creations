@@ -1,0 +1,51 @@
+{
+  "name": "Salt & Pepper",
+  "type": "reflected",
+  "angle": 30,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 10,
+  "ratioH": 10,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#111111"
+    },
+    {
+      "pos": 0.2,
+      "color": "#888888"
+    },
+    {
+      "pos": 0.35,
+      "color": "#222222"
+    },
+    {
+      "pos": 0.5,
+      "color": "#cccccc"
+    },
+    {
+      "pos": 0.65,
+      "color": "#333333"
+    },
+    {
+      "pos": 0.8,
+      "color": "#aaaaaa"
+    },
+    {
+      "pos": 1,
+      "color": "#111111"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

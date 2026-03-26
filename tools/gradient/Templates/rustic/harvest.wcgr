@@ -1,0 +1,39 @@
+{
+  "name": "Harvest",
+  "type": "linear",
+  "angle": 150,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 16,
+  "ratioH": 9,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#e8a020"
+    },
+    {
+      "pos": 0.3,
+      "color": "#c87818"
+    },
+    {
+      "pos": 0.6,
+      "color": "#a05010"
+    },
+    {
+      "pos": 1,
+      "color": "#6b3010"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Starfield",
+  "type": "radial",
+  "angle": 0,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 10,
+  "ratioH": 10,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#ffffff"
+    },
+    {
+      "pos": 0.05,
+      "color": "#aaaacc"
+    },
+    {
+      "pos": 0.2,
+      "color": "#202040"
+    },
+    {
+      "pos": 1,
+      "color": "#000000"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

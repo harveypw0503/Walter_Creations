@@ -1,0 +1,35 @@
+{
+  "name": "Matrix",
+  "type": "linear",
+  "angle": 180,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 9,
+  "ratioH": 16,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#00ff41"
+    },
+    {
+      "pos": 0.4,
+      "color": "#008f11"
+    },
+    {
+      "pos": 1,
+      "color": "#000000"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

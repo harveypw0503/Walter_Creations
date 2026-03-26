@@ -1,0 +1,35 @@
+{
+  "name": "Blossom",
+  "type": "linear",
+  "angle": 135,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 10,
+  "ratioH": 10,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#ffd6e0"
+    },
+    {
+      "pos": 0.5,
+      "color": "#ffb3c6"
+    },
+    {
+      "pos": 1,
+      "color": "#ff8fab"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

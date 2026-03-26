@@ -1,0 +1,23 @@
+{
+  "name": "Northern Lights",
+  "type": "linear",
+  "angle": 100,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 16,
+  "ratioH": 9,
+  "colorStops": [
+    { "pos": 0, "color": "#000428" },
+    { "pos": 0.2, "color": "#004e92" },
+    { "pos": 0.4, "color": "#00b09b" },
+    { "pos": 0.6, "color": "#96c93d" },
+    { "pos": 0.8, "color": "#00b09b" },
+    { "pos": 1, "color": "#000428" }
+  ],
+  "opacityStops": [
+    { "pos": 0, "opacity": 1 },
+    { "pos": 1, "opacity": 1 }
+  ]
+}

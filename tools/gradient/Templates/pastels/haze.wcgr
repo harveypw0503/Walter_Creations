@@ -1,0 +1,35 @@
+{
+  "name": "Haze",
+  "type": "linear",
+  "angle": 170,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 16,
+  "ratioH": 9,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#dde9f7"
+    },
+    {
+      "pos": 0.5,
+      "color": "#e8d5f5"
+    },
+    {
+      "pos": 1,
+      "color": "#fde8f0"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

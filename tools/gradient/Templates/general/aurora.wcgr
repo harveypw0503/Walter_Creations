@@ -1,0 +1,21 @@
+{
+  "name" : "Aurora",
+  "type": "linear",
+  "angle": 135,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 16,
+  "ratioH": 9,
+  "colorStops": [
+    { "pos": 0, "color": "#00c6ff" },
+    { "pos": 0.33, "color": "#0072ff" },
+    { "pos": 0.66, "color": "#7b2ff7" },
+    { "pos": 1, "color": "#f107a3" }
+  ],
+  "opacityStops": [
+    { "pos": 0, "opacity": 1 },
+    { "pos": 1, "opacity": 1 }
+  ]
+}

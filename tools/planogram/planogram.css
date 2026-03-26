@@ -1,4 +1,4 @@
-/* ===== Planogram-specific Styles ===== */
+/* ===== Planogram tool-specific styles =====*/
 .tool-preview {
   margin: 20px auto;
   max-width: 100%;
@@ -42,7 +42,7 @@
   margin: 20px 0;
 }
 
-/* ===== Dark Mode ===== */
+/* Dark Mode */
 body.dark-mode .control-input {
   background: #333;
   border: 1px solid #555;

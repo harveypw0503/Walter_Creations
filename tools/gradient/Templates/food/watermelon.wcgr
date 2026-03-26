@@ -1,0 +1,43 @@
+{
+  "name": "Watermelon",
+  "type": "radial",
+  "angle": 0,
+  "scaleX": 1.1,
+  "scaleY": 0.9,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 16,
+  "ratioH": 9,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#ff4444"
+    },
+    {
+      "pos": 0.5,
+      "color": "#cc2222"
+    },
+    {
+      "pos": 0.75,
+      "color": "#f0f0f0"
+    },
+    {
+      "pos": 0.85,
+      "color": "#40a020"
+    },
+    {
+      "pos": 1,
+      "color": "#206010"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Cyber",
+  "type": "linear",
+  "angle": 135,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 16,
+  "ratioH": 9,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#0a0a0a"
+    },
+    {
+      "pos": 0.3,
+      "color": "#1a0040"
+    },
+    {
+      "pos": 0.6,
+      "color": "#00ffcc"
+    },
+    {
+      "pos": 1,
+      "color": "#ff00aa"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

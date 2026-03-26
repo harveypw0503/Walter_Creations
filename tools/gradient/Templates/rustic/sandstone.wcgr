@@ -1,0 +1,43 @@
+{
+  "name": "Sandstone",
+  "type": "reflected",
+  "angle": 90,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 16,
+  "ratioH": 5,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#d4a96a"
+    },
+    {
+      "pos": 0.3,
+      "color": "#e8c090"
+    },
+    {
+      "pos": 0.5,
+      "color": "#c89060"
+    },
+    {
+      "pos": 0.7,
+      "color": "#e0b880"
+    },
+    {
+      "pos": 1,
+      "color": "#c8a060"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

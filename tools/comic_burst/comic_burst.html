@@ -5,13 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Comic Burst Generator - Walter Creations</title>
 
-  <!-- Favicon + Manifest -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-
   <!-- Global Styles -->
   <link rel="stylesheet" href="../../global.css">
   <!-- Shared Tool Styles -->
@@ -24,12 +17,71 @@
   <div id="navbar"></div>
 
   <main class="tool-page">
-    <h1 class="tool-title">Comic Burst Generator</h1>
+    <div class="tool-title-row">
+      <h1 class="tool-title">Comic Burst Generator</h1>
+      <button class="tool-info-btn" onclick="openToolInfo()" title="About this tool">ℹ</button>
+    </div>
+    <p class="tool-subtitle">Generate comic-style bursts with customizable settings and options; export as PNG or SVG</p>
 
+    <!-- Info Modal -->
+    <div class="tool-info-modal" id="info-modal">
+      <div class="tool-info-modal-box">
+        <button class="tool-info-modal-close" onclick="closeToolInfo()">✕</button>
+        <div class="tool-info-modal-header">
+          <div class="tool-info-modal-icon">💥</div>
+          <div>
+            <div class="tool-info-modal-title">Comic Burst Generator</div>
+            <div class="tool-info-modal-category">Generator</div>
+          </div>
+        </div>
+        <div class="tool-info-modal-divider"></div>
+        <div class="tool-info-modal-body">
+
+          <div>
+            <div class="tool-info-modal-section-label">What it does</div>
+            <p class="tool-info-modal-desc">
+              The Comic Burst Generator generates starburst and explosion shapes similar to classic
+              comic books and pop art. You have full control over length, color, spike count, randomness and other factors.
+              Export your result as PNG or scalable SVG.
+            </p>
+          </div>
+
+          <div>
+            <div class="tool-info-modal-section-label">How to use</div>
+            <div class="tool-info-steps">
+              <div class="tool-info-step">
+                <div class="tool-info-step-num">1</div>
+                <div class="tool-info-step-text">Pick a Burst Style: Organic Burst or Classic Sharp Burst.</div>
+              </div>
+              <div class="tool-info-step">
+                <div class="tool-info-step-num">2</div>
+                <div class="tool-info-step-text">Choose your colors, set Spike Count and lengths, then toggle the Black Outline on or off to suit your design.</div>
+              </div>
+              <div class="tool-info-step">
+                <div class="tool-info-step-num">3</div>
+                <div class="tool-info-step-text">Adjust randomness and angle jitter to your liking.</div>
+              </div>
+              <div class="tool-info-step">
+                <div class="tool-info-step-num">4</div>
+                <div class="tool-info-step-text">Hit Generate to render, then Download PNG or Download SVG to save your burst.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tool-info-tip">
+            <span>💡</span>
+            <span>By setting randomness and angle jitter all the way down, you can replicate the Classic Sharp Burst in the Organic Burst preset.</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls -->
     <div class="tool-controls">
       <label class="control-label">
         Burst Style
-        <select id="burstStyle" class="control-input">
+        <select id="burst-style" class="control-input">
           <option value="organic">Organic Burst</option>
           <option value="classic">Classic Sharp Burst</option>
         </select>
@@ -37,32 +89,32 @@
 
       <label class="control-label">
         Burst Color
-        <input type="color" id="burstColor" value="#ffffff" class="control-input">
+        <input type="color" id="burst-color" value="#FFD700" class="control-input" data-page-color-id="advanced-color-burst-color">
       </label>
 
       <label class="control-label">
-        <input type="checkbox" id="outlineToggle" checked>
+        <input type="checkbox" id="outline-toggle" checked>
         Black Outline
       </label>
 
       <label class="control-label">
         Outline Color
-        <input type="color" id="outlineColor" value="#000000" class="control-input">
+        <input type="color" id="outline-color" value="#000000" class="control-input" data-page-color-id="advanced-color-outline-color">
       </label>
 
       <label class="control-label">
         Spike Count
-        <input type="number" id="spikeCount" value="20" min="3" max="200" class="control-input">
+        <input type="number" id="spike-count" value="20" min="3" max="200" class="control-input">
       </label>
 
       <label class="control-label">
         Min Length
-        <input type="number" id="minLength" value="80" min="10" class="control-input">
+        <input type="number" id="min-length" value="80" min="10" class="control-input">
       </label>
 
       <label class="control-label">
         Max Length
-        <input type="number" id="maxLength" value="180" min="20" class="control-input">
+        <input type="number" id="max-length" value="180" min="20" class="control-input">
       </label>
 
       <label class="control-label">
@@ -72,23 +124,113 @@
 
       <label class="control-label">
         Angle Jitter
-        <input type="range" id="angleJitter" min="0" max="1" step="0.01" value="0.3" class="control-input">
+        <input type="range" id="angle-jitter" min="0" max="1" step="0.01" value="0.3" class="control-input">
       </label>
     </div>
 
     <div class="tool-actions">
-      <button id="generateBtn" class="tool-button">Generate</button>
-      <button id="downloadBtn" class="tool-button">Download PNG</button>
-      <button id="downloadSvgBtn" class="tool-button">Download SVG</button>
+      <button id="generate-button" class="tool-button">Generate</button>
+      <button id="download-png-button" class="tool-button">Download PNG</button>
+      <button id="download-svg-button" class="tool-button">Download SVG</button>
+    
+      <button id="advanced-open-button" class="advanced-button" onclick="openAdvancedDialog()" style="display:none">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="8" cy="8" r="2.5"/>
+          <path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M3.05 3.05l1.06 1.06M11.89 11.89l1.06 1.06M3.05 12.95l1.06-1.06M11.89 4.11l1.06-1.06" stroke-linecap="round"/>
+        </svg>
+        Advanced
+      </button>
     </div>
 
-    <canvas id="comicCanvas" width="600" height="600" class="tool-canvas"></canvas>
+    <canvas id="burst-canvas" width="600" height="600" class="tool-canvas"></canvas>
+
+    <!-- Advanced Tooling Dialog -->
+    <div class="advanced-dialog-backdrop" id="advanced-dialog-backdrop">
+      <div class="advanced-dialog" role="dialog" aria-modal="true">
+        <button type="button" class="advanced-dialog-close" onclick="closeAdvancedDialog()">✕</button>
+        <div class="advanced-dialog-header">
+          <div class="advanced-dialog-icon">💥</div>
+          <div>
+            <p class="advanced-dialog-title">Advanced: Comic Burst</p>
+            <p class="advanced-dialog-subtitle">Colors &amp; gradient overrides</p>
+          </div>
+        </div>
+        <div class="advanced-dialog-divider"></div>
+        <div class="advanced-dialog-body">
+
+          <!-- ── Tool Preset ── -->
+          <details class="advanced-section" id="advanced-section-preset" open>
+            <summary class="advanced-section-header">Tool Preset</summary>
+            <div class="advanced-section-body">
+              <div class="advanced-control-card">
+                <p class="advanced-control-desc">Save all settings and gradient slots to a <strong>.wctp</strong> file, or load a previously saved preset to restore them instantly.</p>
+                <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:8px;">
+                  <button type="button" class="tool-button" id="advanced-preset-download" style="flex:1; min-width:120px;">⬇ Download Preset</button>
+                  <label class="tool-button" style="flex:1; min-width:120px; text-align:center; cursor:pointer;" title="Load a .wctp preset file">
+                    ⬆ Load Preset
+                    <input type="file" id="advanced-preset-upload" accept=".wctp,application/json" style="display:none;">
+                  </label>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <!-- Gradient Slots -->
+          <details class="advanced-section" id="advanced-section-colors" open>
+            <summary class="advanced-section-header">Color Slots</summary>
+            <div class="advanced-section-body">
+      <div class="gradient-slot">
+        <div class="gradient-slot-top">
+          <span class="gradient-slot-label">Burst Fill Color</span>
+          <input type="color" class="gradient-slot-color" id="advanced-color-burst-color"
+                 value="#FFD700" data-syncs="burst-color">
+          <span class="gradient-slot-status" id="advanced-status-burst-color">No gradient</span>
+        </div>
+        <div class="gradient-slot-bottom">
+          <div class="gradient-slot-preview" id="advanced-preview-burst-color"></div>
+          <label class="gradient-slot-upload" title="Upload a .wcgr file">
+            ↑ .wcgr
+            <input type="file" accept=".wcgr,application/json" style="display:none"
+                   data-slot-id="burst-color" class="advanced-wcgr-input" data-page-color-id="advanced-color-burst-color">
+          </label>
+          <button type="button" class="gradient-slot-clear"
+                  data-slot-id="burst-color" title="Clear gradient">✕</button>
+        </div>
+      </div>
+      <div class="gradient-slot">
+        <div class="gradient-slot-top">
+          <span class="gradient-slot-label">Outline Color</span>
+          <input type="color" class="gradient-slot-color" id="advanced-color-outline-color"
+                 value="#000000" data-syncs="outline-color">
+          <span class="gradient-slot-status" id="advanced-status-outline-color">No gradient</span>
+        </div>
+        <div class="gradient-slot-bottom">
+          <div class="gradient-slot-preview" id="advanced-preview-outline-color"></div>
+          <label class="gradient-slot-upload" title="Upload a .wcgr file">
+            ↑ .wcgr
+            <input type="file" accept=".wcgr,application/json" style="display:none"
+                   data-slot-id="outline-color" class="advanced-wcgr-input" data-page-color-id="advanced-color-outline-color">
+          </label>
+          <button type="button" class="gradient-slot-clear"
+                  data-slot-id="outline-color" title="Clear gradient">✕</button>
+        </div>
+      </div>
+            </div>
+          </details>
+
+          <button type="button" class="advanced-dialog-apply" onclick="applyAdvancedSettings()">Apply &amp; Re-generate</button>
+        </div>
+      </div>
+    </div>
   </main>
 
-<div id="footer"></div>
+  <!-- Footer -->
+  <div id="footer"></div>
 
   <!-- Global JS (navbar + footer + dark mode) -->
   <script src="../../global.js"></script>
+  <!-- Shared Tool JS -->
+  <script src="../tools_shared.js"></script>
   <!-- Tool Specific JS -->
   <script src="comic_burst.js"></script>
 </body>

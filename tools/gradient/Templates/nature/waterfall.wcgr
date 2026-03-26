@@ -1,0 +1,39 @@
+{
+  "name": "Waterfall",
+  "type": "linear",
+  "angle": 270,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 9,
+  "ratioH": 16,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#e0f7fa"
+    },
+    {
+      "pos": 0.3,
+      "color": "#80deea"
+    },
+    {
+      "pos": 0.6,
+      "color": "#00acc1"
+    },
+    {
+      "pos": 1,
+      "color": "#006064"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

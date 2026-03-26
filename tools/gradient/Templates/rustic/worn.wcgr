@@ -1,0 +1,43 @@
+{
+  "name": "Worn",
+  "type": "radial",
+  "angle": 0,
+  "scaleX": 1.4,
+  "scaleY": 1,
+  "posX": 35,
+  "posY": 45,
+  "ratioW": 10,
+  "ratioH": 8,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#d4c4a8"
+    },
+    {
+      "pos": 0.3,
+      "color": "#b0a080"
+    },
+    {
+      "pos": 0.65,
+      "color": "#887858"
+    },
+    {
+      "pos": 1,
+      "color": "#5a4830"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 0.9
+    },
+    {
+      "pos": 0.5,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 0.85
+    }
+  ]
+}

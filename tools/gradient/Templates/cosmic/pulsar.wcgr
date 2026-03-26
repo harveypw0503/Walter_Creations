@@ -1,0 +1,43 @@
+{
+  "name": "Pulsar",
+  "type": "radial",
+  "angle": 0,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 10,
+  "ratioH": 10,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#ffffff"
+    },
+    {
+      "pos": 0.05,
+      "color": "#88ccff"
+    },
+    {
+      "pos": 0.15,
+      "color": "#0044aa"
+    },
+    {
+      "pos": 0.4,
+      "color": "#000820"
+    },
+    {
+      "pos": 1,
+      "color": "#000000"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

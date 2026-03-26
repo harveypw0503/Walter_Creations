@@ -12,7 +12,7 @@ def write_markdown(index, descriptions, analysis, id_index, id_descriptions, out
         return f"[{path}](file:///{path.replace(os.sep, '/')})#L{line}"
 
     with open(output_path, "w", encoding="utf-8") as md:
-        md.write("# Walter Creations – CSS Class & ID Index\n\n")
+        md.write("# CSS Class & ID Index\n\n")
 
         # Top stats
         md.write("## 📊 Top 10 Most-Used Classes\n\n")

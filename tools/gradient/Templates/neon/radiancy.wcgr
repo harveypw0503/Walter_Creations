@@ -1,0 +1,51 @@
+{
+  "name": "Radiancy",
+  "type": "diamond",
+  "angle": 0,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 10,
+  "ratioH": 10,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#ffffff"
+    },
+    {
+      "pos": 0.08,
+      "color": "#ff00ff"
+    },
+    {
+      "pos": 0.2,
+      "color": "#aa00ff"
+    },
+    {
+      "pos": 0.4,
+      "color": "#4400cc"
+    },
+    {
+      "pos": 0.65,
+      "color": "#110044"
+    },
+    {
+      "pos": 1,
+      "color": "#000000"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 0.08,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

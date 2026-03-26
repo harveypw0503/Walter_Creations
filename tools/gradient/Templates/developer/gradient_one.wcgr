@@ -1,0 +1,31 @@
+{
+"name": "Gradient One",
+  "type": "radial",
+  "angle": "186",
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": "99",
+  "posY": "0",
+  "ratioW": 10,
+  "ratioH": 5,
+  "colorStops": [
+    {
+      "pos": 0.10250000000000004,
+      "color": "#ff0000"
+    },
+    {
+      "pos": 0.9900000000000001,
+      "color": "#000000"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

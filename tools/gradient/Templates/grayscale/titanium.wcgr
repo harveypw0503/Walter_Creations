@@ -1,0 +1,43 @@
+{
+  "name": "Titanium",
+  "type": "reflected",
+  "angle": 60,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 10,
+  "ratioH": 4,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#606060"
+    },
+    {
+      "pos": 0.25,
+      "color": "#d0d0d0"
+    },
+    {
+      "pos": 0.5,
+      "color": "#f4f4f4"
+    },
+    {
+      "pos": 0.75,
+      "color": "#a0a0a0"
+    },
+    {
+      "pos": 1,
+      "color": "#606060"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

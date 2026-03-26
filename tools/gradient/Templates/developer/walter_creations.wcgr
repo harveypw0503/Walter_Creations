@@ -1,0 +1,39 @@
+{
+  "name": "Walter Creations",
+  "type": "linear",
+  "angle": 135,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 16,
+  "ratioH": 9,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#136ea3"
+    },
+    {
+      "pos": 0.4,
+      "color": "#2D9CDB"
+    },
+    {
+      "pos": 0.7,
+      "color": "#56CCF2"
+    },
+    {
+      "pos": 1,
+      "color": "#2D9CDB"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

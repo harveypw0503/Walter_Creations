@@ -43,7 +43,7 @@ See the [LICENSE](LICENSE) file for full details.
 
 Use of the live website is governed by the Walter Creations Terms of Service.
 
-https://waltercreations.com/tos/
+https://waltercreations.com/tos.html
 
 ---
 

@@ -1,0 +1,39 @@
+{
+  "name": "Blueberry",
+  "type": "radial",
+  "angle": 0,
+  "scaleX": 0.9,
+  "scaleY": 1,
+  "posX": 40,
+  "posY": 35,
+  "ratioW": 10,
+  "ratioH": 10,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#8080e0"
+    },
+    {
+      "pos": 0.4,
+      "color": "#4040a0"
+    },
+    {
+      "pos": 0.8,
+      "color": "#200060"
+    },
+    {
+      "pos": 1,
+      "color": "#100030"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

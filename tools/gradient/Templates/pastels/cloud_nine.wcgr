@@ -1,0 +1,35 @@
+{
+  "name": "Cloud Nine",
+  "type": "radial",
+  "angle": 0,
+  "scaleX": 1.5,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 35,
+  "ratioW": 16,
+  "ratioH": 9,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#ffffff"
+    },
+    {
+      "pos": 0.4,
+      "color": "#e8d5f5"
+    },
+    {
+      "pos": 1,
+      "color": "#b8d4f0"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "name": "Gradient Three",
+  "type": "linear",
+  "settings": {
+    "angle": 0,
+    "centerX": 0.5,
+    "centerY": 0.5
+  },
+  "stops": [
+    {
+      "pos": 0.35,
+      "color": "#ff0000",
+      "alpha": 1
+    },
+    {
+      "pos": 0.22,
+      "color": "#0000ff",
+      "alpha": 1
+    },
+    {
+      "pos": 0.99,
+      "color": "#00ff00",
+      "alpha": 1
+    },
+    {
+      "pos": 0.59,
+      "color": "#224387",
+      "alpha": 1
+    },
+    {
+      "pos": 0.5,
+      "color": "#153d24",
+      "alpha": 1
+    }
+  ]
+}

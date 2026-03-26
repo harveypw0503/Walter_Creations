@@ -1,0 +1,39 @@
+{
+  "name": "Mineral",
+  "type": "diamond",
+  "angle": 20,
+  "scaleX": 1.2,
+  "scaleY": 0.9,
+  "posX": 40,
+  "posY": 50,
+  "ratioW": 10,
+  "ratioH": 10,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#a8edea"
+    },
+    {
+      "pos": 0.3,
+      "color": "#6ec6ca"
+    },
+    {
+      "pos": 0.6,
+      "color": "#4a90a4"
+    },
+    {
+      "pos": 1,
+      "color": "#2c5f6e"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

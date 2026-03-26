@@ -1,3 +1,5 @@
+/* ===== Version History Page ===== */
+
 .version-page {
   max-width: 900px;
   margin: 3rem auto;
@@ -9,16 +11,20 @@
 }
 
 .version-entry {
-  background: #fff;
+  background: var(--card-bg);
   border-radius: 16px;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  box-shadow: var(--card-shadow);
 }
 
 .version-entry h2 {
-  color: #2D9CDB;
+  color: var(--accent);
   margin-bottom: 0.5rem;
+}
+
+body.dark-mode .version-entry h2 {
+  color: var(--accent-light);
 }
 
 .version-entry ul {
@@ -27,13 +33,4 @@
 
 .version-entry li {
   margin: 0.4rem 0;
-}
-
-/* Dark Mode */
-body.dark-mode .version-entry {
-  background: #222;
-}
-
-body.dark-mode .version-entry h2 {
-  color: #56CCF2;
 }

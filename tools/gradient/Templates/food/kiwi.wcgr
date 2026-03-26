@@ -1,0 +1,39 @@
+{
+  "name": "Kiwi",
+  "type": "radial",
+  "angle": 0,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 10,
+  "ratioH": 10,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#d0e880"
+    },
+    {
+      "pos": 0.4,
+      "color": "#80c020"
+    },
+    {
+      "pos": 0.8,
+      "color": "#406010"
+    },
+    {
+      "pos": 1,
+      "color": "#203008"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

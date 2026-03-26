@@ -1,0 +1,43 @@
+{
+  "name": "Arcade",
+  "type": "angle",
+  "angle": 0,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 10,
+  "ratioH": 10,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#ff0090"
+    },
+    {
+      "pos": 0.25,
+      "color": "#00ccff"
+    },
+    {
+      "pos": 0.5,
+      "color": "#ff0090"
+    },
+    {
+      "pos": 0.75,
+      "color": "#00ff88"
+    },
+    {
+      "pos": 1,
+      "color": "#ff0090"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

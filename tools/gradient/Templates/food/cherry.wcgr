@@ -1,0 +1,39 @@
+{
+  "name": "Cherry",
+  "type": "radial",
+  "angle": 0,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 38,
+  "posY": 35,
+  "ratioW": 10,
+  "ratioH": 10,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#ff6080"
+    },
+    {
+      "pos": 0.3,
+      "color": "#cc1030"
+    },
+    {
+      "pos": 0.7,
+      "color": "#800010"
+    },
+    {
+      "pos": 1,
+      "color": "#300000"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

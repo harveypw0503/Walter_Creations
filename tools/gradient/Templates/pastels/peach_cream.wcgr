@@ -1,0 +1,35 @@
+{
+  "name": "Peach Cream",
+  "type": "linear",
+  "angle": 115,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 10,
+  "ratioH": 10,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#ffe5cc"
+    },
+    {
+      "pos": 0.5,
+      "color": "#ffccb3"
+    },
+    {
+      "pos": 1,
+      "color": "#ffb399"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Rose Quartz",
+  "type": "radial",
+  "angle": 0,
+  "scaleX": 0.9,
+  "scaleY": 1.1,
+  "posX": 45,
+  "posY": 45,
+  "ratioW": 10,
+  "ratioH": 10,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#fff0f3"
+    },
+    {
+      "pos": 0.5,
+      "color": "#ffc2d1"
+    },
+    {
+      "pos": 1,
+      "color": "#ff85a1"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

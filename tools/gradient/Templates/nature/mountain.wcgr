@@ -1,0 +1,43 @@
+{
+  "name": "Mountain",
+  "type": "linear",
+  "angle": 30,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 16,
+  "ratioH": 9,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#cce0ff"
+    },
+    {
+      "pos": 0.25,
+      "color": "#a8c0e0"
+    },
+    {
+      "pos": 0.5,
+      "color": "#708090"
+    },
+    {
+      "pos": 0.75,
+      "color": "#4a5568"
+    },
+    {
+      "pos": 1,
+      "color": "#2d3748"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

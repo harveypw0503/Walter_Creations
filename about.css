@@ -1,158 +1,256 @@
-/* ===== About (about.html) CSS) ===== */
+/* ===== About Page ===== */
 
-.about-page {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 2rem;
-}
+/* ===== HERO ===== */
 
-.about-page h1 {
+.about-hero {
+  position: relative;
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
-  color: var(--text-color, #333);
+  padding: 7rem 2rem 5rem;
+  overflow: hidden;
+  background: var(--bg);
 }
-
-/* Container for Blocks */
-.about-container {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
+.about-hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(72px);
+  pointer-events: none;
 }
-
-.about-block {  /* each block (text + image) */
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+.orb-a {
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, #2D9CDB44, transparent 70%);
+  top: -80px; right: -60px;
 }
-
-.about-block.reverse {
-  flex-direction: row-reverse;
+.orb-b {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, #56CCF233, transparent 70%);
+  bottom: -40px; left: -40px;
 }
-
-/* Text Styling */
-.about-text {
-  flex: 1;
-  min-width: 280px;
+.about-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  margin: 0 auto;
+  animation: fade-in-up 0.8s ease both;
 }
-
-.about-text p {
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(26px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.about-hero h1 {
+  font-family: 'DM Sans', 'Montserrat', sans-serif;
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  color: var(--text);
+  line-height: 1.15;
+  margin-bottom: 1.4rem;
+}
+.about-hero h1 em {
+  font-style: italic;
+  background: linear-gradient(135deg, #2D9CDB, #56CCF2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.about-hero-sub {
   font-size: 1.1rem;
   line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* ===== ABOUT SECTIONS ===== */
+p {
+  text-indent: 30px;
+}
+
+.about-section {
+  padding: 5rem 2rem;
+  background: var(--bg);
+}
+.about-section-alt {
+  background: linear-gradient(160deg, #f4faff 0%, var(--bg) 100%);
+}
+body.dark-mode .about-section-alt {
+  background: linear-gradient(160deg, #151e26 0%, #111 100%);
+}
+
+.about-section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.about-section-inner.reverse {
+  direction: rtl;
+}
+.about-section-inner.reverse > * {
+  direction: ltr;
+}
+
+.about-section-text h2 {
+  font-family: 'DM Sans', 'Montserrat', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  color: var(--text);
   margin-bottom: 1rem;
-  color: var(--text-color, #333);
+  line-height: 1.2;
 }
+.about-section-text p {
+  font-size: 1rem;
+  line-height: 1.78;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+.about-cta-button {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1rem;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 2px;
+  transition: opacity 0.2s;
+}
+.about-cta-button:hover { opacity: 0.7; }
 
-/* Image Styling */
-.about-img {
-  flex: 1;
-  min-width: 280px;
+/* ===== IMAGE FRAME ===== */
+
+.about-img-frame {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  background: var(--card-bg);
+  aspect-ratio: 3 / 3;
   display: flex;
+  align-items: center;
   justify-content: center;
+  position: relative;
+  border: 1px solid rgba(45, 156, 219, 0.12);
 }
 
-.about-img img {
+body.dark-mode .about-img-frame {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+  background: #1a1a1a;
+  border-color: rgba(45, 156, 219, 0.18);
+}
+
+.about-img-frame img {
   width: 100%;
-  max-width: 400px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: block;
+  object-fit: contain;
 }
 
-@media (hover: hover) and (pointer: fine) { /* Hover effect only for hover-capable devices */
-  .about-img img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-  }
+.about-img-placeholder {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  padding: 2rem;
+  width: 100%;
+  height: 100%;
 }
 
-/* Dark Mode */
-body.dark-mode .about-page h1,
-body.dark-mode .about-text p {
-  color: var(--dark-text-color, #eee);
+/* ===== REVEAL ANIMATIONS ===== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-right {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s;
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s;
+}
+.reveal.visible,
+.reveal-right.visible,
+.reveal-left.visible {
+  opacity: 1;
+  transform: translate(0);
 }
 
-body.dark-mode .about-img img {
-  box-shadow: 0 4px 12px rgba(255,255,255,0.1);
+/* ===== VALUES ===== */
+
+.about-values {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #2D9CDB, #56CCF2);
+}
+.about-values-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+.values-heading {
+  font-family: 'DM Sans', 'Montserrat', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: white;
+  margin-bottom: 3rem;
+}
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+.value-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 18px;
+  padding: 2rem 1.5rem;
+  text-align: left;
+  color: white;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.value-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.value-card:nth-child(1) { transition-delay: 0.05s; }
+.value-card:nth-child(2) { transition-delay: 0.15s; }
+.value-card:nth-child(3) { transition-delay: 0.25s; }
+.value-card:nth-child(4) { transition-delay: 0.35s; }
+.value-icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.75rem;
+}
+.value-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.value-card p {
+  font-size: 0.93rem;
+  line-height: 1.6;
+  opacity: 0.88;
 }
 
-/* ===== Responsive ===== */
-
-/* ===== About Page Mobile Styles ===== */
-
-@media (max-width: 768px) {
-  /* Page padding */
-  .about-page {
-    max-width: 100%;
-    margin: 1.25rem auto;
-    padding: 1.25rem;
+/* ===== MOBILE ===== */
+@media (max-width: 900px) {
+  .about-section-inner,
+  .about-section-inner.reverse {
+    grid-template-columns: 1fr;
+    direction: ltr;
+    gap: 2.5rem;
   }
-
-  /* Heading */
-  .about-page h1 {
-    font-size: 1.75rem;
-    margin-bottom: 1.75rem;
-    line-height: 1.2;
-  }
-
-  /* Stack Blocks */
-  .about-container {
-    gap: 1.5rem;
-  }
-
-  @media (max-width: 768px) {
-  .about-block {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 1rem;
-  }
-
-  .about-block.reverse {
-    flex-direction: column; /* override reverse layout for mobile */
-  }
+  .about-section { padding: 4rem 1.25rem; }
+  .about-hero { padding: 5rem 1.25rem 3.5rem; }
+  .about-values { padding: 4rem 1.25rem; }
+  .values-grid { gap: 1rem; }
 }
-
-  /* Text */
-  .about-text {
-    width: 100%;
-  }
-
-  .about-text p {
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-
-  /* Image */
-  .about-img {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .about-img img {
-    max-width: 360px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  }
-
-  /* Dark Mode */
-  body.dark-mode .about-img img {
-    box-shadow: 0 4px 12px rgba(255,255,255,0.06);
-  }
-}
-
-/* Super Small Screens (<480px) */
 @media (max-width: 480px) {
-  .about-page h1 {
-    font-size: 1.5rem;
-  }
-
-  .about-text p {
-    font-size: 0.95rem;
-    line-height: 1.5;
-  }
-
-  .about-img img {
-    max-width: 300px;
-  }
+  .about-hero h1 { font-size: 2rem; }
+  .about-section-text h2 { font-size: 1.7rem; }
 }

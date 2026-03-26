@@ -1,0 +1,43 @@
+{
+  "name": "Macaron",
+  "type": "reflected",
+  "angle": 0,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 10,
+  "ratioH": 5,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#ffcce7"
+    },
+    {
+      "pos": 0.25,
+      "color": "#ffe5b4"
+    },
+    {
+      "pos": 0.5,
+      "color": "#b4f0e0"
+    },
+    {
+      "pos": 0.75,
+      "color": "#b4d4f8"
+    },
+    {
+      "pos": 1,
+      "color": "#ffcce7"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

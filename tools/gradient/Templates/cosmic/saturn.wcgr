@@ -1,0 +1,47 @@
+{
+  "name": "Saturn",
+  "type": "reflected",
+  "angle": 10,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 16,
+  "ratioH": 6,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#d4b483"
+    },
+    {
+      "pos": 0.2,
+      "color": "#c8a870"
+    },
+    {
+      "pos": 0.4,
+      "color": "#e8cc98"
+    },
+    {
+      "pos": 0.6,
+      "color": "#b89060"
+    },
+    {
+      "pos": 0.8,
+      "color": "#d4b483"
+    },
+    {
+      "pos": 1,
+      "color": "#c09060"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

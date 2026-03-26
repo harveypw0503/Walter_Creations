@@ -1,0 +1,35 @@
+{
+  "name": "Telegram",
+  "type": "linear",
+  "angle": 90,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 16,
+  "ratioH": 5,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#e8dcc8"
+    },
+    {
+      "pos": 0.4,
+      "color": "#d0c0a0"
+    },
+    {
+      "pos": 1,
+      "color": "#b8a080"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

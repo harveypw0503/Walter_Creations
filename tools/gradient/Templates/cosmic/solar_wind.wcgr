@@ -1,0 +1,43 @@
+{
+  "name": "Solar Wind",
+  "type": "linear",
+  "angle": 90,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 16,
+  "ratioH": 9,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#fff8e0"
+    },
+    {
+      "pos": 0.2,
+      "color": "#ffd040"
+    },
+    {
+      "pos": 0.5,
+      "color": "#ff6000"
+    },
+    {
+      "pos": 0.8,
+      "color": "#cc0020"
+    },
+    {
+      "pos": 1,
+      "color": "#400000"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

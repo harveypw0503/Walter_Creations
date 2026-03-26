@@ -1,0 +1,43 @@
+{
+  "name": "Caramel",
+  "type": "reflected",
+  "angle": 45,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 10,
+  "ratioH": 6,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#8b4513"
+    },
+    {
+      "pos": 0.3,
+      "color": "#d2691e"
+    },
+    {
+      "pos": 0.5,
+      "color": "#f5a623"
+    },
+    {
+      "pos": 0.7,
+      "color": "#d2691e"
+    },
+    {
+      "pos": 1,
+      "color": "#8b4513"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

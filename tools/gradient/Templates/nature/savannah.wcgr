@@ -1,0 +1,42 @@
+{
+  "type": "linear",
+  "angle": 180,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 16,
+  "ratioH": 9,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#d4a843"
+    },
+    {
+      "pos": 0.25,
+      "color": "#c09030"
+    },
+    {
+      "pos": 0.5,
+      "color": "#a07020"
+    },
+    {
+      "pos": 0.75,
+      "color": "#8a6010"
+    },
+    {
+      "pos": 1,
+      "color": "#c9a218"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

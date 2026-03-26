@@ -1,0 +1,67 @@
+{
+  "name": "Static",
+  "type": "angle",
+  "angle": 0,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 10,
+  "ratioH": 10,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#000000"
+    },
+    {
+      "pos": 0.1,
+      "color": "#cccccc"
+    },
+    {
+      "pos": 0.2,
+      "color": "#333333"
+    },
+    {
+      "pos": 0.3,
+      "color": "#ffffff"
+    },
+    {
+      "pos": 0.4,
+      "color": "#555555"
+    },
+    {
+      "pos": 0.5,
+      "color": "#eeeeee"
+    },
+    {
+      "pos": 0.6,
+      "color": "#111111"
+    },
+    {
+      "pos": 0.7,
+      "color": "#aaaaaa"
+    },
+    {
+      "pos": 0.8,
+      "color": "#222222"
+    },
+    {
+      "pos": 0.9,
+      "color": "#dddddd"
+    },
+    {
+      "pos": 1,
+      "color": "#000000"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

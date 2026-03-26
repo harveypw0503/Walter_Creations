@@ -1,0 +1,91 @@
+{
+  "name": "Debug",
+  "type": "linear",
+  "angle": 90,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 16,
+  "ratioH": 9,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#000000"
+    },
+    {
+      "pos": 0.0625,
+      "color": "#00ff00"
+    },
+    {
+      "pos": 0.125,
+      "color": "#000000"
+    },
+    {
+      "pos": 0.1875,
+      "color": "#ff0000"
+    },
+    {
+      "pos": 0.25,
+      "color": "#000000"
+    },
+    {
+      "pos": 0.3125,
+      "color": "#0000ff"
+    },
+    {
+      "pos": 0.375,
+      "color": "#000000"
+    },
+    {
+      "pos": 0.4375,
+      "color": "#ffffff"
+    },
+    {
+      "pos": 0.5,
+      "color": "#000000"
+    },
+    {
+      "pos": 0.5625,
+      "color": "#ffff00"
+    },
+    {
+      "pos": 0.625,
+      "color": "#000000"
+    },
+    {
+      "pos": 0.6875,
+      "color": "#ff00ff"
+    },
+    {
+      "pos": 0.75,
+      "color": "#000000"
+    },
+    {
+      "pos": 0.8125,
+      "color": "#00ffff"
+    },
+    {
+      "pos": 0.875,
+      "color": "#000000"
+    },
+    {
+      "pos": 0.9375,
+      "color": "#ff8800"
+    },
+    {
+      "pos": 1,
+      "color": "#000000"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

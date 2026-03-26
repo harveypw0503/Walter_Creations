@@ -1,0 +1,43 @@
+{
+  "name": "Quasar",
+  "type": "diamond",
+  "angle": 0,
+  "scaleX": 0.6,
+  "scaleY": 1.8,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 9,
+  "ratioH": 16,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#ffffff"
+    },
+    {
+      "pos": 0.1,
+      "color": "#ff8800"
+    },
+    {
+      "pos": 0.3,
+      "color": "#aa0066"
+    },
+    {
+      "pos": 0.6,
+      "color": "#220044"
+    },
+    {
+      "pos": 1,
+      "color": "#000000"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

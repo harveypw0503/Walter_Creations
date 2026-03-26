@@ -1,0 +1,47 @@
+{
+  "name": "Glitch",
+  "type": "reflected",
+  "angle": 0,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 10,
+  "ratioH": 10,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#ff00ff"
+    },
+    {
+      "pos": 0.2,
+      "color": "#00ffff"
+    },
+    {
+      "pos": 0.4,
+      "color": "#ff00ff"
+    },
+    {
+      "pos": 0.6,
+      "color": "#ffff00"
+    },
+    {
+      "pos": 0.8,
+      "color": "#00ffff"
+    },
+    {
+      "pos": 1,
+      "color": "#ff00ff"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

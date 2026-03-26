@@ -1,0 +1,35 @@
+{
+  "name": "Pebble",
+  "type": "linear",
+  "angle": 160,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 10,
+  "ratioH": 10,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#b0b0b0"
+    },
+    {
+      "pos": 0.4,
+      "color": "#787878"
+    },
+    {
+      "pos": 1,
+      "color": "#d0d0d0"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

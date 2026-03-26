@@ -1,0 +1,39 @@
+{
+  "name": "Tundra",
+  "type": "linear",
+  "angle": 165,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 16,
+  "ratioH": 9,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#d0e8f0"
+    },
+    {
+      "pos": 0.4,
+      "color": "#a0c0d0"
+    },
+    {
+      "pos": 0.7,
+      "color": "#8aac80"
+    },
+    {
+      "pos": 1,
+      "color": "#6a8860"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

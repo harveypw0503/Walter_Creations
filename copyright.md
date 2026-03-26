@@ -16,7 +16,7 @@ See the [LICENSE](LICENSE) file for details.
 
 ## Website Content & Branding
 
-The following are **not** covered by the MIT License unless explicitly stated:
+The following are **not** covered by the License unless explicitly stated:
 
 - Site name: Walter Creations
 - Logos, branding, and visual identity

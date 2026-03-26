@@ -1,0 +1,43 @@
+{
+  "name": "Deco",
+  "type": "reflected",
+  "angle": 90,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 10,
+  "ratioH": 14,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#1a1a08"
+    },
+    {
+      "pos": 0.25,
+      "color": "#b8960a"
+    },
+    {
+      "pos": 0.5,
+      "color": "#f0d060"
+    },
+    {
+      "pos": 0.75,
+      "color": "#b8960a"
+    },
+    {
+      "pos": 1,
+      "color": "#1a1a08"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

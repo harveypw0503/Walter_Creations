@@ -1,0 +1,35 @@
+{
+  "name": "Warmth",
+  "type": "radial",
+  "angle": 0,
+  "scaleX": 1.4,
+  "scaleY": 1,
+  "posX": 35,
+  "posY": 40,
+  "ratioW": 10,
+  "ratioH": 8,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#ffe0a0"
+    },
+    {
+      "pos": 0.4,
+      "color": "#d08040"
+    },
+    {
+      "pos": 1,
+      "color": "#804020"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

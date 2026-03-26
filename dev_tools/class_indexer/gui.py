@@ -5,7 +5,7 @@ from export_json import export_json
 from tkinter import filedialog, messagebox, Tk, Button, Checkbutton, IntVar
 
 def run_scan(export_json_var):
-    folder = filedialog.askdirectory(title="Select Walter Creations Folder")
+    folder = filedialog.askdirectory(title="Select Project Folder")
     if not folder:
         return
 
@@ -40,7 +40,7 @@ def run_scan(export_json_var):
 
 # --- GUI setup ---
 root = Tk()
-root.title("Walter Creations – Class & ID Indexer")
+root.title("Class & ID Indexer")
 
 export_json_var = IntVar(value=0)  # default = 0 (unchecked)
 

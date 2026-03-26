@@ -1,13 +1,77 @@
 // global.js
 
-// Immediately apply saved theme to reduce flash
-try {
-  if (localStorage.getItem('darkMode') === 'true') {
-    document.body.classList.add('dark-mode');
+// ============================================================
+// 1. FAVICON & MANIFEST INJECTION
+// ============================================================
+(function injectFavicons() {
+  const favicons = [
+    { rel: 'icon',             type: 'image/x-icon',  href: '/favicon.ico' },
+    { rel: 'icon',             type: 'image/svg+xml', href: '/favicon.svg' },
+    { rel: 'apple-touch-icon', type: null,             href: '/apple-touch-icon.png' },
+    { rel: 'manifest',         type: null,             href: '/manifest.json' },
+    { rel: 'icon',             type: 'image/png',      href: '/favicon-96x96.png', sizes: '96x96' },
+  ];
+  favicons.forEach(({ rel, type, href, sizes }) => {
+    const link = document.createElement('link');
+    link.rel  = rel;
+    link.href = href;
+    if (type)  link.type  = type;
+    if (sizes) link.sizes = sizes;
+    document.head.appendChild(link);
+  });
+})();
+
+// ============================================================
+// 2. DARK MODE — shared function, transition support
+// ============================================================
+
+// Apply saved transition duration immediately
+(function applyThemeDuration() {
+  try {
+    const saved = parseFloat(localStorage.getItem('themeFadeDuration'));
+    const dur   = isNaN(saved) ? 0.5 : saved;
+    document.documentElement.style.setProperty('--theme-transition', dur + 's');
+  } catch (e) {}
+})();
+
+// Apply saved dark mode class before first paint
+(function applyInitialTheme() {
+  try {
+    if (localStorage.getItem('darkMode') === 'true') {
+      // Suppress transition on initial load
+      document.documentElement.style.setProperty('--theme-transition', '0s');
+      document.body.classList.add('dark-mode');
+      // Restore transition after first paint
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          try {
+            const saved = parseFloat(localStorage.getItem('themeFadeDuration'));
+            const dur   = isNaN(saved) ? 0.5 : saved;
+            document.documentElement.style.setProperty('--theme-transition', dur + 's');
+          } catch (e) {}
+        });
+      });
+    }
+  } catch (e) {
+    console.warn('Could not access localStorage for theme.');
   }
-} catch (e) {
-  console.warn('Could not access localStorage for theme.');
-}
+})();
+
+// Global function to toggle dark mode, update UI, and persist choice
+window.applyDarkMode = function(isDark) {
+  document.body.classList.toggle('dark-mode', isDark);
+
+  // Persist
+  try { localStorage.setItem('darkMode', isDark ? 'true' : 'false'); } catch (e) {}
+
+  // Sync navbar toggle icon
+  const navToggle = document.getElementById('dark-mode-toggle');
+  if (navToggle) navToggle.textContent = isDark ? '☀️' : '🌙';
+
+  // Sync settings toggle (only present on settings page)
+  const settingsToggle = document.getElementById('dark-mode-settings-toggle');
+  if (settingsToggle) settingsToggle.checked = isDark;
+};
 
 // Utility to preload an image
 function preloadImage(url, onload, onerror) {
@@ -17,7 +81,9 @@ function preloadImage(url, onload, onerror) {
   img.src = url;
 }
 
-// Google Analytics (gtag)
+// ============================================================
+// 3. GOOGLE ANALYTICS
+// ============================================================
 (function initGA() {
   const GA_ID = "G-SMRN79C0LG";
 
@@ -49,7 +115,9 @@ function preloadImage(url, onload, onerror) {
   gtag("config", GA_ID);
 })();
 
-// Initialize Navbar
+// ============================================================
+// 4. NAVBAR
+// ============================================================
 function initNavbar() {
   const navbarContainer = document.getElementById('navbar');
   if (!navbarContainer) {
@@ -102,12 +170,9 @@ function initNavbar() {
       if (toggle) {
         toggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
         toggle.addEventListener('click', () => {
-          const isDark = document.body.classList.toggle('dark-mode');
-          toggle.textContent = isDark ? '☀️' : '🌙';
+          const isDark = !document.body.classList.contains('dark-mode');
+          window.applyDarkMode(isDark);
           if (logoImg) setLogoSafe(isDark ? darkLogoSrc : lightLogoSrc);
-          try {
-            localStorage.setItem('darkMode', isDark ? 'true' : 'false');
-          } catch (e) {}
         });
       }
 
@@ -131,7 +196,9 @@ function initNavbar() {
     .catch(err => console.error('Failed to load navbar:', err));
 }
 
-// Initialize Footer
+// ============================================================
+// 5. FOOTER
+// ============================================================
 function initFooter() {
   const footerContainer = document.getElementById('footer');
   if (!footerContainer) return;
@@ -156,6 +223,9 @@ function initFooter() {
 }
 
 
+// ============================================================
+// 6. DOM WIRING
+// ============================================================
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initFooter();

@@ -5,13 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Planogram Generator - Walter Creations</title>
 
-  <!-- Favicon + Manifest -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-
   <!-- External Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
@@ -30,13 +23,70 @@
   <div id="navbar"></div>
 
   <main class="tool-page">
-    <h1 class="tool-title">Planogram Generator</h1>
+    <div class="tool-title-row">
+      <h1 class="tool-title">Planogram Generator</h1>
+      <button class="tool-info-btn" onclick="openToolInfo()" title="About this tool">ℹ</button>
+    </div>
     <p class="tool-subtitle">Perfect spacing • Big numbers • Legend • PNG/TXT/CSV</p>
 
+    <!-- Info Modal -->
+    <div class="tool-info-modal" id="info-modal">
+      <div class="tool-info-modal-box">
+        <button class="tool-info-modal-close" onclick="closeToolInfo()">✕</button>
+        <div class="tool-info-modal-header">
+          <div class="tool-info-modal-icon">🏪</div>
+          <div>
+            <div class="tool-info-modal-title">Planogram Generator</div>
+            <div class="tool-info-modal-category">Utilities & Misc</div>
+          </div>
+        </div>
+        <div class="tool-info-modal-divider"></div>
+        <div class="tool-info-modal-body">
+
+          <div>
+            <div class="tool-info-modal-section-label">What it does</div>
+            <p class="tool-info-modal-desc">
+              The Planogram Generator creates visual mockup diagrams for pegboard and slatwall displays.
+              Input your SKUs, Product Name or description and Width by Height; then and the tool automatically arranges them on a
+              to-scale board. Export your result as PNG, TXT, or CSV.
+            </p>
+          </div>
+
+          <div>
+            <div class="tool-info-modal-section-label">How to use</div>
+            <div class="tool-info-steps">
+              <div class="tool-info-step">
+                <div class="tool-info-step-num">1</div>
+                <div class="tool-info-step-text">Enter your Pegboard size in holes. (Each hole is designed to signify an inch but can be any unit of measurement). </div>
+              </div>
+              <div class="tool-info-step">
+                <div class="tool-info-step-num">2</div>
+                <div class="tool-info-step-text">List your Items, one per line using the format <strong>SKU|Description|WxH</strong> where W and H are the item's footprint in holes. Be sure to use 'x' to in dimensions and vertical bars in between sections</div>
+              </div>
+              <div class="tool-info-step">
+                <div class="tool-info-step-num">3</div>
+                <div class="tool-info-step-text">Choose your Board Style: (Pegboard or Slatwall), Packing Mode: (Compact or Row), and Customize spacing between bags with the spacing controls.</div>
+              </div>
+              <div class="tool-info-step">
+                <div class="tool-info-step-num">4</div>
+                <div class="tool-info-step-text">Click Generate to render the mockup, then click Download PNG to save an image of the mockup. TXT and CSV are also available for download.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tool-info-tip">
+            <span>💡</span>
+            <span>There are multiple ways to easily get vertical bars, (this character: "|"), in your input for the Planogram Generator. You can use an Excel formula like <code><strong>=A1&"|"&B1&"|"&C1</strong></code> <small><em> or</em></small> <code><strong>=TEXTJOIN("|", TRUE, A1:C1)</strong></code> to concatenate columns with vertical bars automatically.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls -->
     <div class="tool-controls">
       <label class="control-label control-full-width">
         Pegboard size in holes (e.g. 48x72)
-        <input type="text" id="grid" value="48x72" class="control-input">
+        <input type="text" id="grid-size" value="48x72" class="control-input">
       </label>
 
       <label class="control-label control-full-width">
@@ -55,68 +105,194 @@ HDMI3FT|HDMI CABLE|5x7
     <div class="tool-controls color-group">
       <label class="control-label">
         Board
-        <input type="color" id="colorBoard" value="#8B6914" class="control-input">
+        <input type="color" id="color-board" value="#8B6914" class="control-input" data-page-color-id="advanced-color-color-board">
       </label>
 
       <label class="control-label">
         Bag
-        <input type="color" id="colorBag" value="#faedcd" class="control-input">
+        <input type="color" id="color-bag" value="#faedcd" class="control-input" data-page-color-id="advanced-color-color-bag">
       </label>
 
       <label class="control-label">
         Number
-        <input type="color" id="colorNum" value="#d32f2f" class="control-input">
+        <input type="color" id="color-number" value="#d32f2f" class="control-input" data-page-color-id="advanced-color-color-number">
       </label>
 
       <label class="control-label">
         Holes/Slots
-        <input type="color" id="colorHole" value="#222222" class="control-input">
+        <input type="color" id="color-hole" value="#222222" class="control-input" data-page-color-id="advanced-color-color-hole">
       </label>
     </div>
 
     <!-- Board Style Toggle -->
     <div class="tool-toggle-group">
-      <button id="pegboardBtn" class="tool-toggle-button active">Pegboard</button>
-      <button id="slatwallBtn" class="tool-toggle-button">Slatwall</button>
-      <input type="hidden" id="boardMode" value="pegboard">
+      <button id="pegboard-button" class="tool-toggle-button active">Pegboard</button>
+      <button id="slatwall-button" class="tool-toggle-button">Slatwall</button>
+      <input type="hidden" id="board-mode" value="pegboard">
     </div>
 
     <!-- Packing Mode Toggle -->
     <div class="tool-toggle-group">
-      <button id="compactBtn" class="tool-toggle-button active">Compact Mode</button>
-      <button id="rowBtn" class="tool-toggle-button">Row Mode</button>
-      <input type="hidden" id="packingMode" value="compact">
+      <button id="compact-button" class="tool-toggle-button active">Compact Mode</button>
+      <button id="row-button" class="tool-toggle-button">Row Mode</button>
+      <input type="hidden" id="packing-mode" value="compact">
     </div>
 
     <!-- Spacing Controls -->
     <div class="tool-controls">
       <label class="control-label">
         Horizontal Spacing Between Bags (holes)
-        <input type="number" id="horizontalGap" value="0" min="0" max="3" step="0.1" class="control-input">
+        <input type="number" id="horizontal-gap" value="0" min="0" max="3" step="0.1" class="control-input">
       </label>
 
       <label class="control-label">
         Vertical Spacing Between Bags (holes)
-        <input type="number" id="verticalGap" value="0" min="0" max="3" step="0.1" class="control-input">
+        <input type="number" id="vertical-gap" value="0" min="0" max="3" step="0.1" class="control-input">
       </label>
     </div>
 
     <!-- Action Buttons -->
     <div class="tool-actions">
-      <button id="generateBtn" class="tool-button">Generate Planogram</button>
-      <button id="downloadPngBtn" class="tool-button" disabled>Download PNG</button>
-      <button id="downloadTxtBtn" class="tool-button" disabled>Download TXT</button>
-      <button id="downloadCsvBtn" class="tool-button" disabled>Download CSV</button>
+      <button id="generate-button" class="tool-button">Generate</button>
+      <button id="download-png-button" class="tool-button" disabled>Download PNG</button>
+      <button id="download-txt-button" class="tool-button" disabled>Download TXT</button>
+      <button id="download-csv-button" class="tool-button" disabled>Download CSV</button>
+    
+      <button id="advanced-open-button" class="advanced-button" onclick="openAdvancedDialog()" style="display:none">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="8" cy="8" r="2.5"/>
+          <path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M3.05 3.05l1.06 1.06M11.89 11.89l1.06 1.06M3.05 12.95l1.06-1.06M11.89 4.11l1.06-1.06" stroke-linecap="round"/>
+        </svg>
+        Advanced
+      </button>
     </div>
 
-    <div id="preview" class="tool-preview"></div>
-    <canvas id="canvas" style="display:none;" class="tool-canvas"></canvas>
+    <div id="planogram-preview" class="tool-preview"></div>
+    <canvas id="planogram-canvas" style="display:none;" class="tool-canvas"></canvas>
+
+    <!-- Advanced Tooling Dialog -->
+    <div class="advanced-dialog-backdrop" id="advanced-dialog-backdrop">
+      <div class="advanced-dialog" role="dialog" aria-modal="true">
+        <button type="button" class="advanced-dialog-close" onclick="closeAdvancedDialog()">✕</button>
+        <div class="advanced-dialog-header">
+          <div class="advanced-dialog-icon">🏪</div>
+          <div>
+            <p class="advanced-dialog-title">Advanced: Planogram</p>
+            <p class="advanced-dialog-subtitle">Colors &amp; gradient overrides</p>
+          </div>
+        </div>
+        <div class="advanced-dialog-divider"></div>
+        <div class="advanced-dialog-body">
+
+          <!-- ── Tool Preset ── -->
+          <details class="advanced-section" id="advanced-section-preset" open>
+            <summary class="advanced-section-header">Tool Preset</summary>
+            <div class="advanced-section-body">
+              <div class="advanced-control-card">
+                <p class="advanced-control-desc">Save all settings and gradient slots to a <strong>.wctp</strong> file, or load a previously saved preset to restore them instantly.</p>
+                <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:8px;">
+                  <button type="button" class="tool-button" id="advanced-preset-download" style="flex:1; min-width:120px;">⬇ Download Preset</button>
+                  <label class="tool-button" style="flex:1; min-width:120px; text-align:center; cursor:pointer;" title="Load a .wctp preset file">
+                    ⬆ Load Preset
+                    <input type="file" id="advanced-preset-upload" accept=".wctp,application/json" style="display:none;">
+                  </label>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <!-- Gradient Slots -->
+          <details class="advanced-section" id="advanced-section-colors" open>
+            <summary class="advanced-section-header">Color Slots</summary>
+            <div class="advanced-section-body">
+      <div class="gradient-slot">
+        <div class="gradient-slot-top">
+          <span class="gradient-slot-label">Board Color</span>
+          <input type="color" class="gradient-slot-color" id="advanced-color-color-board"
+                 value="#8B6914" data-syncs="color-board">
+          <span class="gradient-slot-status" id="advanced-status-color-board">No gradient</span>
+        </div>
+        <div class="gradient-slot-bottom">
+          <div class="gradient-slot-preview" id="advanced-preview-color-board"></div>
+          <label class="gradient-slot-upload" title="Upload a .wcgr file">
+            ↑ .wcgr
+            <input type="file" accept=".wcgr,application/json" style="display:none"
+                   data-slot-id="color-board" class="advanced-wcgr-input" data-page-color-id="advanced-color-color-board">
+          </label>
+          <button type="button" class="gradient-slot-clear"
+                  data-slot-id="color-board" title="Clear gradient">✕</button>
+        </div>
+      </div>
+      <div class="gradient-slot">
+        <div class="gradient-slot-top">
+          <span class="gradient-slot-label">Bag / Item Color</span>
+          <input type="color" class="gradient-slot-color" id="advanced-color-color-bag"
+                 value="#faedcd" data-syncs="color-bag">
+          <span class="gradient-slot-status" id="advanced-status-color-bag">No gradient</span>
+        </div>
+        <div class="gradient-slot-bottom">
+          <div class="gradient-slot-preview" id="advanced-preview-color-bag"></div>
+          <label class="gradient-slot-upload" title="Upload a .wcgr file">
+            ↑ .wcgr
+            <input type="file" accept=".wcgr,application/json" style="display:none"
+                   data-slot-id="color-bag" class="advanced-wcgr-input" data-page-color-id="advanced-color-color-bag">
+          </label>
+          <button type="button" class="gradient-slot-clear"
+                  data-slot-id="color-bag" title="Clear gradient">✕</button>
+        </div>
+      </div>
+      <div class="gradient-slot">
+        <div class="gradient-slot-top">
+          <span class="gradient-slot-label">Number Color</span>
+          <input type="color" class="gradient-slot-color" id="advanced-color-color-number"
+                 value="#d32f2f" data-syncs="color-number">
+          <span class="gradient-slot-status" id="advanced-status-color-number">No gradient</span>
+        </div>
+        <div class="gradient-slot-bottom">
+          <div class="gradient-slot-preview" id="advanced-preview-color-number"></div>
+          <label class="gradient-slot-upload" title="Upload a .wcgr file">
+            ↑ .wcgr
+            <input type="file" accept=".wcgr,application/json" style="display:none"
+                   data-slot-id="color-number" class="advanced-wcgr-input" data-page-color-id="advanced-color-color-number">
+          </label>
+          <button type="button" class="gradient-slot-clear"
+                  data-slot-id="color-number" title="Clear gradient">✕</button>
+        </div>
+      </div>
+      <div class="gradient-slot">
+        <div class="gradient-slot-top">
+          <span class="gradient-slot-label">Holes / Slots</span>
+          <input type="color" class="gradient-slot-color" id="advanced-color-color-hole"
+                 value="#222222" data-syncs="color-hole">
+          <span class="gradient-slot-status" id="advanced-status-color-hole">No gradient</span>
+        </div>
+        <div class="gradient-slot-bottom">
+          <div class="gradient-slot-preview" id="advanced-preview-color-hole"></div>
+          <label class="gradient-slot-upload" title="Upload a .wcgr file">
+            ↑ .wcgr
+            <input type="file" accept=".wcgr,application/json" style="display:none"
+                   data-slot-id="color-hole" class="advanced-wcgr-input" data-page-color-id="advanced-color-color-hole">
+          </label>
+          <button type="button" class="gradient-slot-clear"
+                  data-slot-id="color-hole" title="Clear gradient">✕</button>
+        </div>
+      </div>
+            </div>
+          </details>
+
+          <button type="button" class="advanced-dialog-apply" onclick="applyAdvancedSettings()">Apply &amp; Re-generate</button>
+        </div>
+      </div>
+    </div>
   </main>
 
-<div id="footer"></div>
+  <!-- Footer -->
+  <div id="footer"></div>
 
   <!-- Global JS (navbar + footer + dark mode) -->
   <script src="../../global.js"></script>
+  <!-- Shared Tool JS -->
+  <script src="../tools_shared.js"></script>
   <!-- Tool Specific JS -->
   <script src="planogram.js"></script>
 </body>

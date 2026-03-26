@@ -1,0 +1,47 @@
+{
+  "name": "Nebula",
+  "type": "linear",
+  "angle": 125,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 16,
+  "ratioH": 9,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#080020"
+    },
+    {
+      "pos": 0.2,
+      "color": "#400080"
+    },
+    {
+      "pos": 0.4,
+      "color": "#8000c0"
+    },
+    {
+      "pos": 0.6,
+      "color": "#c00080"
+    },
+    {
+      "pos": 0.8,
+      "color": "#ff4060"
+    },
+    {
+      "pos": 1,
+      "color": "#ff8000"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

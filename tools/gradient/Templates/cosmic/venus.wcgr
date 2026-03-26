@@ -1,0 +1,43 @@
+{
+  "name": "Venus",
+  "type": "radial",
+  "angle": 0,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 42,
+  "posY": 40,
+  "ratioW": 10,
+  "ratioH": 10,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#fff0c0"
+    },
+    {
+      "pos": 0.25,
+      "color": "#e8c860"
+    },
+    {
+      "pos": 0.5,
+      "color": "#c8a020"
+    },
+    {
+      "pos": 0.75,
+      "color": "#906000"
+    },
+    {
+      "pos": 1,
+      "color": "#3a2000"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Comet",
+  "type": "linear",
+  "angle": 135,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 16,
+  "ratioH": 9,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#ffffff"
+    },
+    {
+      "pos": 0.1,
+      "color": "#a0c8ff"
+    },
+    {
+      "pos": 0.4,
+      "color": "#4060a0"
+    },
+    {
+      "pos": 1,
+      "color": "#000510"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

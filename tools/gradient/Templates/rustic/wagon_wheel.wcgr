@@ -1,0 +1,59 @@
+{
+  "name": "Wagon Wheel",
+  "type": "angle",
+  "angle": 0,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 10,
+  "ratioH": 10,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#3d1f08"
+    },
+    {
+      "pos": 0.12,
+      "color": "#8b4513"
+    },
+    {
+      "pos": 0.25,
+      "color": "#3d1f08"
+    },
+    {
+      "pos": 0.37,
+      "color": "#a0602a"
+    },
+    {
+      "pos": 0.5,
+      "color": "#3d1f08"
+    },
+    {
+      "pos": 0.62,
+      "color": "#8b4513"
+    },
+    {
+      "pos": 0.75,
+      "color": "#3d1f08"
+    },
+    {
+      "pos": 0.87,
+      "color": "#a0602a"
+    },
+    {
+      "pos": 1,
+      "color": "#3d1f08"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

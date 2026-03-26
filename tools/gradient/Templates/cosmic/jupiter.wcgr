@@ -1,0 +1,63 @@
+{
+  "name": "Jupiter",
+  "type": "reflected",
+  "angle": 70,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 16,
+  "ratioH": 10,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#c8a878"
+    },
+    {
+      "pos": 0.1,
+      "color": "#e8c898"
+    },
+    {
+      "pos": 0.2,
+      "color": "#a07040"
+    },
+    {
+      "pos": 0.32,
+      "color": "#d4a868"
+    },
+    {
+      "pos": 0.44,
+      "color": "#c87840"
+    },
+    {
+      "pos": 0.55,
+      "color": "#e8c090"
+    },
+    {
+      "pos": 0.66,
+      "color": "#a06830"
+    },
+    {
+      "pos": 0.78,
+      "color": "#d4b070"
+    },
+    {
+      "pos": 0.88,
+      "color": "#b88050"
+    },
+    {
+      "pos": 1,
+      "color": "#c8a878"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

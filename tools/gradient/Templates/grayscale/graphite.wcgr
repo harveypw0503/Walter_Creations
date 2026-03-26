@@ -1,0 +1,35 @@
+{
+  "name": "Graphite",
+  "type": "linear",
+  "angle": 45,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 12,
+  "ratioH": 5,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#444444"
+    },
+    {
+      "pos": 0.5,
+      "color": "#aaaaaa"
+    },
+    {
+      "pos": 1,
+      "color": "#444444"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

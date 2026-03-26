@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gradient Maker - Walter Creations</title>
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="../../global.css">
+  <!-- Shared Tool Styles -->
+  <link rel="stylesheet" href="../tools_shared.css">
+  <!-- Gradient Specific Styles -->
+  <link rel="stylesheet" href="gradient.css">
+</head>
+
+<body>
+  <div id="navbar"></div>
+
+  <main class="tool-page">
+    <div class="tool-title-row">
+      <h1 class="tool-title">Gradient Maker</h1>
+      <button class="tool-info-btn" onclick="openToolInfo()" title="About this tool">ℹ</button>
+    </div>
+    <p class="tool-subtitle">Design beautiful gradients and export as PNG or WCGR</p>
+
+    <!-- Info Modal -->
+    <div class="tool-info-modal" id="info-modal">
+      <div class="tool-info-modal-box">
+        <button class="tool-info-modal-close" onclick="closeToolInfo()">✕</button>
+        <div class="tool-info-modal-header">
+          <div class="tool-info-modal-icon">🎨</div>
+          <div>
+            <div class="tool-info-modal-title">Gradient Maker</div>
+            <div class="tool-info-modal-category">Color Tools</div>
+          </div>
+        </div>
+        <div class="tool-info-modal-divider"></div>
+        <div class="tool-info-modal-body">
+
+          <div>
+            <div class="tool-info-modal-section-label">What it does</div>
+            <p class="tool-info-modal-desc">
+              Gradient Maker is a full-featured gradient maker and editor.
+              Build linear, radial, reflected, angular, and diamond gradients with unlimited color and
+              opacity stops. Bend the angle, position, and scale to your will.
+              There is a library of templates to get inspired with. Save your work as a
+              .wcgr file to reload later and continue editing or to use as a
+              color in other tools on the site by turning on Advanced tooling in the Settings.
+              Export  you finished gradients as PNG at any resolution.
+            </p>
+          </div>
+
+          <div>
+            <div class="tool-info-modal-section-label">How to use</div>
+            <div class="tool-info-steps">
+              <div class="tool-info-step">
+                <div class="tool-info-step-num">1</div>
+                <div class="tool-info-step-text">Click on ＋ Color Stop or ◇ Opacity Stop to add stops or click above or below the gradient bar to add color and opacity stops. Drag stops along the bar to reposition them.</div>
+              </div>
+              <div class="tool-info-step">
+                <div class="tool-info-step-num">2</div>
+                <div class="tool-info-step-text">Change canvas ratio to your desired proportions.</div>
+              </div>
+              <div class="tool-info-step">
+                <div class="tool-info-step-num">3</div>
+                <div class="tool-info-step-text">Feel free to use the Template Library and try various Randomize functions for inspiration, fun, or to discover complimenting colors.</div>
+              </div>
+              <div class="tool-info-step">
+                <div class="tool-info-step-num">4</div>
+                <div class="tool-info-step-text">Your past 10 edits are saved in the Edit History where you can simply go back to any previous step by clicking on it.</div>
+              </div>
+              <div class="tool-info-step">
+                <div class="tool-info-step-num">5</div>
+                <div class="tool-info-step-text">Save your creation as a PNG if so desired or as a WCGR so you can edit it later and use it in other tools via Advanced Tooling.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tool-info-tip">
+            <span>💡</span>
+            <span>The ratio does not have any bearing on PNG export size, only the PNG proportions.</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Preview -->
+    <div class="gradient-preview-wrap">
+      <div class="gradient-checkerboard" id="gradient-checkerboard">
+        <canvas id="gradient-preview" width="500" height="500"></canvas>
+      </div>
+    </div>
+
+    <!-- Editor Bar -->
+    <div class="gradient-editor">
+      <div class="gradient-stops-row" id="opacity-stops-container" title="Opacity stops — click to add, drag to move"></div>
+      <div class="gradient-bar-wrap">
+        <div class="gradient-bar-checker"></div>
+        <div class="gradient-bar" id="gradient-bar"></div>
+      </div>
+      <div class="gradient-stops-row" id="color-stops-container" title="Color stops — click to add, drag to move"></div>
+    </div>
+
+    <!-- Controls -->
+    <div class="tool-controls">
+
+      <label class="control-label">
+        Type
+        <select id="gradient-type" class="control-input">
+          <option value="linear">Linear</option>
+          <option value="reflected">Reflected</option>
+          <option value="radial">Radial</option>
+          <option value="angle">Angle</option>
+          <option value="diamond">Diamond</option>
+        </select>
+      </label>
+
+      <label class="control-label">
+        Angle
+        <div class="gradient-angle-row">
+          <div class="gradient-angle-dial" id="gradient-angle-dial">
+            <div class="gradient-angle-needle" id="gradient-angle-needle"></div>
+          </div>
+          <input type="number" id="gradient-angle-number" class="control-input gradient-angle-number" value="0" min="0" max="360">
+        </div>
+      </label>
+
+      <label class="control-label">
+        Center X (%)
+        <input type="range" id="gradient-pos-x" class="control-input" min="0" max="100" value="50">
+        <input type="number" id="gradient-pos-x-number" class="control-input number-input-small" min="0" max="100" value="50">
+      </label>
+
+      <label class="control-label">
+        Center Y (%)
+        <input type="range" id="gradient-pos-y" class="control-input" min="0" max="100" value="50">
+        <input type="number" id="gradient-pos-y-number" class="control-input number-input-small" min="0" max="100" value="50">
+      </label>
+
+      <label class="control-label" id="scale-x-label">
+        Scale X
+        <input type="range" id="gradient-scale-x" class="control-input" min="0.1" max="5" step="0.05" value="1">
+        <input type="number" id="gradient-scale-x-number" class="control-input number-input-small" min="0.1" max="5" step="0.05" value="1">
+      </label>
+
+      <label class="control-label" id="scale-y-label">
+        Scale Y
+        <input type="range" id="gradient-scale-y" class="control-input" min="0.1" max="5" step="0.05" value="1">
+        <input type="number" id="gradient-scale-y-number" class="control-input number-input-small" min="0.1" max="5" step="0.05" value="1">
+      </label>
+
+    </div>
+
+    <!-- Stop Edit Panel -->
+    <div id="stop-edit-panel" class="tool-panel">
+      <span class="tool-panel-label" id="stop-edit-label">Selected Stop</span>
+      <input type="color" id="stop-color-picker" class="stop-color-input" title="Color">
+      <div id="stop-opacity-controls">
+        <label class="stop-opacity-label">
+          Opacity
+          <div class="stop-opacity-row">
+            <input type="range" id="stop-opacity-slider" class="control-input" min="0" max="1" step="0.01" value="1">
+            <input type="number" id="stop-opacity-number" class="control-input number-input-extra-small" min="0" max="1" step="0.01" value="1">
+          </div>
+        </label>
+      </div>
+      <button class="tool-button tool-button--danger" id="delete-stop-button">✕ Delete</button>
+    </div>
+
+    <!-- Add Stops -->
+    <div class="tool-controls">
+      <button class="tool-button" id="add-color-stop-button">＋ Color Stop</button>
+      <button class="tool-button" id="add-opacity-stop-button">◇ Opacity Stop</button>
+    </div>
+
+    <!-- Canvas Ratio -->
+    <div class="tool-settings-panel">
+      <div class="tool-settings-group">
+        <span class="tool-settings-title">Canvas Ratio</span>
+        <div class="tool-settings-inputs">
+          <label class="tool-settings-inline-label">
+            Width
+            <input type="number" id="ratio-width" class="control-input number-input-medium" min="1" max="100" value="10">
+          </label>
+          <span class="tool-settings-sep">×</span>
+          <label class="tool-settings-inline-label">
+            Height
+            <input type="number" id="ratio-height" class="control-input number-input-medium" min="1" max="100" value="5">
+          </label>
+          <button class="ratio-lock-button" id="ratio-lock-button" title="Lock ratio proportions">🔓</button>
+          <button class="tool-button button-small" id="apply-ratio-button">Apply</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="tool-actions">
+      <button class="tool-button" id="download-png-button">Download PNG</button>
+      <button class="tool-button" id="download-wcgr-button">Download .wcgr</button>
+      <label class="tool-button upload-wcgr-label" title="Upload a .wcgr file">
+        Upload .wcgr
+        <input type="file" id="upload-wcgr-input" accept=".wcgr" class="hidden-file-input">
+      </label>
+      <button class="tool-button" id="open-templates-button">📁 Templates</button>
+      <button class="tool-button" id="open-randomize-button">🎲 Randomize</button>
+      <button id="advanced-open-button" class="advanced-button" onclick="openAdvancedDialog()" style="display:none">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="8" cy="8" r="2.5"/>
+          <path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M3.05 3.05l1.06 1.06M11.89 11.89l1.06 1.06M3.05 12.95l1.06-1.06M11.89 4.11l1.06-1.06" stroke-linecap="round"/>
+        </svg>
+        Import .wcgr
+      </button>
+    </div>
+
+    <!-- Edit Panel History -->
+    <div class="history-panel" id="history-panel">
+      <span class="history-title">Edit History</span>
+      <div class="history-list" id="history-list"></div>
+    </div>
+
+    <!-- Export Scale Modal -->
+    <div class="tool-modal" id="export-modal">
+      <div class="tool-modal-content export-modal-content">
+        <span class="tool-modal-close" id="export-modal-close">&times;</span>
+        <h2>Export PNG</h2>
+        <p class="tool-modal-desc" id="export-preview-label"></p>
+        <div class="export-modal-body">
+          <label class="export-scale-label">
+            Scale (px per unit)
+            <div class="export-scale-row">
+              <input type="range" id="export-scale-slider" class="control-input" min="10" max="500" step="10" value="100">
+              <input type="number" id="export-scale-number" class="control-input number-input-small" min="10" max="500" step="10" value="100">
+            </div>
+          </label>
+          <p class="export-size-label" id="export-size-label"></p>
+          <button class="tool-button button-large" id="export-confirm-button">Export</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEMPLATES MODAL -->
+
+    <!-- Advanced Tooling Dialog — Import .wcgr as stops -->
+    <div class="advanced-dialog-backdrop" id="advanced-dialog-backdrop">
+      <div class="advanced-dialog" role="dialog" aria-modal="true">
+        <button type="button" class="advanced-dialog-close" onclick="closeAdvancedDialog()">✕</button>
+        <div class="advanced-dialog-header">
+          <div class="advanced-dialog-icon">🎨</div>
+          <div>
+            <p class="advanced-dialog-title">Import .wcgr as Stops</p>
+            <p class="advanced-dialog-subtitle">Merge another gradient into this one</p>
+          </div>
+        </div>
+        <div class="advanced-dialog-divider"></div>
+        <div class="advanced-dialog-body">
+          <div class="advanced-dialog-section-label">Source File</div>
+
+          <!-- Drop / upload zone -->
+          <div class="gradient-slot">
+            <div class="gradient-slot-top">
+              <span class="gradient-slot-label">Source gradient</span>
+              <span class="gradient-slot-status" id="advanced-import-status">No file loaded</span>
+            </div>
+            <div class="gradient-slot-bottom">
+              <div class="gradient-slot-preview" id="advanced-import-preview"></div>
+              <label class="gradient-slot-upload" title="Upload a .wcgr file">
+                ↑ .wcgr
+                <input type="file" accept=".wcgr,application/json" style="display:none" id="advanced-import-input">
+              </label>
+              <button type="button" class="gradient-slot-lib" id="advanced-import-library-btn" title="Browse template library">📁 Library</button>
+              <button type="button" class="gradient-slot-clear" id="advanced-import-clear" title="Clear">✕</button>
+            </div>
+          </div>
+
+          <div class="advanced-dialog-section-label" style="margin-top:8px;">Placement</div>
+
+          <!-- Range sliders for where to put the imported stops -->
+          <div class="gradient-slot">
+            <div class="gradient-slot-top" style="flex-direction:column; align-items:flex-start; gap:10px;">
+              <div style="width:100%;">
+                <div style="display:flex; justify-content:space-between; font-size:12px; color:#777; margin-bottom:4px;">
+                  <span>Insert from</span>
+                  <span id="advanced-range-from-val">0%</span>
+                </div>
+                <input type="range" id="advanced-range-from" min="0" max="99" value="0" step="1"
+                       class="control-input" style="width:100%; margin:0;">
+              </div>
+              <div style="width:100%;">
+                <div style="display:flex; justify-content:space-between; font-size:12px; color:#777; margin-bottom:4px;">
+                  <span>Insert to</span>
+                  <span id="advanced-range-to-val">100%</span>
+                </div>
+                <input type="range" id="advanced-range-to" min="1" max="100" value="100" step="1"
+                       class="control-input" style="width:100%; margin:0;">
+              </div>
+            </div>
+          </div>
+
+          <div class="advanced-dialog-section-label" style="margin-top:8px;">Mode</div>
+          <div class="gradient-slot">
+            <div class="gradient-slot-top">
+              <span class="gradient-slot-label">Replace stops in range</span>
+              <label style="display:flex; align-items:center; gap:6px; cursor:pointer; font-size:13px; color:#666;">
+                <input type="checkbox" id="advanced-replace-mode" style="cursor:pointer;">
+                Replace
+              </label>
+            </div>
+            <div style="padding:0 12px 10px; font-size:12px; color:#aaa; line-height:1.5;">
+              When checked, existing color stops inside the range are removed first.
+              When unchecked, imported stops are merged alongside existing ones.
+            </div>
+          </div>
+
+          <button type="button" class="advanced-dialog-apply" id="advanced-import-apply" disabled>
+            Import Stops into Gradient
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Randomize Modal -->
+    <div class="tool-modal" id="randomize-modal">
+      <div class="tool-modal-content randomize-modal-content">
+        <span class="tool-modal-close" id="close-randomize-button">&times;</span>
+        <h2>🎲 Randomize</h2>
+        <p class="tool-modal-desc">Choose what to randomize. Each roll is added to history so you can undo.</p>
+
+        <div class="randomize-grid">
+
+          <button class="randomize-card" id="rand-colors">
+            <span class="randomize-card-icon">🎨</span>
+            <span class="randomize-card-title">Colors Only</span>
+            <span class="randomize-card-desc">Re-roll the color of every existing stop. Positions, type and angle stay fixed.</span>
+          </button>
+
+          <button class="randomize-card" id="rand-stops">
+            <span class="randomize-card-icon">◈</span>
+            <span class="randomize-card-title">Stops</span>
+            <span class="randomize-card-desc">Randomize the number of stops (2–6), their positions, and their colors. Type and angle stay fixed.</span>
+          </button>
+
+          <button class="randomize-card" id="rand-bounded">
+            <span class="randomize-card-icon">✦</span>
+            <span class="randomize-card-title">Everything — Bounded</span>
+            <span class="randomize-card-desc">Randomizes type, angle, stops and colors using harmonious palettes. Always looks good.</span>
+          </button>
+
+          <button class="randomize-card" id="rand-boundless">
+            <span class="randomize-card-icon">🌀</span>
+            <span class="randomize-card-title">Everything — Boundless</span>
+            <span class="randomize-card-desc">Fully random. Type, angle, stops, and completely arbitrary colors. May look chaotic.</span>
+          </button>
+
+          <button class="randomize-card randomize-card--wide" id="rand-complement">
+            <span class="randomize-card-icon">🔒</span>
+            <span class="randomize-card-title">Complement</span>
+            <span class="randomize-card-desc">Lock the stops you want to keep. Unlocked stops get replaced with colors that harmonize with your locked ones.</span>
+          </button>
+
+        </div>
+
+        <!-- Complement sub-panel — shown when user clicks Complement card -->
+        <div id="complement-panel" style="display:none;">
+          <div class="complement-header">Lock stops to keep them. Unlocked ones will get harmonious complements.</div>
+          <div id="complement-stops-list" class="complement-stops-list"></div>
+          <div class="complement-actions">
+            <button class="tool-button" id="complement-cancel">← Back</button>
+            <button class="tool-button" id="complement-apply">Find Complements</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+
+  <script src="../../global.js"></script>
+  <!-- Shared Tool JS -->
+  <script src="../tools_shared.js"></script>
+  <script src="gradient.js"></script>
+</body>
+</html>

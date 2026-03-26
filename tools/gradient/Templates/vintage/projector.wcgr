@@ -1,0 +1,43 @@
+{
+  "name": "Projector",
+  "type": "radial",
+  "angle": 0,
+  "scaleX": 0.75,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 4,
+  "ratioH": 3,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#fff8e8"
+    },
+    {
+      "pos": 0.25,
+      "color": "#f0e0b0"
+    },
+    {
+      "pos": 0.55,
+      "color": "#c0a060"
+    },
+    {
+      "pos": 0.8,
+      "color": "#604820"
+    },
+    {
+      "pos": 1,
+      "color": "#1a0e00"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

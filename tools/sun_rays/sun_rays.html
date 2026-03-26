@@ -5,13 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sunray Generator - Walter Creations</title>
 
-  <!-- Favicon + Manifest -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-
   <!-- Global Styles -->
   <link rel="stylesheet" href="../../global.css">
   <!-- Shared Tool Styles -->
@@ -24,8 +17,67 @@
   <div id="navbar"></div>
 
   <main class="tool-page">
-    <h1 class="tool-title">Sunray Generator</h1>
+    <div class="tool-title-row">
+      <h1 class="tool-title">Sunray Generator</h1>
+      <button class="tool-info-btn" onclick="openToolInfo()" title="About this tool">ℹ</button>
+    </div>
+    <p class="tool-subtitle">Generate sunrays with customizable settings and options; export as PNG or SVG</p>
 
+    <!-- Info Modal -->
+    <div class="tool-info-modal" id="info-modal">
+      <div class="tool-info-modal-box">
+        <button class="tool-info-modal-close" onclick="closeToolInfo()">✕</button>
+        <div class="tool-info-modal-header">
+          <div class="tool-info-modal-icon">☀️</div>
+          <div>
+            <div class="tool-info-modal-title">Sunray Generator</div>
+            <div class="tool-info-modal-category">Generator</div>
+          </div>
+        </div>
+        <div class="tool-info-modal-divider"></div>
+        <div class="tool-info-modal-body">
+
+          <div>
+            <div class="tool-info-modal-section-label">What it does</div>
+            <p class="tool-info-modal-desc">
+              The Sunray Generator generates radiating ray patterns in center, up, down, left and right directions.
+              You have full control over the ray count, colors, lengths and the direction.
+              Export your result as PNG or a scalable SVG.
+            </p>
+          </div>
+
+          <div>
+            <div class="tool-info-modal-section-label">How to use</div>
+            <div class="tool-info-steps">
+              <div class="tool-info-step">
+                <div class="tool-info-step-num">1</div>
+                <div class="tool-info-step-text">Choose a Direction: Center radiates from the middle; Up/Down/Left/Right shifts the origin to that edge.</div>
+              </div>
+              <div class="tool-info-step">
+                <div class="tool-info-step-num">2</div>
+                <div class="tool-info-step-text">Set Number of Rays and pick a Ray Color using the color picker.</div>
+              </div>
+              <div class="tool-info-step">
+                <div class="tool-info-step-num">3</div>
+                <div class="tool-info-step-text">Adjust Min Length & Max Length to control how short and long the rays can be. Check Fixed Length to make all the same size.</div>
+              </div>
+              <div class="tool-info-step">
+                <div class="tool-info-step-num">4</div>
+                <div class="tool-info-step-text">Hit Generate to create a new random arrangement, then Download PNG or Download SVG to save your rays.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tool-info-tip">
+            <span>💡</span>
+            <span>If working with white or black and gray colors, change the day/night mode toggle to see your creation.</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls -->
     <div class="tool-controls">
       <label class="control-label">
         Direction
@@ -40,42 +92,114 @@
 
       <label class="control-label">
         Number of Rays
-        <input type="number" id="rayCount" min="1" max="100" value="20" class="control-input">
+        <input type="number" id="ray-count" min="1" max="100" value="20" class="control-input">
       </label>
 
       <label class="control-label">
         Ray Color
-        <input type="color" id="rayColor" value="#2D9CDB" class="control-input">
+        <input type="color" id="ray-color" value="#2D9CDB" class="control-input" data-page-color-id="advanced-color-ray-color">
       </label>
 
       <label class="control-label">
         Min Length
-        <input type="number" id="minLength" value="150" min="0" class="control-input">
+        <input type="number" id="min-length" value="150" min="0" class="control-input">
       </label>
 
       <label class="control-label">
         Max Length
-        <input type="number" id="maxLength" value="400" min="0" class="control-input">
+        <input type="number" id="max-length" value="400" min="0" class="control-input">
       </label>
 
       <label class="control-label">
-        <input type="checkbox" id="fixedLength"> Fixed length
+        <input type="checkbox" id="fixed-length"> Fixed Length
       </label>
     </div>
 
     <div class="tool-actions">
-      <button id="generateBtn" class="tool-button">Generate</button>
-      <button id="downloadBtn" class="tool-button">Download PNG</button>
-      <button id="downloadSvgBtn" class="tool-button">Download SVG</button>
+      <button id="generate-button" class="tool-button">Generate</button>
+      <button id="download-png-button" class="tool-button">Download PNG</button>
+      <button id="download-svg-button" class="tool-button">Download SVG</button>
+    
+      <button id="advanced-open-button" class="advanced-button" onclick="openAdvancedDialog()" style="display:none">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="8" cy="8" r="2.5"/>
+          <path d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M3.05 3.05l1.06 1.06M11.89 11.89l1.06 1.06M3.05 12.95l1.06-1.06M11.89 4.11l1.06-1.06" stroke-linecap="round"/>
+        </svg>
+        Advanced
+      </button>
     </div>
 
-    <canvas id="sunCanvas" width="800" height="800" class="tool-canvas"></canvas>
+    <canvas id="ray-canvas" width="800" height="800" class="tool-canvas"></canvas>
+
+    <!-- Advanced Tooling Dialog -->
+    <div class="advanced-dialog-backdrop" id="advanced-dialog-backdrop">
+      <div class="advanced-dialog" role="dialog" aria-modal="true">
+        <button type="button" class="advanced-dialog-close" onclick="closeAdvancedDialog()">✕</button>
+        <div class="advanced-dialog-header">
+          <div class="advanced-dialog-icon">☀️</div>
+          <div>
+            <p class="advanced-dialog-title">Advanced: Sunray Generator</p>
+            <p class="advanced-dialog-subtitle">Colors &amp; gradient overrides</p>
+          </div>
+        </div>
+        <div class="advanced-dialog-divider"></div>
+        <div class="advanced-dialog-body">
+
+          <!-- ── Tool Preset ── -->
+          <details class="advanced-section" id="advanced-section-preset" open>
+            <summary class="advanced-section-header">Tool Preset</summary>
+            <div class="advanced-section-body">
+              <div class="advanced-control-card">
+                <p class="advanced-control-desc">Save all settings and gradient slots to a <strong>.wctp</strong> file, or load a previously saved preset to restore them instantly.</p>
+                <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:8px;">
+                  <button type="button" class="tool-button" id="advanced-preset-download" style="flex:1; min-width:120px;">⬇ Download Preset</button>
+                  <label class="tool-button" style="flex:1; min-width:120px; text-align:center; cursor:pointer;" title="Load a .wctp preset file">
+                    ⬆ Load Preset
+                    <input type="file" id="advanced-preset-upload" accept=".wctp,application/json" style="display:none;">
+                  </label>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <!-- Gradient Slots -->
+          <details class="advanced-section" id="advanced-section-colors" open>
+            <summary class="advanced-section-header">Color Slots</summary>
+            <div class="advanced-section-body">
+      <div class="gradient-slot">
+        <div class="gradient-slot-top">
+          <span class="gradient-slot-label">Ray Color</span>
+          <input type="color" class="gradient-slot-color" id="advanced-color-ray-color"
+                 value="#2D9CDB" data-syncs="ray-color">
+          <span class="gradient-slot-status" id="advanced-status-ray-color">No gradient</span>
+        </div>
+        <div class="gradient-slot-bottom">
+          <div class="gradient-slot-preview" id="advanced-preview-ray-color"></div>
+          <label class="gradient-slot-upload" title="Upload a .wcgr file">
+            ↑ .wcgr
+            <input type="file" accept=".wcgr,application/json" style="display:none"
+                   data-slot-id="ray-color" class="advanced-wcgr-input" data-page-color-id="advanced-color-ray-color">
+          </label>
+          <button type="button" class="gradient-slot-clear"
+                  data-slot-id="ray-color" title="Clear gradient">✕</button>
+        </div>
+      </div>
+            </div>
+          </details>
+
+          <button type="button" class="advanced-dialog-apply" onclick="applyAdvancedSettings()">Apply &amp; Re-generate</button>
+        </div>
+      </div>
+    </div>
   </main>
 
-<div id="footer"></div>
+  <!-- Footer -->
+  <div id="footer"></div>
 
   <!-- Global JS (navbar + footer + dark mode) -->
   <script src="../../global.js"></script>
+  <!-- Shared Tool JS -->
+  <script src="../tools_shared.js"></script>
   <!-- Tool Specific JS -->
   <script src="sun_rays.js"></script>
 </body>

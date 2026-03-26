@@ -1,0 +1,39 @@
+{
+  "name": "Driftwood",
+  "type": "linear",
+  "angle": 90,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 16,
+  "ratioH": 5,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#9e8e7e"
+    },
+    {
+      "pos": 0.3,
+      "color": "#b8a898"
+    },
+    {
+      "pos": 0.6,
+      "color": "#8a7a6a"
+    },
+    {
+      "pos": 1,
+      "color": "#c8b8a8"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

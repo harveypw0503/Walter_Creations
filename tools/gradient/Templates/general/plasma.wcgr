@@ -1,0 +1,22 @@
+{
+  "name": "Plasma",
+  "type": "diamond",
+  "angle": 0,
+  "scaleX": 1.5,
+  "scaleY": 0.7,
+  "posX": 30,
+  "posY": 50,
+  "ratioW": 16,
+  "ratioH": 9,
+  "colorStops": [
+    { "pos": 0, "color": "#0d0221" },
+    { "pos": 0.2, "color": "#7b2d8b" },
+    { "pos": 0.5, "color": "#f900bf" },
+    { "pos": 0.8, "color": "#7b2d8b" },
+    { "pos": 1, "color": "#0d0221" }
+  ],
+  "opacityStops": [
+    { "pos": 0, "opacity": 1 },
+    { "pos": 1, "opacity": 1 }
+  ]
+}

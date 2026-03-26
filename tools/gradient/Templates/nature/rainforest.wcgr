@@ -1,0 +1,39 @@
+{
+  "name": "Rainforest",
+  "type": "radial",
+  "angle": 0,
+  "scaleX": 1,
+  "scaleY": 1.4,
+  "posX": 50,
+  "posY": 30,
+  "ratioW": 10,
+  "ratioH": 16,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#a8f0a0"
+    },
+    {
+      "pos": 0.3,
+      "color": "#40b840"
+    },
+    {
+      "pos": 0.6,
+      "color": "#1a7020"
+    },
+    {
+      "pos": 1,
+      "color": "#0a3010"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 0.8
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}

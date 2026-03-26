@@ -1,0 +1,35 @@
+{
+  "name": "Barn",
+  "type": "linear",
+  "angle": 180,
+  "scaleX": 1,
+  "scaleY": 1,
+  "posX": 50,
+  "posY": 50,
+  "ratioW": 10,
+  "ratioH": 6,
+  "colorStops": [
+    {
+      "pos": 0,
+      "color": "#8b2500"
+    },
+    {
+      "pos": 0.5,
+      "color": "#6b1a00"
+    },
+    {
+      "pos": 1,
+      "color": "#3d0e00"
+    }
+  ],
+  "opacityStops": [
+    {
+      "pos": 0,
+      "opacity": 1
+    },
+    {
+      "pos": 1,
+      "opacity": 1
+    }
+  ]
+}
