@@ -23,7 +23,7 @@ form.addEventListener('submit', async (e) => {
     });
 
     if (response.ok) {
-      status.textContent = "✓ Message sent! I'll get back to you soon.";
+      status.textContent = "✓ Message sent! We'll get back to you soon.";
       status.classList.add('status-success');
       form.reset();
     } else {
