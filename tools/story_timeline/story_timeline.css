@@ -82,6 +82,11 @@ body.dark-mode .number-badge { background: #3b82f6; }
 }
 .item.drag-over { transform: translateY(4px); }
 
+/* Hidden block children (collapsed state) */
+.item.block-child-hidden {
+  display: none !important;
+}
+
 .droppable { min-height: 120px; }
 .droppable.drag-active {
   background: rgba(45,157,218,0.05);
@@ -206,6 +211,80 @@ body.dark-mode .actions .park:hover    { background: rgba(245,158,11,0.2); }
 body.dark-mode .actions .restore:hover,
 body.dark-mode .actions .convert:hover { background: rgba(59,130,246,0.2); }
 
+/* ============================================================
+   BLOCK COLLAPSE TOGGLE BUTTON
+   Sits just after the number badge, before the title text.
+   Only present on book/chapter items.
+============================================================ */
+.block-toggle-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  border: 1.5px solid rgba(0,0,0,0.12);
+  background: rgba(255,255,255,0.7);
+  color: #555;
+  font-size: 11px;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.15s, border-color 0.15s, color 0.15s, transform 0.18s cubic-bezier(0.34,1.4,0.64,1);
+  /* Override any inherited .actions button styles */
+  margin: 0;
+}
+
+.block-toggle-btn:hover {
+  background: rgba(45,157,218,0.12) !important;
+  border-color: var(--tl-accent) !important;
+  color: var(--tl-accent) !important;
+  transform: scale(1.08) !important;
+}
+
+/* When the block is collapsed the chevron should look "closed" */
+.block-toggle-btn.is-collapsed {
+  background: rgba(45,157,218,0.08);
+  border-color: rgba(45,157,218,0.3);
+  color: var(--tl-accent);
+}
+
+body.dark-mode .block-toggle-btn {
+  background: rgba(0,0,0,0.25);
+  border-color: rgba(255,255,255,0.12);
+  color: #aaa;
+}
+body.dark-mode .block-toggle-btn:hover {
+  background: rgba(59,130,246,0.2) !important;
+  border-color: #3b82f6 !important;
+  color: #7dd3f8 !important;
+}
+body.dark-mode .block-toggle-btn.is-collapsed {
+  background: rgba(59,130,246,0.12);
+  border-color: rgba(59,130,246,0.35);
+  color: #7dd3f8;
+}
+
+/* Collapse indicator bar shown on the book/chapter when children are hidden */
+.collapse-count-badge {
+  display: none;
+  font-size: 11px;
+  font-weight: 600;
+  color: #888;
+  background: rgba(0,0,0,0.05);
+  border-radius: 20px;
+  padding: 2px 8px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+body.dark-mode .collapse-count-badge { background: rgba(255,255,255,0.07); color: #666; }
+
+[data-block-collapsed="true"] .collapse-count-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
 /* Convert popup */
 .convert-popup {
   position: fixed;
@@ -319,20 +398,140 @@ body.dark-mode .details textarea:focus {
 /* Parking lot (modal only) */
 .parking-lot { display: none; }
 
-/* Responsive */
+/* ============================================================
+   MOBILE ACTION POPUP (≤768px)
+   The ⋯ button replaces the actions row on small screens.
+   The popup floats anchored below the trigger button.
+============================================================ */
+
+/* The ⋯ "more actions" button — hidden on desktop */
+.mobile-actions-btn {
+  display: none;
+}
+
+/* The floating popup panel */
+.mobile-actions-popup {
+  position: fixed;
+  z-index: 99999;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.1);
+  padding: 10px;
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 200px;
+  max-width: 260px;
+  animation: mobilePopupIn 0.2s cubic-bezier(0.34,1.4,0.64,1);
+}
+body.dark-mode .mobile-actions-popup {
+  background: #2a2a2a;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+}
+
+.mobile-actions-popup.is-open {
+  display: flex;
+}
+
+@keyframes mobilePopupIn {
+  from { opacity: 0; transform: scale(0.9) translateY(-6px); }
+  to   { opacity: 1; transform: scale(1)   translateY(0); }
+}
+
+/* Individual rows inside the popup */
+.mobile-popup-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 9px;
+  border: none;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.12s;
+}
+.mobile-popup-row:hover { background: rgba(0,0,0,0.06); }
+body.dark-mode .mobile-popup-row { color: #eee; }
+body.dark-mode .mobile-popup-row:hover { background: rgba(255,255,255,0.08); }
+
+.mobile-popup-row .mpr-icon { font-size: 18px; width: 24px; text-align: center; flex-shrink: 0; }
+.mobile-popup-row .mpr-label { flex: 1; }
+
+/* Danger row */
+.mobile-popup-row.mpr-danger { color: var(--tl-danger); }
+.mobile-popup-row.mpr-danger:hover { background: #fee2e2; }
+body.dark-mode .mobile-popup-row.mpr-danger:hover { background: rgba(220,38,38,0.2); }
+
+/* Park/restore row */
+.mobile-popup-row.mpr-park:hover { background: #fef3c7; }
+body.dark-mode .mobile-popup-row.mpr-park:hover { background: rgba(245,158,11,0.2); }
+
+/* Divider inside popup */
+.mobile-popup-divider {
+  height: 1px;
+  background: #f0f0f0;
+  margin: 2px 0;
+}
+body.dark-mode .mobile-popup-divider { background: #3a3a3a; }
+
+/* Scrim to dismiss popup on outside tap */
+.mobile-popup-scrim {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 99998;
+}
+.mobile-popup-scrim.is-open { display: block; }
+
+/* Responsive — apply mobile layout at ≤768px */
 @media (max-width: 768px) {
   .desktop-add-buttons,
   .desktop-input-field { display: none; }
   .content-row { flex-direction: column; }
   .timeline { padding-left: 20px; }
   .timeline::before { left: 8px; }
+
   .book .label, .chapter .label, .event {
     min-height: 48px;
     padding: 10px 12px 10px 42px;
     gap: 8px;
   }
-  .actions button { padding: 4px 6px; font-size: 14px; }
-  .handle         { padding: 4px 6px; font-size: 14px; }
+
+  /* On mobile: hide all action buttons EXCEPT the handle and the ⋯ button */
+  .actions button:not(.mobile-actions-btn) { display: none; }
+  .actions .handle                         { display: flex; }
+
+  /* Show the ⋯ button */
+  .mobile-actions-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    font-size: 20px;
+    line-height: 1;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #6b7280;
+    border-radius: 6px;
+  }
+  .mobile-actions-btn:hover { background: rgba(0,0,0,0.08); }
+  body.dark-mode .mobile-actions-btn { color: #aaa; }
+  body.dark-mode .mobile-actions-btn:hover { background: rgba(255,255,255,0.1); }
+
+  /* Block toggle button adjustments on mobile */
+  .block-toggle-btn {
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+  }
+
   .details        { margin: 6px 0 0; padding: 10px 12px; font-size: 13px; }
   .details textarea { min-height: 50px; padding: 6px; font-size: 13px; }
 }
@@ -346,4 +545,64 @@ body.dark-mode .details textarea:focus {
   }
   .number-badge   { min-width: 22px; padding: 3px 6px; font-size: 12px; }
   .actions button { padding: 3px 5px; font-size: 13px; }
+}
+
+
+/* Block toggle button — locked state (parking lot / recycle bin)
+   Uses a class rather than the disabled attribute so addEventListener still fires,
+   allowing _handleBlockToggleClick to show the warning toast. */
+.block-toggle-btn.btn-locked {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* Block toggle button — no children to collapse (empty leader in timeline) */
+.block-toggle-btn.btn-no-children {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+/* ============================================================
+   TOAST NOTIFICATION
+   Used by showToast() and showWarningToast()
+============================================================ */
+.tl-toast {
+  position: fixed;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #1a1a2e;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 999px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  opacity: 0;
+  transition: opacity 0.22s ease, transform 0.28s cubic-bezier(0.34,1.4,0.64,1);
+  pointer-events: none;
+  z-index: 200000;
+  white-space: nowrap;
+  max-width: calc(100vw - 2rem);
+  text-align: center;
+}
+
+body.dark-mode .tl-toast {
+  background: #e0e0f0;
+  color: #1a1a2e;
+}
+
+.tl-toast.tl-toast-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Warning variant — amber pill */
+.tl-toast.tl-toast-warning {
+  background: #92400e;
+  color: #fef3c7;
+}
+
+body.dark-mode .tl-toast.tl-toast-warning {
+  background: #fbbf24;
+  color: #1a1100;
 }

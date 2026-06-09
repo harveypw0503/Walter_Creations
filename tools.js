@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { name: "Mountain Range Generator", file: "tools/mount_range/mount_range.html" },
     { name: "Planogram Creator", file: "tools/planogram/planogram.html" },
     { name: "Story Timeline Organizer", file: "tools/story_timeline/story_timeline.html" },
-    { name: "Gradient Maker", file: "tools/gradient/gradient.html" }
+    { name: "Gradient Maker", file: "tools/gradient/gradient.html" },
   ];
 
   const toolsContainer = document.getElementById("tools-container");

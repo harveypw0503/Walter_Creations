@@ -1,0 +1,801 @@
+{
+  "projectName": "The Shattered Realms — Dev Test Suite",
+  "timeline": [
+    {
+      "type": "book",
+      "title": "Book 1: The Ember Crown",
+      "desc": "The opening book of the series. Follows Kael Dawnbreaker as he discovers the ancient Ember Crown buried beneath the ruins of the Ashen Keep. Three kingdoms collapse in its wake.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-0",
+      "originalNextId": null
+    },
+    {
+      "type": "chapter",
+      "title": "Chapter 1: The Waking Dark",
+      "desc": "Kael is summoned from his exile in the Thornwood. He arrives at the capital just as the first quake splits the palace courtyard.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-1",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Kael receives the summons scroll",
+      "desc": "A silver-threaded scroll arrives at his cottage at dawn. The seal is the queen's own — unbroken.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-2",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Kael departs Thornwood",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-3",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "First quake splits the palace courtyard",
+      "desc": "Cracks form in a perfect circle — 40 feet wide. Soldiers refuse to approach the edge.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-4",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Kael meets Queen Serath for the first time in 11 years",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-5",
+      "originalNextId": null
+    },
+    {
+      "type": "chapter",
+      "title": "Chapter 2: Beneath the Ashen Keep",
+      "desc": "The excavation of the keep's lower vaults begins under the queen's orders. Kael leads the descent with reluctance.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-6",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Excavation team assembled — 12 people",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-7",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Vault door discovered — no visible hinges or lock",
+      "desc": "The door hums when touched. Mira the archivist identifies the script as pre-Sundering glyphs.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-8",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Three members of the team disappear overnight",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-9",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Kael opens the vault using his blood — unplanned, instinctive",
+      "desc": "He doesn't know why he cuts his palm. He doesn't know why the door recognises him. Neither does anyone else.",
+      "collapsed": false,
+      "blockCollapsed": false,
+      "id": "item-10",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "The Ember Crown is found on a throne of black glass",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-11",
+      "originalNextId": null
+    },
+    {
+      "type": "chapter",
+      "title": "Chapter 3: The Crown Does Not Sleep",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": true,
+      "id": "item-12",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Kael hears the crown speak — only he can hear it",
+      "desc": "It doesn't use words. It uses memories — specifically ones Kael has never had.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-13",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Queen Serath attempts to wear the crown — repelled violently",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-14",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "The capital's river runs red for six hours",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-15",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Mira deciphers a fragment: 'Only the forgotten heir may carry fire'",
+      "desc": "This is the first direct textual evidence that Kael is not who he thinks he is. Mira keeps it to herself for now.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-16",
+      "originalNextId": null
+    },
+    {
+      "type": "chapter",
+      "title": "Chapter 4: Treason and Ash",
+      "desc": "The Lord Commander accuses Kael of orchestrating the quakes. Political fallout fractures the queen's council.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-17",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Lord Commander Vayne files formal charges against Kael",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-18",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Kael escapes the palace with the crown and Mira's help",
+      "desc": "They ride east through the Ashfields. Mira tells him about the fragment. Kael doesn't speak for two hours.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-19",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Vayne burns the lower vaults — destroying most of the pre-Sundering archive",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-20",
+      "originalNextId": null
+    },
+    {
+      "type": "book",
+      "title": "Book 2: Salt and Iron",
+      "desc": "A shorter transitional book told from three alternating POVs: Kael on the run, Queen Serath managing collapse, and an unnamed figure watching from the eastern border.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-21",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Kael crosses the Ashfields alone — Mira captured at the border",
+      "desc": "He doesn't go back. This is a deliberate and painful choice. He tells himself he'll return for her.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-22",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Queen Serath dissolves the High Council",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-23",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Serath opens negotiations with the Silt Republic — previously sworn enemies",
+      "desc": "Desperate times. The Republic wants trade access to the northern grain roads. Serath is out of leverage but doesn't show it.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-24",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "The unnamed watcher is revealed to be observing Kael specifically — not the crown",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-25",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Second quake — this time centred on the eastern border, not the capital",
+      "desc": "Measuring stones place the epicentre exactly where Kael crossed the night before. Correlation noted by three independent sources.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-26",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Kael hears the crown say a name: Sorvenne",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-27",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Book 2 ends — Kael arrives at the gates of Delthara, the city that should not exist",
+      "desc": "Delthara was destroyed 200 years ago. Every map since shows only a crater. Kael is standing at its gate.",
+      "collapsed": false,
+      "blockCollapsed": false,
+      "id": "item-28",
+      "originalNextId": null
+    },
+    {
+      "type": "book",
+      "title": "Book 3: The City That Remembers",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-29",
+      "originalNextId": null
+    },
+    {
+      "type": "chapter",
+      "title": "Chapter 1: Delthara",
+      "desc": "Kael enters the impossible city. It is populated — but the people do not age, and none of them remember the destruction.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-30",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Kael enters Delthara unchallenged",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-31",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "A child recognises the crown and runs",
+      "desc": "She doesn't scream. She just turns and disappears into the crowd. Kael follows but loses her in seconds.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-32",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Kael learns no one in Delthara has a shadow",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-33",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "He is brought before the Remembrant — the city's single governing voice",
+      "desc": "The Remembrant speaks in plural. 'We have been expecting the crown. We did not expect you to be carrying it.'",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-34",
+      "originalNextId": null
+    },
+    {
+      "type": "chapter",
+      "title": "Chapter 2: What the Fire Remembers",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-35",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "The Remembrant reveals the crown's origin — forged from the grief of a dead god",
+      "desc": "Specifically, a god of endings. The crown does not grant power — it accumulates consequence. Every choice made near it becomes permanent in ways the chooser cannot undo.",
+      "collapsed": false,
+      "blockCollapsed": false,
+      "id": "item-36",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Kael is shown a vision of Sorvenne — she is a woman who burned Delthara the first time",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-37",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "The crown reacts — first time it has physically moved on its own",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-38",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Kael realises Sorvenne is still alive — and she is the unnamed watcher from Book 2",
+      "desc": "This is the emotional gut-punch of Book 3. Everything recontextualises. She wasn't watching the crown. She was watching him because she's been waiting for the heir to appear.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-39",
+      "originalNextId": null
+    },
+    {
+      "type": "chapter",
+      "title": "Chapter 3: The Third Burning",
+      "desc": "Sorvenne arrives at Delthara's gates. The city knows her. The city is afraid.",
+      "collapsed": true,
+      "blockCollapsed": true,
+      "id": "item-40",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Sorvenne enters without resistance — the gates open for her",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-41",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "First conversation between Kael and Sorvenne",
+      "desc": "She is not a villain. She is exhausted. She has been alive for 200 years, waiting for someone who can end what she started. 'I burned this city to stop a worse fire. I was wrong. Now I need you to finish it.'",
+      "collapsed": false,
+      "blockCollapsed": false,
+      "id": "item-42",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "The Remembrant shatters — Sorvenne's presence breaks the collective binding",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-43",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Delthara begins to fade — the city only existed because it was remembered",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-44",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Kael puts on the crown for the first time",
+      "desc": "He does not do it willingly. The choice is taken from him by the one permanent consequence the crown has already set in motion: the moment he opened the vault with his blood, this was always next.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-45",
+      "originalNextId": null
+    },
+    {
+      "type": "book",
+      "title": "Book 4: Everything That Burns",
+      "desc": "The final book. Kael now carries both the crown and the weight of Sorvenne's confession. Three armies are converging on the Ashfields. Mira has been freed but changed. The world is ending in slow motion.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-46",
+      "originalNextId": null
+    },
+    {
+      "type": "chapter",
+      "title": "Chapter 1: Three Armies",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-47",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Vayne's army marches from the capital — now acting as self-appointed regent",
+      "desc": "He has declared Serath unfit to rule after she opened negotiations with the Republic. His justification is thin. His army is large.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-48",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Serath's forces meet Republic envoys at the Spine Bridge",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-49",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "A third unnamed army spotted in the southern marshes — no banners",
+      "desc": "Scouts describe them as moving in complete silence. No campfires at night. No supply wagons.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-50",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Mira arrives at Kael's camp",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-51",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Mira reveals she can now read the crown's emissions as text",
+      "desc": "Not hear them, like Kael. Read them. As text. In a language she has never studied but now understands completely.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-52",
+      "originalNextId": null
+    },
+    {
+      "type": "chapter",
+      "title": "Chapter 2: The Weight of Permanence",
+      "desc": "Kael tries to understand what the crown has already locked in place. Sorvenne helps. This is their most important conversation.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-53",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Sorvenne lists every irreversible consequence she knows of from the crown's history",
+      "desc": "It takes four hours. Kael writes nothing down. He doesn't need to. The crown is already logging it.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-54",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Kael realises his exile 11 years ago was engineered — by Serath, to keep him away from the crown",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-55",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Kael confronts Serath via messenger hawk — she replies: 'Yes.'",
+      "desc": "He sends one question: 'Did you know what I was?' She sends back one word: 'Yes.'",
+      "collapsed": false,
+      "blockCollapsed": false,
+      "id": "item-56",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Sorvenne reveals the only way to end the crown — Kael must die wearing it",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-57",
+      "originalNextId": null
+    },
+    {
+      "type": "chapter",
+      "title": "Chapter 3: The Ashfield Convergence",
+      "desc": "All threads arrive at the same place. The battle is not the climax — the choice before the battle is.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-58",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Vayne's army reaches the Ashfields first",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-59",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "The silent southern army is identified — they are the shadowless people of Delthara",
+      "desc": "Delthara faded, but its people didn't. They followed Kael. No one asked them to.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-60",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Serath arrives alone — no army, no guard",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-61",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Serath and Kael speak in person for the last time",
+      "desc": "She apologises. Not for the exile — she'd do it again. For not telling him why. 'I was afraid you'd choose the crown on purpose.' He tells her she was right to be afraid.",
+      "collapsed": false,
+      "blockCollapsed": false,
+      "id": "item-62",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Mira reads the crown's final inscription — it is a question, not a command",
+      "desc": "The inscription asks: 'Do you choose this end, or do you accept it?' The difference, Mira explains, is everything.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-63",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Kael answers the crown out loud — in front of everyone",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-64",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "The Ashfields burn — consequences only, not people",
+      "desc": "Every unjust exile. Every burned archive. Every broken treaty. Every choice made in the shadow of the crown burns away in about ninety seconds. The ground is left perfectly black and perfectly flat.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-65",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Kael is gone — only the crown remains, cold and dark for the first time",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-66",
+      "originalNextId": null
+    },
+    {
+      "type": "chapter",
+      "title": "Epilogue: What Is Left",
+      "desc": "No resolution. Just aftermath. What three people do on the first morning after.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-67",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Mira buries the crown without ceremony",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-68",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Serath walks back toward the capital — alone, on foot",
+      "desc": "She doesn't look back at the black field. She is already thinking about what governance looks like when there is no threat to organise around.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-69",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Sorvenne, finally without shadow, looks up at the sun",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-70",
+      "originalNextId": null
+    },
+    {
+      "type": "book",
+      "title": "Book 5: PLACEHOLDER — Untitled Prequel",
+      "desc": "NOTE FOR SELF: This book takes place 200 years before Book 1. Follows Sorvenne before the first burning of Delthara. Do not start writing this until Books 1-4 are locked. The timeline here will contradict Book 3 in at least two places — that is intentional and will need to be resolved in revision.",
+      "collapsed": false,
+      "blockCollapsed": false,
+      "id": "item-71",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "ROUGH NOTE: Sorvenne is born in Delthara — into the Remembrant collective",
+      "desc": "She is the first child born in 40 years who does not immediately join the collective. The Remembrant does not know what to do with an individual.",
+      "collapsed": false,
+      "blockCollapsed": false,
+      "id": "item-72",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "ROUGH NOTE: She discovers fire reacts differently to her — she does not feel it as pain",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-73",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "ROUGH NOTE: The original crown is created — need to decide if Sorvenne witnesses or causes this",
+      "desc": "Two versions of this scene exist in my notes. In one, she is a bystander. In the other, she is the one who brings the dead god's grief to the forge. Version 2 is better but makes her more complicit in everything that follows.",
+      "collapsed": false,
+      "blockCollapsed": false,
+      "id": "item-74",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "ROUGH NOTE: First burning of Delthara — Sorvenne's POV",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-75",
+      "originalNextId": null
+    }
+  ],
+  "parking": [
+    {
+      "type": "chapter",
+      "title": "Interlude: The Cartographer's Account",
+      "desc": "A one-chapter interlude told through the field notes of a royal cartographer who witnesses the second quake from the eastern border. Pure worldbuilding — no named characters. Might cut entirely.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-76",
+      "originalNextId": "end"
+    },
+    {
+      "type": "event",
+      "title": "Vayne's backstory scene — his sister died in the first quake",
+      "desc": "This was written to add sympathy for Vayne. Currently it makes him TOO sympathetic and undercuts the reader's ability to enjoy his eventual downfall. Parking until I figure out how much sympathy he deserves.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-77",
+      "originalNextId": "end"
+    },
+    {
+      "type": "event",
+      "title": "Scene: Mira and Serath meet without Kael present",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-78",
+      "originalNextId": "end"
+    },
+    {
+      "type": "book",
+      "title": "Spin-off Concept: The Republic Side",
+      "desc": "Told entirely from within the Silt Republic. None of the main characters appear. The reader sees the Ember Crown crisis as distant rumour and political opportunity. Very different in tone — more cynical, more bureaucratic, occasionally darkly funny. Not sure if this is a novella or a full book.",
+      "collapsed": false,
+      "blockCollapsed": false,
+      "id": "item-79",
+      "originalNextId": "end"
+    },
+    {
+      "type": "event",
+      "title": "Alternate ending: Kael survives but cannot speak — the crown takes his voice instead of his life",
+      "desc": "Thematically interesting. The man who answered the crown's question out loud in front of everyone loses the ability to speak. But it might be too clever. And Mira would have to become the de-facto narrator of the aftermath, which changes the whole epilogue structure.",
+      "collapsed": false,
+      "blockCollapsed": false,
+      "id": "item-80",
+      "originalNextId": "end"
+    },
+    {
+      "type": "chapter",
+      "title": "Chapter X: The Night Before the Ashfields",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-81",
+      "originalNextId": "end"
+    },
+    {
+      "type": "event",
+      "title": "Sorvenne tells Kael about Aldren — the one ordinary person she loved before the burning",
+      "desc": "His name was Aldren. He was not special. That was the point. He was completely ordinary and she loved him for it and she burned the city and he was inside it. She has never said his name out loud since then. She says it here.",
+      "collapsed": false,
+      "blockCollapsed": false,
+      "id": "item-82",
+      "originalNextId": "end"
+    }
+  ],
+  "recycle": [
+    {
+      "type": "chapter",
+      "title": "Chapter: The Dream Sequence",
+      "desc": "Kael has a prophetic dream in which he sees all four books play out simultaneously. Cut because it spoiled too much, felt like a shortcut, and dreams-as-exposition is a cliche I don't want anywhere near this story.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-83",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Third character: a comic-relief merchant who travels with Kael for two chapters",
+      "desc": "He was fun to write. He served no purpose. He was cut after draft one. His name was Botto.",
+      "collapsed": false,
+      "blockCollapsed": false,
+      "id": "item-84",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Scene where the crown physically attacks Vayne",
+      "desc": "",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-85",
+      "originalNextId": null
+    },
+    {
+      "type": "book",
+      "title": "Book concept: The Second Crown",
+      "desc": "There is a second crown. This was the original premise of the entire series before it was scrapped in outline phase. A second crown exists and the whole story is about two heirs, one per crown, working against each other. Abandoned because it made everything too symmetrical and removed the moral ambiguity from Sorvenne's role. Kept here as a reminder of why the current structure is better.",
+      "collapsed": false,
+      "blockCollapsed": false,
+      "id": "item-86",
+      "originalNextId": null
+    },
+    {
+      "type": "event",
+      "title": "Mira is secretly working for Vayne — triple-agent subplot",
+      "desc": "Cut in outline phase. Made her untrustworthy in a way that undercut every scene she shared with Kael. The story needs at least one person Kael can trust without question.",
+      "collapsed": true,
+      "blockCollapsed": false,
+      "id": "item-87",
+      "originalNextId": null
+    }
+  ]
+}

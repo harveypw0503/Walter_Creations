@@ -27,6 +27,10 @@ let touchMoved      = false;
 // DOM refs — assigned in DOMContentLoaded
 let timeline, parking, recycleBin;
 
+// Mobile action popup state
+let activeMobilePopup = null;
+let activeMobileScrim = null;
+
 // ============================================================
 // 2. HELPERS
 // ============================================================
@@ -49,13 +53,9 @@ function getDragAfterElementTouch(container, y) {
   return getDragAfterElement(container, y);
 }
 
-// Block helper
-
-
 // Returns ordered sibling items that belong under a book or chapter:
-// book  → everything until the next book
+// book    → everything until the next book
 // chapter → everything until the next chapter or book
-
 function getBlockItems(leader) {
   const isBook    = leader.classList.contains('book');
   const isChapter = leader.classList.contains('chapter');
@@ -76,34 +76,239 @@ function isBlockCollapsed(leader) {
   return leader.dataset.blockCollapsed === 'true';
 }
 
+// Update the collapse count badge text
+function updateCollapseBadge(leader) {
+  const badge = leader.querySelector('.collapse-count-badge');
+  if (!badge) return;
+  const blockItems = getBlockItems(leader);
+  const count = blockItems.length;
+  if (count > 0) {
+    badge.textContent = `${count} hidden`;
+  } else {
+    badge.textContent = '';
+  }
+}
+
 // ============================================================
 // 3. BLOCK COLLAPSE / EXPAND
 // ============================================================
+// Central handler for block-toggle clicks — checks location & empty state
+// before delegating to toggleBlockCollapse.
+function _handleBlockToggleClick(leader) {
+  const container = leader.parentElement;
+
+  // In parking lot or recycle bin — not expandable here
+  if (container && (container.id === 'parking' || container.id === 'recycle-bin')) {
+    const loc = container.id === 'parking' ? 'Parking Lot' : 'Recycle Bin';
+    showWarningToast(`⚠ Cannot expand block while in ${loc}. Please restore to timeline to expand`);
+    return;
+  }
+
+  // No children to collapse/expand
+  if (getBlockItems(leader).length === 0) {
+    showWarningToast('⚠ Nothing to collapse');
+    return;
+  }
+
+  toggleBlockCollapse(leader);
+}
+
 function toggleBlockCollapse(leader) {
   const collapsing = !isBlockCollapsed(leader);
   leader.dataset.blockCollapsed = collapsing ? 'true' : 'false';
 
   const btn = leader.querySelector('.block-toggle-btn');
-  if (btn) btn.textContent = collapsing ? '▶' : '▼';
+  if (btn) {
+    btn.textContent = collapsing ? '▶' : '▼';
+    btn.title       = collapsing ? 'Expand block' : 'Collapse block';
+    btn.classList.toggle('is-collapsed', collapsing);
+  }
 
   const blockItems = getBlockItems(leader);
-  blockItems.forEach(item => {
-    if (collapsing) {
-      item.classList.add('block-child-hidden');
-    } else {
-      item.classList.remove('block-child-hidden');
-      // If a chapter inside this book is itself collapsed, re-hide its children
-      if (item.classList.contains('chapter') && isBlockCollapsed(item)) {
-        getBlockItems(item).forEach(child => child.classList.add('block-child-hidden'));
-      }
-    }
-  });
 
+  if (collapsing) {
+    // Hide everything under this leader
+    blockItems.forEach(item => item.classList.add('block-child-hidden'));
+  } else {
+    // Expanding: show direct children but respect collapsed sub-leaders.
+    // Walk through blockItems tracking whether we are inside a collapsed chapter.
+    let insideCollapsedChapter = false;
+    blockItems.forEach(item => {
+      const isChapter = item.classList.contains('chapter');
+      const isBook    = item.classList.contains('book'); // shouldn't occur but be safe
+
+      if (isChapter || isBook) {
+        // This item is a direct child leader — always make it visible
+        item.classList.remove('block-child-hidden');
+        // Record whether its own children should stay hidden
+        insideCollapsedChapter = isBlockCollapsed(item);
+      } else {
+        // It's an event (or any non-leader): hide if under a collapsed chapter
+        if (insideCollapsedChapter) {
+          item.classList.add('block-child-hidden');
+        } else {
+          item.classList.remove('block-child-hidden');
+        }
+      }
+    });
+  }
+
+  updateCollapseBadge(leader);
   updateNumbering();
 }
 
 // ============================================================
-// 4. ITEM CREATION
+// 4. MOBILE ACTION POPUP
+// ============================================================
+function closeMobilePopup() {
+  if (activeMobilePopup) {
+    activeMobilePopup.remove();
+    activeMobilePopup = null;
+  }
+  if (activeMobileScrim) {
+    activeMobileScrim.remove();
+    activeMobileScrim = null;
+  }
+}
+
+function openMobileActionPopup(triggerBtn, item) {
+  // Close any existing popup first
+  closeMobilePopup();
+
+  const isBook    = item.classList.contains('book');
+  const isChapter = item.classList.contains('chapter');
+  const isLeader  = isBook || isChapter;
+  const inParking = item.parentElement?.id === 'parking';
+  const inRecycle = item.parentElement?.id === 'recycle-bin';
+
+  // Detect whether the park button is currently in "restore" state
+  const parkEl = item.querySelector('.park, .restore');
+  const isParked = parkEl && parkEl.classList.contains('restore');
+
+  // Scrim — transparent layer that closes popup on outside tap
+  const scrim = document.createElement('div');
+  scrim.className = 'mobile-popup-scrim is-open';
+  scrim.addEventListener('click', closeMobilePopup);
+  document.body.appendChild(scrim);
+  activeMobileScrim = scrim;
+
+  // Popup panel
+  const popup = document.createElement('div');
+  popup.className = 'mobile-actions-popup is-open';
+
+  // Helper to make a row
+  function makeRow(icon, label, cls, onClick) {
+    const btn = document.createElement('button');
+    btn.className = `mobile-popup-row${cls ? ' ' + cls : ''}`;
+    btn.innerHTML = `<span class="mpr-icon">${icon}</span><span class="mpr-label">${label}</span>`;
+    btn.addEventListener('click', () => { closeMobilePopup(); onClick(); });
+    popup.appendChild(btn);
+    return btn;
+  }
+
+  function makeDivider() {
+    const d = document.createElement('div');
+    d.className = 'mobile-popup-divider';
+    popup.appendChild(d);
+  }
+
+  // Block collapse toggle (only for book/chapter, only in timeline)
+  if (isLeader && !inParking && !inRecycle) {
+    const isCollapsed = isBlockCollapsed(item);
+    makeRow(
+      isCollapsed ? '▶' : '▼',
+      isCollapsed ? 'Expand block' : 'Collapse block',
+      '',
+      () => toggleBlockCollapse(item)
+    );
+    makeDivider();
+  }
+
+  // Details toggle
+  const detailsEl = item.querySelector('.details');
+  const isDetOpen = detailsEl && detailsEl.style.display !== 'none';
+  makeRow(isDetOpen ? '⌄' : '⌃', isDetOpen ? 'Hide details' : 'Show details', '', () => {
+    // Find the toggle button and call toggle() on it
+    const toggleBtn = item.querySelector('.toggle-btn') || item.querySelector('button[onclick*="toggle"]');
+    if (toggleBtn) toggle(toggleBtn);
+    else {
+      // fallback: manually toggle
+      if (detailsEl) {
+        const hiding = detailsEl.style.display !== 'none';
+        detailsEl.style.display = hiding ? 'none' : 'block';
+        item.classList.toggle('collapsed', hiding);
+      }
+    }
+  });
+
+  // Convert — only in timeline (not available in parking or recycle bin)
+  if (!inParking && !inRecycle) {
+    makeRow('⇄', 'Convert to…', '', () => {
+      const convertBtn = item.querySelector('.convert');
+      if (convertBtn) showConvertMenu(convertBtn);
+    });
+    makeDivider();
+  } else {
+    makeDivider();
+  }
+
+  // Park / Restore
+  if (inRecycle) {
+    // In recycle bin: show recover
+    makeRow('🔄', 'Recover', '', () => {
+      const recoverBtn = item.querySelector('.recover-btn');
+      if (recoverBtn) recover(recoverBtn);
+    });
+  } else if (isParked) {
+    makeRow('↩️', 'Restore to timeline', 'mpr-park', () => {
+      if (parkEl) restoreFromParking(parkEl);
+    });
+  } else {
+    makeRow('🚗', 'Move to Parking Lot', 'mpr-park', () => {
+      if (parkEl) parkItem(parkEl);
+    });
+  }
+
+  makeDivider();
+
+  // Delete
+  if (inRecycle) {
+    makeRow('❌', 'Permanently delete', 'mpr-danger', () => {
+      const delBtn = item.querySelector('.delete');
+      if (delBtn) del(delBtn);
+    });
+  } else {
+    makeRow('🗑️', 'Delete', 'mpr-danger', () => {
+      const delBtn = item.querySelector('.delete');
+      if (delBtn) del(delBtn);
+    });
+  }
+
+  document.body.appendChild(popup);
+  activeMobilePopup = popup;
+
+  // Position the popup near the trigger button
+  const triggerRect = triggerBtn.getBoundingClientRect();
+  const popupWidth  = 220;
+  const margin      = 8;
+  let left = triggerRect.right - popupWidth;
+  let top  = triggerRect.bottom + margin;
+
+  // Clamp to viewport
+  if (left < margin) left = margin;
+  if (left + popupWidth > window.innerWidth - margin) left = window.innerWidth - popupWidth - margin;
+  const popupHeight = 280; // approx max
+  if (top + popupHeight > window.innerHeight - margin) {
+    top = triggerRect.top - popupHeight - margin;
+    if (top < margin) top = margin;
+  }
+
+  popup.style.left = left + 'px';
+  popup.style.top  = top  + 'px';
+}
+
+// ============================================================
+// 5. ITEM CREATION
 // ============================================================
 function createItem(type, title = '', desc = '', collapsed = true, id = null, originalNextId = null, blockCollapsed = false) {
   const wrapper = document.createElement("div");
@@ -115,15 +320,25 @@ function createItem(type, title = '', desc = '', collapsed = true, id = null, or
 
   const card = document.createElement("div");
   card.className = "label";
+
+  // Build the block-toggle button (collapse/expand) for leaders
+  // It sits visually between the number badge and the title text.
+  // We render it inline here and inject it after the number-badge span.
+  const blockToggleHTML = isLeader
+    ? `<button class="block-toggle-btn${blockCollapsed ? ' is-collapsed' : ''}" title="${blockCollapsed ? 'Expand block' : 'Collapse block'}">${blockCollapsed ? '▶' : '▼'}</button>
+       <span class="collapse-count-badge"></span>`
+    : '';
+
   card.innerHTML = `
     <span class="number-badge"></span>
+    ${blockToggleHTML}
     <span class="label-text" contenteditable="true" spellcheck="false">${title || type.toUpperCase()}</span>
     <span class="actions">
-      ${isLeader ? `<button class="block-toggle-btn" title="Collapse/expand block">${blockCollapsed ? '▶' : '▼'}</button>` : ''}
       <button class="convert" onclick="showConvertMenu(this)" title="Convert to...">⇄</button>
       <button class="park" onclick="parkItem(this)" title="Park item">🚗</button>
       <button class="delete" onclick="del(this)" title="Delete">🗑️</button>
       <button onclick="toggle(this)" title="Toggle details">⌃</button>
+      <button class="mobile-actions-btn" title="More actions">⋯</button>
       <span class="handle" draggable="true" title="Drag to reorder">☰</span>
     </span>
   `;
@@ -144,8 +359,24 @@ function createItem(type, title = '', desc = '', collapsed = true, id = null, or
   addDrag(wrapper.querySelector(".handle"), wrapper);
 
   if (isLeader) {
-    card.querySelector('.block-toggle-btn').addEventListener('click', () => toggleBlockCollapse(wrapper));
-    if (blockCollapsed) wrapper.dataset.blockCollapsed = 'true';
+    const toggleBtn = card.querySelector('.block-toggle-btn');
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      _handleBlockToggleClick(wrapper);
+    });
+    if (blockCollapsed) {
+      wrapper.dataset.blockCollapsed = 'true';
+      updateCollapseBadge(wrapper);
+    }
+  }
+
+  // Mobile ⋯ button wiring
+  const mobileBtn = card.querySelector('.mobile-actions-btn');
+  if (mobileBtn) {
+    mobileBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openMobileActionPopup(mobileBtn, wrapper);
+    });
   }
 
   const labelText = card.querySelector('.label-text');
@@ -176,6 +407,7 @@ function createEventItem(title, desc = '', collapsed = true, id = null, original
         <button class="park" onclick="parkItem(this)" title="Park item">🚗</button>
         <button class="delete" onclick="del(this)" title="Delete">🗑️</button>
         <button class="toggle-btn" onclick="toggle(this)" title="Toggle details">⌃</button>
+        <button class="mobile-actions-btn" title="More actions">⋯</button>
         <div class="handle" draggable="true" title="Drag to reorder">☰</div>
       </div>
     </div>
@@ -183,6 +415,15 @@ function createEventItem(title, desc = '', collapsed = true, id = null, original
   `;
 
   addDrag(w.querySelector(".handle"), w);
+
+  // Mobile ⋯ button wiring
+  const mobileBtn = w.querySelector('.mobile-actions-btn');
+  if (mobileBtn) {
+    mobileBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openMobileActionPopup(mobileBtn, w);
+    });
+  }
 
   const textEl = w.querySelector('.text');
   textEl.addEventListener('input', function () {
@@ -205,7 +446,7 @@ function createEventItem(title, desc = '', collapsed = true, id = null, original
 }
 
 // ============================================================
-// 5. ITEM ACTIONS (add / park / restore / delete / toggle)
+// 6. ITEM ACTIONS (add / park / restore / delete / toggle)
 // ============================================================
 function addItem(type) {
   let newItem;
@@ -233,11 +474,164 @@ function addItem(type) {
   }, 100);
 }
 
-// Move leader and its entire block to destination
+// Move leader and its entire block to destination (in DOM order)
 function _moveGroup(leader, destination) {
   const blockItems = getBlockItems(leader);
   destination.appendChild(leader);
   blockItems.forEach(bi => destination.appendChild(bi));
+}
+
+// Returns the first timeline element that comes AFTER the leader (and its
+// children if collapsed — they travel as one unit). Used to record restore position.
+function _firstAfterGroup(leader) {
+  if (isBlockCollapsed(leader)) {
+    // Collapsed = unified block; skip past all children
+    const blockItems = getBlockItems(leader);
+    const last = blockItems.length ? blockItems[blockItems.length - 1] : leader;
+    return last.nextElementSibling || null;
+  }
+  // Uncollapsed = leader is independent; next sibling is right after it
+  return leader.nextElementSibling || null;
+}
+
+// ---- Button helpers ------------------------------------------------
+// Apply the correct button set for an item sitting in the recycle bin.
+// Expected: 🔄 ⇄ ❌ ⌃ ☰
+function _applyRecycleBinButtons(item) {
+  const actions = item.querySelector(".actions");
+  if (!actions) return;
+
+  // 🔄 recover — prepend if not already there
+  if (!actions.querySelector(".recover-btn")) {
+    const recoverBtn       = document.createElement("button");
+    recoverBtn.className   = "recover-btn";
+    recoverBtn.textContent = "🔄";
+    recoverBtn.title       = "Recover from bin";
+    recoverBtn.onclick     = function () { recover(this); };
+    actions.insertBefore(recoverBtn, actions.firstChild);
+  }
+
+  // ⇄ convert — hidden in recycle bin (not for editing)
+  const convertBtn = actions.querySelector(".convert");
+  if (convertBtn) convertBtn.style.display = "none";
+
+  // 🚗/↩️ park/restore — hidden in recycle bin
+  const parkBtn = actions.querySelector(".park, .restore");
+  if (parkBtn) parkBtn.style.display = "none";
+
+  // ❌ delete — relabel to permanent-delete
+  const delBtn = actions.querySelector(".delete");
+  if (delBtn) { delBtn.textContent = "❌"; delBtn.title = "Permanently delete"; }
+
+  // Block collapse toggle — visually disabled; _handleBlockToggleClick shows the toast
+  const blockToggle = item.querySelector(".block-toggle-btn");
+  if (blockToggle) {
+    blockToggle.classList.add('btn-locked');
+    blockToggle.title    = "Cannot expand in Recycle Bin — restore to timeline first";
+  }
+
+  // ⌃ toggle (details) and ☰ handle stay as-is
+}
+
+// Apply the correct button set for an item sitting in the parking lot.
+// Expected: ↩️ 🗑️ ⌃ ☰  (convert is hidden — parking is not for editing)
+function _applyParkingButtons(item) {
+  const actions = item.querySelector(".actions");
+  if (!actions) return;
+
+  // Remove any stale recover button
+  const recoverBtn = actions.querySelector(".recover-btn");
+  if (recoverBtn) recoverBtn.remove();
+
+  // ↩️ restore
+  const parkBtn = actions.querySelector(".park, .restore");
+  if (parkBtn) {
+    parkBtn.style.display = "";
+    parkBtn.textContent   = "↩️";
+    parkBtn.className     = "restore";
+    parkBtn.title         = "Restore to timeline";
+    parkBtn.onclick       = function () { restoreFromParking(this); };
+  }
+
+  // ⇄ convert — hidden in parking lot (not for editing)
+  const convertBtn = actions.querySelector(".convert");
+  if (convertBtn) convertBtn.style.display = "none";
+
+  // 🗑️ delete — normal delete label
+  const delBtn = actions.querySelector(".delete");
+  if (delBtn) { delBtn.textContent = "🗑️"; delBtn.title = "Delete"; }
+
+  // Block collapse toggle — visually disabled; _handleBlockToggleClick shows the toast
+  const blockToggle = item.querySelector(".block-toggle-btn");
+  if (blockToggle) {
+    blockToggle.classList.add('btn-locked');
+    blockToggle.title    = "Cannot expand in Parking Lot — restore to timeline first";
+  }
+
+  // ⌃ toggle (details) and ☰ handle stay as-is
+}
+
+// Apply the correct button set for an item back in the timeline.
+// Expected: ⇄ 🚗 🗑️ ⌃ ☰
+function _applyTimelineButtons(item) {
+  const actions = item.querySelector(".actions");
+  if (!actions) return;
+
+  // Remove any stale recover button
+  const recoverBtn = actions.querySelector(".recover-btn");
+  if (recoverBtn) recoverBtn.remove();
+
+  // ⇄ convert — restore visibility
+  const convertBtn = actions.querySelector(".convert");
+  if (convertBtn) {
+    convertBtn.style.display = "";
+    convertBtn.onclick = function () { showConvertMenu(this); };
+  }
+
+  // 🚗 park
+  const parkBtn = actions.querySelector(".park, .restore");
+  if (parkBtn) {
+    parkBtn.style.display = "";
+    parkBtn.textContent   = "🚗";
+    parkBtn.className     = "park";
+    parkBtn.title         = "Park item";
+    parkBtn.onclick       = function () { parkItem(this); };
+  }
+
+  // 🗑️ delete
+  const delBtn = actions.querySelector(".delete");
+  if (delBtn) { delBtn.textContent = "🗑️"; delBtn.title = "Delete"; }
+
+  // Block collapse toggle — re-enable on return to timeline
+  const blockToggle = item.querySelector(".block-toggle-btn");
+  if (blockToggle) {
+    blockToggle.classList.remove('btn-locked');
+    blockToggle.title    = isBlockCollapsed(item) ? "Expand block" : "Collapse block";
+    // onclick is not overridden here — _handleBlockToggleClick is always the listener
+  }
+}
+// --------------------------------------------------------------------
+
+// Re-apply the correct block-child-hidden states after reinserting items into the timeline.
+// Uses each leader's own data-block-collapsed flag as the source of truth.
+function _reapplyCollapseVisuals(leader, blockItems) {
+  if (isBlockCollapsed(leader)) {
+    // Leader itself is collapsed — hide ALL its children
+    blockItems.forEach(bi => bi.classList.add('block-child-hidden'));
+  } else {
+    // Leader is expanded — show direct children, but respect collapsed sub-leaders
+    let insideCollapsedSub = false;
+    blockItems.forEach(bi => {
+      const isSubLeader = bi.classList.contains('chapter') || bi.classList.contains('book');
+      if (isSubLeader) {
+        bi.classList.remove('block-child-hidden'); // the sub-leader row itself is visible
+        insideCollapsedSub = isBlockCollapsed(bi);
+      } else {
+        if (insideCollapsedSub) bi.classList.add('block-child-hidden');
+        else                    bi.classList.remove('block-child-hidden');
+      }
+    });
+  }
 }
 
 function parkItem(btn) {
@@ -245,23 +639,25 @@ function parkItem(btn) {
   const container = item.parentElement;
 
   if (container.id === "timeline") {
-    item.dataset.originalNextId = item.nextSibling ? item.nextSibling.id : "end";
+    const afterGroup = _firstAfterGroup(item);
+    item.dataset.originalNextId = afterGroup ? afterGroup.id : "end";
   }
 
-  // Un-hide children before moving (so they're visible & accessible in parking lot)
-  getBlockItems(item).forEach(bi => bi.classList.remove('block-child-hidden'));
-  _moveGroup(item, parking);
-
-  const parkBtn = item.querySelector(".park");
-  if (parkBtn) {
-    parkBtn.textContent = "↩️";
-    parkBtn.className   = "restore";
-    parkBtn.title       = "Restore to timeline";
-    parkBtn.onclick     = function () { restoreFromParking(this); };
+  if (isBlockCollapsed(item)) {
+    // Collapsed = unified block. Collect children BEFORE moving, move together.
+    const blockItems = getBlockItems(item);
+    _moveGroup(item, parking);
+    _applyParkingButtons(item);
+    blockItems.forEach(bi => _applyParkingButtons(bi));
+    setLabelToRaw(item);
+    blockItems.forEach(setLabelToRaw);
+  } else {
+    // Uncollapsed = leader is independent. Move only the leader.
+    parking.appendChild(item);
+    _applyParkingButtons(item);
+    setLabelToRaw(item);
   }
 
-  setLabelToRaw(item);
-  [...parking.children].forEach(bi => { if (bi !== item) setLabelToRaw(bi); });
   if (container.id === "timeline") updateNumbering();
 }
 
@@ -271,7 +667,9 @@ function restoreFromParking(btn) {
   const nextEl         = (originalNextId && originalNextId !== "end")
     ? document.getElementById(originalNextId)
     : null;
-  const blockItems     = getBlockItems(item);
+
+  // Collect children while still in parking (DOM siblings)
+  const blockItems = getBlockItems(item);
 
   if (nextEl && nextEl.parentElement === timeline) {
     timeline.insertBefore(item, nextEl);
@@ -283,17 +681,12 @@ function restoreFromParking(btn) {
 
   delete item.dataset.originalNextId;
 
-  const restoreBtn = item.querySelector(".restore");
-  if (restoreBtn) {
-    restoreBtn.textContent = "🚗";
-    restoreBtn.className   = "park";
-    restoreBtn.title       = "Park item";
-    restoreBtn.onclick     = function () { parkItem(this); };
-  }
+  // Restore correct timeline buttons on leader and every child
+  _applyTimelineButtons(item);
+  blockItems.forEach(bi => _applyTimelineButtons(bi));
 
-  if (isBlockCollapsed(item)) {
-    getBlockItems(item).forEach(bi => bi.classList.add('block-child-hidden'));
-  }
+  // Re-apply collapsed visual state from saved blockCollapsed flags
+  _reapplyCollapseVisuals(item, blockItems);
 
   updateNumbering();
 }
@@ -309,70 +702,58 @@ function del(btn) {
 
   item.dataset.deletedFrom = container.id;
   if (container.id === "timeline") {
-    item.dataset.originalNextId = item.nextSibling ? item.nextSibling.id : "end";
+    const afterGroup = _firstAfterGroup(item);
+    item.dataset.originalNextId = afterGroup ? afterGroup.id : "end";
   }
 
-  const blockItems = getBlockItems(item);
-  blockItems.forEach(bi => bi.classList.remove('block-child-hidden'));
+  if (isBlockCollapsed(item)) {
+    // Collapsed = unified block. Collect children BEFORE moving, move together.
+    const blockItems = getBlockItems(item);
+    recycleBin.appendChild(item);
+    blockItems.forEach(bi => {
+      bi.dataset.deletedFrom = container.id;
+      bi.dataset.groupLeader = item.id;
+      recycleBin.appendChild(bi);
+    });
+    _applyRecycleBinButtons(item);
+    blockItems.forEach(bi => _applyRecycleBinButtons(bi));
+    setLabelToRaw(item);
+    blockItems.forEach(setLabelToRaw);
+  } else {
+    // Uncollapsed = leader is independent. Move only the leader.
+    recycleBin.appendChild(item);
+    _applyRecycleBinButtons(item);
+    setLabelToRaw(item);
+  }
 
-  recycleBin.appendChild(item);
-  blockItems.forEach(bi => {
-    bi.dataset.deletedFrom  = container.id;
-    bi.dataset.groupLeader  = item.id;
-    recycleBin.appendChild(bi);
-  });
-
-  addRecoverButton(item);
-  setLabelToRaw(item);
-  blockItems.forEach(setLabelToRaw);
   if (container.id === "timeline") updateNumbering();
 }
 
+// addRecoverButton kept for backward-compat (used nowhere else now, but safe to keep)
 function addRecoverButton(item) {
-  const actions = item.querySelector(".actions");
-  if (!actions || actions.querySelector(".recover-btn")) return;
-
-  const recoverBtn       = document.createElement("button");
-  recoverBtn.className   = "recover-btn";
-  recoverBtn.textContent = "🔄";
-  recoverBtn.title       = "Recover from bin";
-  recoverBtn.onclick     = function () { recover(this); };
-  actions.insertBefore(recoverBtn, actions.firstChild);
-
-  const delBtn = actions.querySelector(".delete");
-  if (delBtn) { delBtn.textContent = "❌"; delBtn.title = "Permanently delete"; }
-
-  const parkBtn = actions.querySelector(".park, .restore");
-  if (parkBtn) parkBtn.style.display = "none";
+  _applyRecycleBinButtons(item);
 }
 
 function recover(btn) {
   const item        = btn.closest(".item");
   const deletedFrom = item.dataset.deletedFrom || "timeline";
 
-  btn.remove();
-
-  const delBtn = item.querySelector(".delete");
-  if (delBtn) { delBtn.textContent = "🗑️"; delBtn.title = "Delete"; }
-
+  // Collect group children while still in recycle bin
   const groupItems = [...recycleBin.querySelectorAll(`[data-group-leader="${item.id}"]`)];
 
-  const parkBtn = item.querySelector(".park, .restore");
-
   if (deletedFrom === "parking") {
+    // Move back to parking
     parking.appendChild(item);
     groupItems.forEach(bi => { delete bi.dataset.groupLeader; parking.appendChild(bi); });
 
-    if (parkBtn) {
-      parkBtn.style.display = "";
-      parkBtn.textContent   = "↩️";
-      parkBtn.className     = "restore";
-      parkBtn.title         = "Restore to timeline";
-      parkBtn.onclick       = function () { restoreFromParking(this); };
-    }
+    _applyParkingButtons(item);
+    groupItems.forEach(bi => _applyParkingButtons(bi));
+
     setLabelToRaw(item);
     groupItems.forEach(setLabelToRaw);
+
   } else {
+    // Move back to timeline
     const originalNextId = item.dataset.originalNextId;
     const nextEl = (originalNextId && originalNextId !== "end")
       ? document.getElementById(originalNextId)
@@ -388,17 +769,11 @@ function recover(btn) {
 
     delete item.dataset.originalNextId;
 
-    if (parkBtn) {
-      parkBtn.style.display = "";
-      parkBtn.textContent   = "🚗";
-      parkBtn.className     = "park";
-      parkBtn.title         = "Park item";
-      parkBtn.onclick       = function () { parkItem(this); };
-    }
+    _applyTimelineButtons(item);
+    groupItems.forEach(bi => _applyTimelineButtons(bi));
 
-    if (isBlockCollapsed(item)) {
-      getBlockItems(item).forEach(bi => bi.classList.add('block-child-hidden'));
-    }
+    // Re-apply collapsed visual state from saved blockCollapsed flags
+    _reapplyCollapseVisuals(item, groupItems);
 
     updateNumbering();
   }
@@ -416,12 +791,20 @@ function toggle(btn) {
 }
 
 // ============================================================
-// 6. CONVERT
+// 7. CONVERT
 // ============================================================
 function showConvertMenu(btn) {
   document.querySelector('.convert-popup')?.remove();
 
   const item        = btn.closest(".item");
+
+  // Block conversion if this item is a collapsed block leader —
+  // converting would silently discard all hidden children.
+  if (isBlockCollapsed(item)) {
+    showWarningToast('⚠ Expand the block before converting');
+    return;
+  }
+
   const currentType = item.classList.contains('book') ? 'book'
                     : item.classList.contains('chapter') ? 'chapter'
                     : 'event';
@@ -496,7 +879,7 @@ function emptyRecycle() {
 }
 
 // ============================================================
-// 7. NUMBERING
+// 8. NUMBERING
 // ============================================================
 function toggleNumber(type) {
   if (type === 'book')    numberBooks    = !numberBooks;
@@ -541,10 +924,22 @@ function updateNumbering() {
       numberBadge.textContent = numberEvents ? eventCtr : "";
     }
   });
+
+  // After numbering, refresh each leader's collapse button appearance.
+  // Leaders with no block children get the blurred "nothing to collapse" look.
+  [...timeline.children].forEach(item => {
+    if (item.classList.contains('block-child-hidden')) return;
+    const isLeader = item.classList.contains('book') || item.classList.contains('chapter');
+    if (!isLeader) return;
+    const btn = item.querySelector('.block-toggle-btn');
+    if (!btn) return;
+    const hasChildren = getBlockItems(item).length > 0;
+    btn.classList.toggle('btn-no-children', !hasChildren);
+  });
 }
 
 // ============================================================
-// 8. DRAG & DROP
+// 9. DRAG & DROP
 // ============================================================
 function addDrag(handle, item) {
   handle.addEventListener("dragstart", () => {
@@ -605,7 +1000,7 @@ function addDrag(handle, item) {
 }
 
 // ============================================================
-// 9. MODALS
+// 10. MODALS
 // ============================================================
 function openParkingModal()  { document.getElementById("parking-modal").style.display = "block"; }
 function closeParkingModal() { document.getElementById("parking-modal").style.display = "none"; }
@@ -613,7 +1008,7 @@ function openRecycleModal()  { document.getElementById("recycle-modal").style.di
 function closeRecycleModal() { document.getElementById("recycle-modal").style.display = "none"; }
 
 // ============================================================
-// 10. EXPORT / IMPORT
+// 11. EXPORT / IMPORT
 // ============================================================
 function getItemData(el) {
   const type = el.classList.contains("book") ? "book"
@@ -656,6 +1051,9 @@ function _applyBlockCollapseVisuals(container) {
   [...container.children].forEach(item => {
     if (isBlockCollapsed(item)) {
       getBlockItems(item).forEach(bi => bi.classList.add('block-child-hidden'));
+      updateCollapseBadge(item);
+      const btn = item.querySelector('.block-toggle-btn');
+      if (btn) btn.classList.add('is-collapsed');
     }
   });
 }
@@ -736,10 +1134,30 @@ function showToast(msg) {
     toast.className = 'tl-toast';
     document.body.appendChild(toast);
   }
+  toast.classList.remove('tl-toast-warning');
   toast.textContent = msg;
   toast.classList.add('tl-toast-visible');
   clearTimeout(toast._t);
   toast._t = setTimeout(() => toast.classList.remove('tl-toast-visible'), 3200);
+}
+
+function showWarningToast(msg) {
+  let toast = document.getElementById('tl-toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'tl-toast';
+    toast.className = 'tl-toast';
+    document.body.appendChild(toast);
+  }
+  toast.classList.add('tl-toast-warning');
+  toast.textContent = msg;
+  toast.classList.add('tl-toast-visible');
+  clearTimeout(toast._t);
+  toast._t = setTimeout(() => {
+    toast.classList.remove('tl-toast-visible');
+    // Remove warning class after fade so next normal toast isn't amber
+    setTimeout(() => toast.classList.remove('tl-toast-warning'), 300);
+  }, 3000);
 }
 
 function exportTXT() {
@@ -799,7 +1217,7 @@ function exportDOCX() {
 }
 
 // ============================================================
-// 11. DOM WIRING
+// 12. DOM WIRING
 // ============================================================
 document.addEventListener('DOMContentLoaded', () => {
   timeline   = document.getElementById("timeline");
@@ -833,5 +1251,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const rm = document.getElementById("recycle-modal");
     if (event.target === pm) closeParkingModal();
     if (event.target === rm) closeRecycleModal();
+  });
+
+  // Close mobile popup on Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeMobilePopup();
   });
 });
